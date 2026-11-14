@@ -2,18 +2,26 @@ import HeaderModule from "./modules/HeaderModule.js";
 import HeaderSearchModule from "./modules/HeaderSearchModule.js";
 import SiteMenuModule from "./modules/SiteMenuModule.js";
 import MobileMenuModule from "./modules/MobileMenuModule.js";
-import LetterSwapModule from "./modules/LetterSwapModule.js";
 
 const SHARED = [
   HeaderModule,
   HeaderSearchModule,
   SiteMenuModule,
   MobileMenuModule,
-  LetterSwapModule,
 ];
 
 const ON_DEMAND = [
+  [".welcomeScreenJS", () => import("./modules/WelcomeScreenModule.js")],
+  [".waveRibbonJS", () => import("./modules/WaveRibbonModule.js")],
+  [".productLineupJS", () => import("./modules/ProductLineupModule.js")],
   [".heroJS", () => import("./modules/HeroModule.js")],
+  [".loadMoreJS", () => import("./modules/LoadMoreModule.js")],
+  [".filterJS", () => import("./modules/FilterModule.js")],
+  [".stackRevealJS", () => import("./modules/StackRevealModule.js")],
+  [".canSpinJS", () => import("./modules/CanSpinModule.js")],
+  [".logoLightJS", () => import("./modules/LogoLightModule.js")],
+  [".countUpJS", () => import("./modules/CountUpModule.js")],
+  [".cardDeckJS", () => import("./modules/CardDeckModule.js")],
   ["[data-fancybox]", () => import("./modules/LightboxModule.js")],
 ];
 

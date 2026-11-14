@@ -11,8 +11,66 @@
   <link rel="stylesheet" href="./css/fonts.css">
   <link rel="stylesheet" href="./assets/library/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="./css/site.css">
+  <link rel="modulepreload" href="./js/main.js">
+  <link rel="modulepreload" href="./js/modules/WelcomeScreenModule.js">
+  <link rel="modulepreload" href="./js/modules/WaveRibbonModule.js">
+  <link rel="modulepreload" href="./js/modules/ProductLineupModule.js">
+  <script>
+    document.documentElement.classList.add("is-welcome");
+    window.setTimeout(() => {
+      if (document.querySelector(".welcomeScreenJS.is-ready")) return;
+      document.documentElement.classList.remove("is-welcome");
+      document.dispatchEvent(new CustomEvent("welcome:dismissed"));
+    }, 6000);
+  </script>
 </head>
 <body>
+  <section class="welcome-screen welcomeScreenJS" role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-describedby="welcome-desc" tabindex="-1">
+    <div class="container container--wide welcome-screen__bar">
+      <a class="site-logo" href="./index.html" aria-label="RITA Food &amp; Drink home"><img src="./assets/images/logo.svg" alt="RITA" width="123" height="55"></a>
+      <a class="header-contact" href="./contact.html"><span class="header-contact__dot" aria-hidden="true"></span>Contact</a>
+    </div>
+    <div class="welcome-screen__head">
+      <h2 class="welcome-screen__title" id="welcome-title">RITA Food and Drink Co.,Ltd</h2>
+      <p class="welcome-screen__desc" id="welcome-desc">Established in 2004, RITA Food and Drink Co., Ltd. is Vietnam’s preeminent beverage manufacturer and a core pillar of the global beverage supply chain. Partnering with leading brands across more than 180+ countries and territories worldwide, we deliver robust industrial production capacity and profound technical expertise to support large-scale global distribution.</p>
+      <div class="button-group button-group--start welcome-screen__actions">
+        <a class="button button--line" href="./our-story.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Our story</span></a>
+        <a class="button button--dark" href="./products.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Our products</span></a>
+      </div>
+    </div>
+    <div class="welcome-screen__stage">
+      <div class="welcome-screen__lineup product-lineup productLineupJS">
+        <svg class="product-lineup__ribbon wave-ribbon waveRibbonJS" viewBox="0 0 1512 570" aria-hidden="true" focusable="false">
+          <mask id="welcome-wave-mask">
+            <path class="wave-ribbon__reveal" pathLength="1" d="M-330 250C-150 250-150 86 30 86C270 86 290 268 430 268C481 268 566 34 769 34C889 34 916 182 1036 182C1191 182 1190 24 1345 24C1534 24 1597 262 1660 262C1825 262 1825 40 1990 40"/>
+          </mask>
+          <g mask="url(#welcome-wave-mask)">
+            <path class="wave-ribbon__band" id="welcome-wave" d="M-330 250C-150 250-150 86 30 86C270 86 290 268 430 268C481 268 566 34 769 34C889 34 916 182 1036 182C1191 182 1190 24 1345 24C1534 24 1597 262 1660 262C1825 262 1825 40 1990 40"/>
+            <text class="wave-ribbon__text"><textPath class="waveRibbonTextJS" href="#welcome-wave">YOUR BRAND, OUR PRODUCTION × BEVERAGE INNOVATION ✱ OEM &amp; ODM EXPERTISE → PRIVATE LABEL SOLUTIONS × FROM CONCEPT TO CREATION ✱ QUALITY YOU CAN TRUST → MADE FOR GLOBAL MARKETS × BUILDING BRANDS TOGETHER ✱</textPath></text>
+          </g>
+        </svg>
+        <img class="product-lineup__item" src="./assets/images/cutout-purple-juice.webp" srcset="./assets/images/cutout-purple-juice-sm.webp 118w, ./assets/images/cutout-purple-juice.webp 236w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA purple compound juice can" width="236" height="600" loading="lazy" decoding="async" style="--h: 81.4%">
+        <img class="product-lineup__item" src="./assets/images/cutout-ginger-bottle.webp" srcset="./assets/images/cutout-ginger-bottle-sm.webp 170w, ./assets/images/cutout-ginger-bottle.webp 341w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA ginger milk tea bottle" width="341" height="1000" loading="lazy" decoding="async" style="--h: 61.4%">
+        <img class="product-lineup__item" src="./assets/images/cutout-beauty-collagen.webp" srcset="./assets/images/cutout-beauty-collagen-sm.webp 194w, ./assets/images/cutout-beauty-collagen.webp 387w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA beauty drink collagen can" width="387" height="1000" loading="lazy" decoding="async" style="--h: 67.7%">
+        <img class="product-lineup__item" src="./assets/images/cutout-popping-boba.webp" srcset="./assets/images/cutout-popping-boba-sm.webp 116w, ./assets/images/cutout-popping-boba.webp 232w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA popping boba apple can" width="232" height="600" loading="lazy" decoding="async" style="--h: 74.9%">
+        <img class="product-lineup__item" src="./assets/images/cutout-kombucha.webp" srcset="./assets/images/cutout-kombucha-sm.webp 196w, ./assets/images/cutout-kombucha.webp 393w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA sparkling kombucha lemon and green tea can" width="393" height="1000" style="--h: 81.4%">
+        <img class="product-lineup__item" src="./assets/images/cutout-iced-coffee.webp" srcset="./assets/images/cutout-iced-coffee-sm.webp 170w, ./assets/images/cutout-iced-coffee.webp 339w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA iced coffee mocha bottle" width="339" height="832" style="--h: 55.1%">
+        <img class="product-lineup__item" src="./assets/images/cutout-coco-energy.webp" srcset="./assets/images/cutout-coco-energy-sm.webp 194w, ./assets/images/cutout-coco-energy.webp 387w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA Coco Energy watermelon can" width="387" height="1000" style="--h: 67.7%">
+        <img class="product-lineup__item" src="./assets/images/cutout-aloe-apple.webp" srcset="./assets/images/cutout-aloe-apple-sm.webp 194w, ./assets/images/cutout-aloe-apple.webp 388w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA aloe vera apple can" width="388" height="1000" style="--h: 67.7%">
+        <img class="product-lineup__item" src="./assets/images/cutout-aloe-strawberry.webp" srcset="./assets/images/cutout-aloe-strawberry-sm.webp 141w, ./assets/images/cutout-aloe-strawberry.webp 282w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA aloe vera strawberry bottle" width="282" height="1000" style="--h: 80.9%">
+        <img class="product-lineup__item" src="./assets/images/cutout-ginger-peach-tea.webp" srcset="./assets/images/cutout-ginger-peach-tea-sm.webp 199w, ./assets/images/cutout-ginger-peach-tea.webp 398w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA ginger milk tea peach can" width="398" height="1000" style="--h: 74.9%">
+        <img class="product-lineup__item" src="./assets/images/cutout-cherry-soda.webp" srcset="./assets/images/cutout-cherry-soda-sm.webp 198w, ./assets/images/cutout-cherry-soda.webp 396w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA cherry limeade prebiotic soda can" width="396" height="760" style="--h: 50%">
+        <img class="product-lineup__item" src="./assets/images/cutout-ice-tea.webp" srcset="./assets/images/cutout-ice-tea-sm.webp 170w, ./assets/images/cutout-ice-tea.webp 341w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA ice tea blueberry and mint bottle" width="341" height="1000" style="--h: 82.1%">
+        <img class="product-lineup__item" src="./assets/images/cutout-bird-nest-pear.webp" srcset="./assets/images/cutout-bird-nest-pear-sm.webp 129w, ./assets/images/cutout-bird-nest-pear.webp 258w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA bird’s nest with pear bottle" width="258" height="980" style="--h: 64.4%">
+        <img class="product-lineup__item" src="./assets/images/cutout-protein-milkshake.webp" srcset="./assets/images/cutout-protein-milkshake-sm.webp 116w, ./assets/images/cutout-protein-milkshake.webp 231w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA protein milkshake chocolate can" width="231" height="600" loading="lazy" decoding="async" style="--h: 74.9%">
+        <img class="product-lineup__item" src="./assets/images/cutout-coco-blueberry.webp" srcset="./assets/images/cutout-coco-blueberry-sm.webp 168w, ./assets/images/cutout-coco-blueberry.webp 336w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA coconut water blueberry bottle" width="336" height="924" loading="lazy" decoding="async" style="--h: 61.4%">
+        <img class="product-lineup__item" src="./assets/images/cutout-strawberry-soda.webp" srcset="./assets/images/cutout-strawberry-soda-sm.webp 168w, ./assets/images/cutout-strawberry-soda.webp 337w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA strawberry lemon prebiotic soda can" width="337" height="600" loading="lazy" decoding="async" style="--h: 50%">
+        <img class="product-lineup__item" src="./assets/images/cutout-kombucha-peach.webp" srcset="./assets/images/cutout-kombucha-peach-sm.webp 111w, ./assets/images/cutout-kombucha-peach.webp 222w" sizes="(max-width: 680px) 120px, 12vw" alt="RITA sparkling kombucha peach can" width="222" height="600" loading="lazy" decoding="async" style="--h: 81.4%">
+      </div>
+    </div>
+    <button class="scroll-cue welcome-screen__cue welcomeDismissJS" type="button"><span class="scroll-cue__text">Scroll down</span><span class="scroll-cue__icon" aria-hidden="true"></span></button>
+  </section>
+
   <header class="site-header site-header--overlay siteHeaderJS">
     <div class="container container--wide site-header__inner">
       <a class="site-logo" href="./index.html" aria-label="RITA Food &amp; Drink home">
@@ -68,6 +126,22 @@
           <input type="hidden" name="post_type" value="product">
           <div class="search-bar">
             <label class="search-bar__field">
+              <span class="sr-only">Category</span>
+              <select name="product_cat">
+                <option value="" selected>Choose category</option>
+                <option value="fruit-juice">Fruit juice</option>
+                <option value="aloe-vera-drinks">Aloe vera drinks</option>
+                <option value="coconut-products">Coconut products</option>
+                <option value="sparkling-drinks">Sparkling drinks</option>
+                <option value="milk-drinks">Milk drinks</option>
+                <option value="seed-drinks">Seed drinks</option>
+                <option value="energy-drinks">Energy drinks</option>
+                <option value="coffee-drinks">Coffee drinks</option>
+                <option value="tea-drinks">Tea drinks</option>
+                <option value="special-drinks">Special drinks</option>
+              </select>
+            </label>
+            <label class="search-bar__field">
               <span class="sr-only">Packaging</span>
               <select name="filter_packaging">
                 <option value="" selected>Choose packaging</option>
@@ -122,11 +196,11 @@
               <span class="sr-only">Product name</span>
               <input type="search" name="s" placeholder="Search for products" autocomplete="off">
             </label>
-            <button class="button button--primary button--sm search-bar__submit" type="submit"><span class="button__icon" aria-hidden="true"></span><span class="button__text"><span class="button-label letterSwapJS">Submit</span></span></button>
+            <button class="button button--primary button--sm search-bar__submit" type="submit"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Submit</span></button>
           </div>
         </form>
       </div>
-      <a class="header-contact" href="./contact.html"><span class="header-contact__dot" aria-hidden="true"></span><span class="button-label letterSwapJS">Contact</span></a>
+      <a class="header-contact" href="./contact.html"><span class="header-contact__dot" aria-hidden="true"></span>Contact</a>
       <div class="header-tools">
         <button class="header-icon searchToggleJS" type="button" aria-label="Open search" aria-controls="header-search" aria-expanded="false"><span class="icon icon--search"></span></button>
         <button class="header-icon menuOpenJS" type="button" aria-label="Open menu" aria-controls="site-menu" aria-haspopup="dialog" aria-expanded="false"><span class="menu-icon"><span></span><span></span><span></span></span></button>
@@ -186,7 +260,7 @@
         </ul>
       </nav>
       <div class="site-menu__extra">
-        <a class="button button--primary" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text"><span class="button-label letterSwapJS">Contact us</span></span></a>
+        <a class="button button--primary" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
         <ul class="site-menu__contacts">
           <li><a href="mailto:marketing@rita.com.vn">marketing@rita.com.vn</a></li>
           <li><a href="tel:+842743784788">(+84) 274 3784 788</a></li>
@@ -199,16 +273,235 @@
       <h1 class="sr-only">RITA Food &amp; Drink, Vietnam’s leading beverage manufacturer</h1>
       <div class="swiper hero__slider heroSliderJS">
         <div class="swiper-wrapper">
-          <div class="swiper-slide hero__slide"><img src="./assets/images/hero-01.jpg" srcset="./assets/images/hero-01-768.jpg 768w, ./assets/images/hero-01-1280.jpg 1280w, ./assets/images/hero-01.jpg 1920w" sizes="(min-width: 1121px) 114vw, 100vw" alt="Visit RITA at SIAL Paris, 17–21 October 2026, Hall 5C, Booth G141, at FHC Shanghai, 10–12 November, Booth N1H30, and at PLMA Chicago, 15–17 November, North Hall, Booth F1670" width="1920" height="1009" fetchpriority="high"></div>
-          <div class="swiper-slide hero__slide"><img src="./assets/images/hero-02.jpg" srcset="./assets/images/hero-02-768.jpg 768w, ./assets/images/hero-02-1280.jpg 1280w, ./assets/images/hero-02.jpg 1920w" sizes="(min-width: 1121px) 114vw, 100vw" alt="RITA Coco Jus cucumber coconut water and drinks range, see us at SIAL Paris, FHC Shanghai and PLMA Chicago in 2026" width="1920" height="1009" loading="lazy" decoding="async"></div>
+          <div class="swiper-slide hero__slide"><img src="./assets/images/hero-01.webp" srcset="./assets/images/hero-01-768.webp 768w, ./assets/images/hero-01-1280.webp 1280w, ./assets/images/hero-01.webp 1920w" sizes="(min-width: 1121px) 114vw, 100vw" alt="Visit RITA at SIAL Paris, 17–21 October 2026, Hall 5C, Booth G141, at FHC Shanghai, 10–12 November, Booth N1H30, and at PLMA Chicago, 15–17 November, North Hall, Booth F1670" width="1920" height="1009" fetchpriority="high"></div>
+          <div class="swiper-slide hero__slide"><img src="./assets/images/hero-02.webp" srcset="./assets/images/hero-02-768.webp 768w, ./assets/images/hero-02-1280.webp 1280w, ./assets/images/hero-02.webp 1920w" sizes="(min-width: 1121px) 114vw, 100vw" alt="RITA Coco Jus cucumber coconut water and drinks range, see us at SIAL Paris, FHC Shanghai and PLMA Chicago in 2026" width="1920" height="1009" loading="lazy" decoding="async"></div>
         </div>
       </div>
-      <button class="button button--outline button--prev hero__arrow hero__arrow--prev heroPrevJS" type="button" aria-label="Previous banner"><span class="button__icon" aria-hidden="true"></span></button>
-      <button class="button button--outline hero__arrow hero__arrow--next heroNextJS" type="button" aria-label="Next banner"><span class="button__icon" aria-hidden="true"></span></button>
-      <div class="hero__progress" aria-hidden="true"><span class="hero__progress-fill heroProgressJS"></span></div>
+      <button class="button button--outline button--prev slider-arrow slider-arrow--prev sliderPrevJS" type="button" aria-label="Previous banner"><span class="button__icon" aria-hidden="true"></span></button>
+      <button class="button button--outline slider-arrow slider-arrow--next sliderNextJS" type="button" aria-label="Next banner"><span class="button__icon" aria-hidden="true"></span></button>
+      <div class="slider-progress" aria-hidden="true"><span class="slider-progress__fill sliderProgressJS"></span></div>
+    </section>
+
+    <section class="ss-pd pdb-0 bg-surface" aria-labelledby="categories-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" id="categories-title">Our beverage capabilities</h2>
+          <p class="section-desc">Explore beverage categories tailored to your brand. From energy drinks and juices to sparkling waters and plant-based milks, our OEM/ODM solutions help you launch products consumers love.</p>
+        </div>
+        <div class="loadMoreJS" data-rows="2">
+          <ul class="card-grid loadMoreListJS">
+            <li><a class="media-card"href="./product-category.html?category=fruit-juice"><span class="media-card__media"><img src="./assets/images/cate-fruit-juice.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Fruit juice</span><span class="media-card__meta">9 products</span></a></li>
+            <li><a class="media-card"href="./product-category.html?category=coconut-products"><span class="media-card__media"><img src="./assets/images/cate-coconut.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Coconut products</span><span class="media-card__meta">9 products</span></a></li>
+            <li><a class="media-card"href="./product-category.html?category=aloe-vera-drinks"><span class="media-card__media"><img src="./assets/images/cate-aloe-vera.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Aloe vera drinks</span><span class="media-card__meta">9 products</span></a></li>
+            <li><a class="media-card"href="./product-category.html?category=sparkling-drinks"><span class="media-card__media"><img src="./assets/images/cate-sparkling.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Sparkling drinks</span><span class="media-card__meta">9 products</span></a></li>
+            <li><a class="media-card"href="./product-category.html?category=milk-drinks"><span class="media-card__media"><img src="./assets/images/cate-milk.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Milk drinks</span><span class="media-card__meta">9 products</span></a></li>
+            <li><a class="media-card"href="./product-category.html?category=seed-drinks"><span class="media-card__media"><img src="./assets/images/cate-seed.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Seed drinks</span><span class="media-card__meta">9 products</span></a></li>
+            <li><a class="media-card"href="./product-category.html?category=coffee-drinks"><span class="media-card__media"><img src="./assets/images/cate-coffee.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Coffee drinks</span><span class="media-card__meta">9 products</span></a></li>
+            <li><a class="media-card"href="./product-category.html?category=energy-drinks"><span class="media-card__media"><img src="./assets/images/cate-energy.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Energy drinks</span><span class="media-card__meta">9 products</span></a></li>
+            <li><a class="media-card"href="./product-category.html?category=tea-drinks"><span class="media-card__media"><img src="./assets/images/cate-tea.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Tea drinks</span><span class="media-card__meta">9 products</span></a></li>
+            <li><a class="media-card"href="./product-category.html?category=special-drinks"><span class="media-card__media"><img src="./assets/images/cate-special.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Special drinks</span><span class="media-card__meta">9 products</span></a></li>
+          </ul>
+          <div class="section-more" hidden>
+            <button class="button button--dark loadMoreButtonJS" type="button"><span class="button__icon" aria-hidden="true"></span><span class="button__text">See more</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd pdb-0 bg-surface cv-auto" aria-labelledby="new-releases-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="new-releases-title">New releases</h2>
+          <p class="section-desc">Explore beverage categories tailored to your brand. From energy drinks and juices to sparkling waters and plant-based milks, our OEM/ODM solutions help you launch products consumers love.</p>
+        </div>
+        <div class="filter filterJS">
+          <button class="button button--primary filter__toggle filterToggleJS" type="button" aria-expanded="false" aria-controls="new-releases-filter"><span class="button__icon button__icon--filter" aria-hidden="true"></span><span class="button__text">Find your perfect drink</span></button>
+          <form class="search-bar search-bar--inline filter__panel" id="new-releases-filter" action="./searching.html" method="get" role="search" aria-label="Filter products">
+            <input type="hidden" name="post_type" value="product">
+            <label class="search-bar__field">
+              <span class="sr-only">Category</span>
+              <select name="product_cat">
+                <option value="" selected>Choose category</option>
+                <option value="fruit-juice">Fruit juice</option>
+                <option value="aloe-vera-drinks">Aloe vera drinks</option>
+                <option value="coconut-products">Coconut products</option>
+                <option value="sparkling-drinks">Sparkling drinks</option>
+                <option value="milk-drinks">Milk drinks</option>
+                <option value="seed-drinks">Seed drinks</option>
+                <option value="energy-drinks">Energy drinks</option>
+                <option value="coffee-drinks">Coffee drinks</option>
+                <option value="tea-drinks">Tea drinks</option>
+                <option value="special-drinks">Special drinks</option>
+              </select>
+            </label>
+            <label class="search-bar__field">
+              <span class="sr-only">Packaging</span>
+              <select name="filter_packaging">
+                <option value="" selected>Choose packaging</option>
+                <option value="tin-can">Tin can</option>
+                <option value="slim-can">Slim can</option>
+                <option value="short-can">Short can</option>
+                <option value="aluminum-can">Aluminum can</option>
+                <option value="pet-bottle">PET bottle</option>
+                <option value="glass-bottle">Glass bottle</option>
+                <option value="pp-bottle">PP bottle</option>
+                <option value="pp-paper">PP paper</option>
+                <option value="bag">Bag</option>
+                <option value="tetra-pak">Tetra Pak</option>
+              </select>
+            </label>
+            <label class="search-bar__field">
+              <span class="sr-only">Volume</span>
+              <select name="filter_volume">
+                <option value="" selected>Choose volume</option>
+                <option value="190ml">190 ml</option>
+                <option value="200ml">200 ml</option>
+                <option value="240ml">240 ml</option>
+                <option value="250ml">250 ml</option>
+                <option value="280ml">280 ml</option>
+                <option value="290ml">290 ml</option>
+                <option value="300ml">300 ml</option>
+                <option value="310ml">310 ml</option>
+                <option value="315ml">315 ml</option>
+                <option value="320ml">320 ml</option>
+                <option value="325ml">325 ml</option>
+                <option value="330ml">330 ml</option>
+                <option value="340ml">340 ml</option>
+                <option value="350ml">350 ml</option>
+                <option value="360ml">360 ml</option>
+                <option value="400ml">400 ml</option>
+                <option value="410ml">410 ml</option>
+                <option value="450ml">450 ml</option>
+                <option value="470ml">470 ml</option>
+                <option value="485ml">485 ml</option>
+                <option value="490ml">490 ml</option>
+                <option value="500ml">500 ml</option>
+                <option value="600ml">600 ml</option>
+                <option value="750ml">750 ml</option>
+                <option value="960ml">960 ml</option>
+                <option value="1l">1 L</option>
+                <option value="1-25l">1.25 L</option>
+                <option value="1-5l">1.5 L</option>
+                <option value="2l">2 L</option>
+              </select>
+            </label>
+            <label class="search-bar__field search-bar__field--wide">
+              <span class="sr-only">Product name</span>
+              <input type="search" name="s" placeholder="Search for products" autocomplete="off">
+            </label>
+            <button class="button button--primary search-bar__submit" type="submit"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Search</span></button>
+          </form>
+        </div>
+        <ul class="card-grid card-grid--5">
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-peach.webp" alt="" width="489" height="489" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Peach Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-soursop.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Soursop Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-pineapple.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Pineapple Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-orange.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Orange Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-mixed-fruit.webp" alt="" width="492" height="492" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Mixed Fruit Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-mangosteen.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Mangosteen Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-mango.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Mango Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-red-grape.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Red Grape Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-juice-guava.webp" alt="" width="492" height="492" loading="lazy" decoding="async"></span><span class="product-card__title">100% Guava Juice Drink 490ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-juice-pineapple.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100% Pineapple Juice Drink 490ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-juice-mango.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100% Mango Juice Drink 490ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-purple-compound.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">Purple Compound Juice Drink 490ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-coco-pistachio.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Coco Pistachio Coconut Water 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-ginger-milk-tea.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">Ginger Milk Tea Peach Flavor Drink Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-red-fusion.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">Red Fusion Tropical Fruit Juice 250ml Slim Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-gold-fusion.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Gold Fusion Tropical Fruit Juice 250ml Slim Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-green-fusion.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Green Fusion Tropical Fruit Juice 250ml Slim Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-real-grape.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Real Grape Juice Drink 330ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-real-slice.webp" alt="" width="413" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Real Slice Sparkling Lemon Water 330ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-soda-original.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Original Soda Water 330ml Sleek Can</span></a></li>
+        </ul>
+        <div class="section-more">
+          <a class="button button--dark" href="./products.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">See more</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack-reveal stackRevealJS" aria-labelledby="story-title">
+      <div class="stack-reveal__back bg-factory">
+        <div class="container">
+          <h2 class="display-title stackAnchorJS" id="story-title">
+            <span class="display-title__line stackLineJS" data-run="1">Being founded in 2004 and</span>
+            <span class="display-title__line display-title__line--end stackLineJS" data-run="-1">having since grown to become</span>
+            <span class="display-title__line display-title__line--accent stackLineJS" data-run="1">a leading beverage</span>
+            <span class="display-title__line display-title__line--accent display-title__line--end stackLineJS" data-run="-1">manufacturer in Vietnam</span>
+          </h2>
+        </div>
+      </div>
+      <div class="stack-reveal__front bg-red logoLightJS">
+        <div class="stack-reveal__float can-spin">
+          <canvas class="can-spin__canvas canSpinJS stackFloatJS" width="514" height="1154" data-base="./assets/images/can-base.webp" data-label="./assets/images/can-label.webp" role="img" aria-label="RITA Your Size can turning as the page scrolls"></canvas>
+        </div>
+        <div class="container stack-reveal__body">
+          <p class="section-desc section-desc--center">Established in 2004, RITA Food and Drink Co., Ltd. is Vietnam’s preeminent beverage manufacturer and a core pillar of the global beverage supply chain. Partnering with leading brands across more than 180+ countries and territories worldwide, we deliver robust industrial production capacity and profound technical expertise to support large-scale global distribution.</p>
+          <dl class="stat-list">
+            <div class="stat"><dt class="stat__label">Product<br>lines</dt><dd class="stat__value countUpJS">50+</dd></div>
+            <div class="stat"><dt class="stat__label">OEM/ODM<br>flexible</dt><dd class="stat__value countUpJS">100%</dd></div>
+            <div class="stat"><dt class="stat__label">Countries and<br>territories</dt><dd class="stat__value countUpJS">180+</dd></div>
+            <div class="stat"><dt class="stat__label">Containers<br>per month</dt><dd class="stat__value countUpJS">1200+</dd></div>
+          </dl>
+          <div class="button-group">
+            <a class="button button--outline" href="./our-story.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Our story</span></a>
+            <a class="button button--dark" href="./products.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Our products</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="deck-section bg-ink cardDeckJS" aria-labelledby="services-title" style="--cards: 2">
+      <div class="deck-section__pin bg-grid">
+        <div class="container deck-section__inner">
+          <div class="section-head section-head--center">
+            <h2 class="section-title" id="services-title">Our services</h2>
+            <p class="section-desc section-desc--center">One partner, every step: formula, packaging, production, QC, and global delivery — so your product goes from concept to shelf without switching vendors.</p>
+          </div>
+          <ul class="card-deck" role="list">
+            <li class="card-deck__card" style="--i: 0"><a class="photo-card" href="./oem-service.html"><img class="photo-card__img" src="./assets/images/service-oem.webp" alt="" width="1110" height="698" loading="lazy" decoding="async"><h3 class="photo-card__title">Original equipment manufacturer</h3></a></li>
+            <li class="card-deck__card" style="--i: 1"><a class="photo-card" href="./odm-service.html"><img class="photo-card__img" src="./assets/images/service-odm.webp" alt="" width="1110" height="698" loading="lazy" decoding="async"><h3 class="photo-card__title">Original design manufacturer</h3></a></li>
+          </ul>
+          <div class="deck-section__more">
+            <a class="button" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
+          </div>
+        </div>
+        <div class="spin-badge deck-section__badge" aria-hidden="true">
+          <svg class="spin-badge__ring" viewBox="0 0 100 100" focusable="false"><path id="badge-ring" d="M18 50a32 32 0 1 1 64 0a32 32 0 1 1-64 0" fill="none"/><text text-anchor="middle"><textPath href="#badge-ring" startOffset="25%" textLength="84" lengthAdjust="spacingAndGlyphs">This is how</textPath></text><text text-anchor="middle"><textPath href="#badge-ring" startOffset="75%" textLength="84" lengthAdjust="spacingAndGlyphs">We scroll</textPath></text></svg>
+          <img class="spin-badge__can" src="./assets/images/can-front.webp" alt="" width="79" height="200" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd bg-surface cv-auto" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="why-title">Why choose us</h2>
+          <p class="section-desc section-desc--center">With decades of beverage expertise, RITA combines advanced manufacturing capabilities, in-house R&amp;D, and flexible OEM/ODM solutions to bring your ideas to life. From product development to global delivery, we ensure consistent quality, scalable production, and reliable partnership for brands worldwide.</p>
+        </div>
+        <div class="feature-split">
+          <ul class="feature-split__list" role="list">
+            <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-free-sample.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Free sample</h3><p class="feature-card__text">Get your custom sample in just 7–14 days, completely free of charge.</p></div></li>
+            <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-label-design.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Free label design</h3><p class="feature-card__text">Professional label design that makes your products stand out.</p></div></li>
+            <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-moq.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Small MOQ <span class="feature-card__note">(1x20ft)</span></h3><p class="feature-card__text">Start with just one 20ft container, with no large upfront commitment.</p></div></li>
+          </ul>
+          <div class="feature-split__media can-spin">
+            <canvas class="can-spin__canvas canSpinJS" width="514" height="1154" data-base="./assets/images/can-base.webp" data-label="./assets/images/can-label.webp" role="img" aria-label="RITA Your Size can"></canvas>
+          </div>
+          <ul class="feature-split__list" role="list">
+            <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-rnd.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">In-house R&amp;D</h3><p class="feature-card__text">Our R&amp;D creates innovative beverage formulas tailored to your brand.</p></div></li>
+            <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-oem-odm.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Flexible OEM &amp; ODM</h3><p class="feature-card__text">Customize your own formula or let our R&amp;D create for your brand.</p></div></li>
+            <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-fast-delivery.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Fast delivery</h3><p class="feature-card__text">Reliable production and efficient worldwide delivery you can count on.</p></div></li>
+          </ul>
+        </div>
+        <div class="button-group feature-split__more">
+          <a class="dot-link" href="./products.html"><span class="dot-link__dot" aria-hidden="true"></span>Our formats</a>
+          <a class="dot-link dot-link--blue" href="./oem-service.html">Our labels<span class="dot-link__dot" aria-hidden="true"></span></a>
+        </div>
+      </div>
     </section>
   </main>
-  <footer class="site-footer">
+  <footer class="site-footer cv-auto">
     <div class="container container--wide footer-main">
       <div class="footer-brand">
         <a class="footer-logo" href="./index.html" aria-label="RITA Food &amp; Drink home"><img src="./assets/images/logo.svg" alt="RITA" width="123" height="55" loading="lazy" decoding="async"></a>

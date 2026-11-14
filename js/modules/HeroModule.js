@@ -4,7 +4,7 @@ export default function HeroModule() {
   if (!slider || typeof window.Swiper !== "function") return;
 
   const total = slider.querySelectorAll(".swiper-slide").length;
-  const fill = hero.querySelector(".heroProgressJS");
+  const fill = hero.querySelector(".sliderProgressJS");
 
   const restartProgress = () => {
     if (!fill || total < 2) return;
@@ -24,8 +24,8 @@ export default function HeroModule() {
       onlyInViewport: true,
     },
     navigation: {
-      prevEl: hero.querySelector(".heroPrevJS"),
-      nextEl: hero.querySelector(".heroNextJS"),
+      prevEl: hero.querySelector(".sliderPrevJS"),
+      nextEl: hero.querySelector(".sliderNextJS"),
     },
     a11y: {
       enabled: true,
@@ -40,5 +40,9 @@ export default function HeroModule() {
   });
 
   fill?.addEventListener("animationend", () => swiper.slideNext());
-  restartProgress();
+  if (document.documentElement.classList.contains("is-welcome")) {
+    document.addEventListener("welcome:dismissed", restartProgress, { once: true });
+  } else {
+    restartProgress();
+  }
 }
