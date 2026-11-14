@@ -22,6 +22,8 @@ const ON_DEMAND = [
   [".logoLightJS", () => import("./modules/LogoLightModule.js")],
   [".countUpJS", () => import("./modules/CountUpModule.js")],
   [".cardDeckJS", () => import("./modules/CardDeckModule.js")],
+  [".popupJS", () => import("./modules/PopupModule.js")],
+  [".formatViewerJS", () => import("./modules/FormatViewerModule.js")],
   ["[data-fancybox]", () => import("./modules/LightboxModule.js")],
 ];
 
