@@ -1,6 +1,6 @@
 import { pointerMoved } from "../pointer.js";
 
-const FIELDS = ["s", "filter_packaging", "filter_volume"];
+const FIELDS = ["s", "product_cat", "filter_packaging", "filter_volume"];
 const LABEL_OPEN = "Open search";
 const LABEL_CLOSE = "Close search";
 
