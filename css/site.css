@@ -1652,7 +1652,7 @@ main {
 
 .spin-badge__can {
   width: auto;
-  height: 42%;
+  height: calc(var(--badge) * .42);
 }
 
 .deck-section__badge {
