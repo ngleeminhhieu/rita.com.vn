@@ -3,8 +3,10 @@ const FLOAT_MIN_H = 240;
 const FLOAT_MAX_HIDDEN = 0.2;
 const HEIGHT_JITTER = 150;
 const RUN_DISTANCE = 120;
+const RISE_DISTANCE = 32;
 const ENTER_STEP = 0.08;
 const ENTER_SPAN = 0.7;
+const COMPACT = "(max-width: 1120px)";
 
 const clamp01 = (value) => Math.min(1, Math.max(0, value));
 const segment = (value, start, span) => clamp01((value - start) / span);
@@ -45,16 +47,30 @@ export default function StackRevealModule() {
       root.style.setProperty("--stack-top", `${stackTop}px`);
     };
 
+    const compact = window.matchMedia(COMPACT);
+
     const runLines = (enter) => {
       lines.forEach(({ el, index, dir }) => {
         const shown = easeOut(segment(enter, index * ENTER_STEP, ENTER_SPAN));
+        const done = shown > 0.999;
+        if (compact.matches) {
+          el.style.translate = done ? "" : `0 ${((1 - shown) * RISE_DISTANCE).toFixed(1)}px`;
+          el.style.opacity = done ? "" : shown.toFixed(3);
+          return;
+        }
         const x = dir * RUN_DISTANCE * (shown - 1);
         el.style.translate = Math.abs(x) < 0.01 ? "" : `${x.toFixed(2)}% 0`;
+        el.style.opacity = "";
       });
     };
 
     let frame = 0;
     let last = "";
+
+    compact.addEventListener("change", () => {
+      last = "";
+      window.requestAnimationFrame(update);
+    });
 
     const update = () => {
       frame = 0;

@@ -24,6 +24,12 @@ const ON_DEMAND = [
   [".cardDeckJS", () => import("./modules/CardDeckModule.js")],
   [".popupJS", () => import("./modules/PopupModule.js")],
   [".formatViewerJS", () => import("./modules/FormatViewerModule.js")],
+  [".marqueeJS", () => import("./modules/MarqueeModule.js")],
+  [".mapPinsJS", () => import("./modules/MapPinsModule.js")],
+  [".cardSliderJS", () => import("./modules/CardSliderModule.js")],
+  [".postSliderJS", () => import("./modules/PostSliderModule.js")],
+  [".categoryDataJS", () => import("./modules/CategoryPageModule.js")],
+  [".blogCategoriesJS, .postContentJS, .shareJS, .tocJS", () => import("./modules/BlogModule.js")],
   ["[data-fancybox]", () => import("./modules/LightboxModule.js")],
 ];
 

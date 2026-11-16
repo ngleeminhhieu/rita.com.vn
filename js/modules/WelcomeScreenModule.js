@@ -1,6 +1,11 @@
 const LEAVE_FALLBACK = 1400;
 const RIBBON_EXIT = 600;
 const SWIPE = 42;
+const LOAD_START = 0.6;
+const LOAD_MIN = 1000;
+const LOAD_MAX = 5000;
+const LOADER_FADE = 450;
+const INTRO_LOCK = 1200;
 const DOWN_KEYS = new Set(["ArrowDown", "PageDown", "End", " ", "Escape"]);
 const UP_KEYS = new Set(["ArrowUp", "PageUp", "Home"]);
 
@@ -14,6 +19,7 @@ export default function WelcomeScreenModule() {
     .map((el) => ({ el, inert: el.inert }));
   const restoration = "scrollRestoration" in window.history ? window.history.scrollRestoration : null;
   let leaving = false;
+  let ready = false;
   let touch = null;
 
   const toTop = () => {
@@ -105,8 +111,61 @@ export default function WelcomeScreenModule() {
     timer = window.setTimeout(() => finish(), LEAVE_FALLBACK);
   };
 
+  const startIntro = () => {
+    const items = [...screen.querySelectorAll(".product-lineup__item")]
+      .map((item) => ({ item, left: item.getBoundingClientRect().left }))
+      .sort((a, b) => a.left - b.left);
+    items.forEach(({ item }, index) => item.style.setProperty("--n", String(index)));
+    screen.classList.add("is-intro");
+    window.setTimeout(() => {
+      ready = true;
+    }, INTRO_LOCK);
+  };
+
+  const runLoader = () => {
+    const loader = screen.querySelector(".welcomeLoaderJS");
+    const count = screen.querySelector(".welcomeCountJS");
+    if (!loader || !count) {
+      startIntro();
+      return;
+    }
+    const assets = [...screen.querySelectorAll("img:not([aria-hidden='true'])")];
+    const total = assets.length + 1;
+    let done = 0;
+    const tick = () => {
+      done += 1;
+    };
+    assets.forEach((img) => {
+      if (img.complete) tick();
+      else {
+        img.addEventListener("load", tick, { once: true });
+        img.addEventListener("error", tick, { once: true });
+      }
+    });
+    document.fonts.ready.then(tick, tick);
+
+    const start = performance.now();
+    let shown = LOAD_START;
+    const step = (now) => {
+      const elapsed = now - start;
+      const progress = elapsed >= LOAD_MAX ? 1 : Math.min(done / total, elapsed / LOAD_MIN);
+      const target = LOAD_START + (1 - LOAD_START) * progress;
+      shown += (target - shown) * 0.12;
+      if (target >= 1 && shown > 0.996) shown = 1;
+      count.textContent = String(Math.round(shown * 100));
+      loader.style.setProperty("--load", shown.toFixed(3));
+      if (shown < 1) {
+        window.requestAnimationFrame(step);
+        return;
+      }
+      screen.classList.add("is-loaded");
+      window.setTimeout(startIntro, LOADER_FADE);
+    };
+    window.requestAnimationFrame(step);
+  };
+
   function dismiss({ focusPage = false } = {}) {
-    if (leaving) return;
+    if (leaving || !ready) return;
     leaving = true;
     listen(false);
     screen.querySelectorAll(".wave-ribbon").forEach((ribbon) => ribbon.classList.add("is-exiting"));
@@ -123,4 +182,5 @@ export default function WelcomeScreenModule() {
   screen.querySelector(".welcomeDismissJS")?.addEventListener("click", () => dismiss({ focusPage: true }));
   screen.classList.add("is-ready");
   screen.focus({ preventScroll: true });
+  runLoader();
 }

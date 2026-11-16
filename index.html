@@ -26,6 +26,10 @@
 </head>
 <body>
   <section class="welcome-screen welcomeScreenJS" role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-describedby="welcome-desc" tabindex="-1">
+    <div class="page-loader welcomeLoaderJS" aria-hidden="true" style="--load: .6">
+      <p class="page-loader__count"><span class="welcomeCountJS">60</span><span class="page-loader__unit">%</span></p>
+      <span class="page-loader__bar"><span class="page-loader__fill"></span></span>
+    </div>
     <div class="container container--wide welcome-screen__bar">
       <a class="site-logo" href="./index.html" aria-label="RITA Food &amp; Drink home"><img src="./assets/images/logo.svg" alt="RITA" width="123" height="55"></a>
       <a class="header-contact" href="./contact.html"><span class="header-contact__dot" aria-hidden="true"></span>Contact</a>
@@ -116,6 +120,10 @@
                 <li class="menu-item"><a href="./blog.html?category=beverage-news">Beverage news</a></li>
                 <li class="menu-item"><a href="./blog.html?category=tropical-fruit">Tropical fruit</a></li>
                 <li class="menu-item"><a href="./blog.html?category=beverage-market">Beverage market</a></li>
+                <li class="menu-item"><a href="./blog.html?category=exhibition">Exhibition</a></li>
+                <li class="menu-item"><a href="./blog.html?category=video">Video</a></li>
+                <li class="menu-item"><a href="./blog.html?category=top-best">Top-Best</a></li>
+                <li class="menu-item"><a href="./blog.html?category=fb-certificate">F&amp;B certificate</a></li>
               </ul>
             </li>
             <li class="menu-item"><a href="https://vn105660124.trustpass.alibaba.com/" target="_blank" rel="noopener">RITA on Alibaba</a></li>
@@ -254,6 +262,10 @@
               <li class="menu-item"><a href="./blog.html?category=beverage-news">Beverage news</a></li>
               <li class="menu-item"><a href="./blog.html?category=tropical-fruit">Tropical fruit</a></li>
               <li class="menu-item"><a href="./blog.html?category=beverage-market">Beverage market</a></li>
+              <li class="menu-item"><a href="./blog.html?category=exhibition">Exhibition</a></li>
+              <li class="menu-item"><a href="./blog.html?category=video">Video</a></li>
+              <li class="menu-item"><a href="./blog.html?category=top-best">Top-Best</a></li>
+              <li class="menu-item"><a href="./blog.html?category=fb-certificate">F&amp;B certificate</a></li>
             </ul>
           </li>
           <li class="menu-item"><a href="https://vn105660124.trustpass.alibaba.com/" target="_blank" rel="noopener">RITA on Alibaba</a></li>
@@ -443,7 +455,7 @@
             <div class="stat"><dt class="stat__label">Countries and<br>territories</dt><dd class="stat__value countUpJS">180+</dd></div>
             <div class="stat"><dt class="stat__label">Containers<br>per month</dt><dd class="stat__value countUpJS">1200+</dd></div>
           </dl>
-          <div class="button-group">
+          <div class="button-group button-group--equal">
             <a class="button button--outline" href="./our-story.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Our story</span></a>
             <a class="button button--dark" href="./products.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Our products</span></a>
           </div>
@@ -473,7 +485,7 @@
       </div>
     </section>
 
-    <section class="ss-pd bg-surface cv-auto" aria-labelledby="why-title">
+    <section class="ss-pd pdb-0 bg-surface cv-auto" aria-labelledby="why-title">
       <div class="container">
         <div class="section-head section-head--center">
           <h2 class="section-title" id="why-title">Why choose us</h2>
@@ -584,6 +596,315 @@
         </ul>
       </div>
     </dialog>
+
+    <section class="ss-pd pdb-0 bg-surface cv-auto" aria-labelledby="certificates-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="certificates-title">Our certificates</h2>
+        </div>
+      </div>
+      <div class="marquee marqueeJS">
+        <ul class="marquee__track" role="list">
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/cert-aijn.webp" alt="AIJN European Fruit Juice Association" width="224" height="100" loading="lazy" decoding="async" style="--h: 66"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/cert-bsi.webp" alt="BSI" width="169" height="105" loading="lazy" decoding="async" style="--h: 58"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/cert-brc-food.webp" alt="BRC Food certificated" width="68" height="106" loading="lazy" decoding="async" style="--h: 74"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/cert-halal-my.webp" alt="Halal Malaysia" width="132" height="132" loading="lazy" decoding="async" style="--h: 71"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/cert-halal-hca.webp" alt="Halal Certification Agency" width="132" height="132" loading="lazy" decoding="async" style="--h: 72"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/cert-smeta.webp" alt="SMETA" width="250" height="78" loading="lazy" decoding="async" style="--h: 49"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/cert-gmp.webp" alt="GMP certified" width="131" height="130" loading="lazy" decoding="async" style="--h: 72"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/cert-iso-22000.webp" alt="ISO 22000 certified" width="132" height="132" loading="lazy" decoding="async" style="--h: 79"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/cert-ifs.webp" alt="IFS Food" width="220" height="119" loading="lazy" decoding="async" style="--h: 54"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/cert-haccp.webp" alt="HACCP certified" width="132" height="132" loading="lazy" decoding="async" style="--h: 74"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/cert-fssc-22000.webp" alt="FSSC 22000" width="387" height="71" loading="lazy" decoding="async" style="--h: 39"></li>
+        </ul>
+      </div>
+      <div class="container">
+        <p class="section-desc section-desc--center section-desc--spaced">RITA's products are certified for both domestic and international markets — including some of the world's most demanding, where standards leave no room for compromise</p>
+        <div class="section-more">
+          <div class="button-group button-group--equal">
+            <a class="button button--dark" href="./our-certificates.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">See more</span></a>
+            <a class="button" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd pdb-0 bg-surface cv-auto" aria-labelledby="packaging-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title section-title--narrow" id="packaging-title">Packaging solutions for every beverage</h2>
+          <p class="section-desc section-desc--center">From cans and bottles to various packaging formats, RITA offers versatile solutions with flexible sizes, materials, and designs to meet your product needs.</p>
+        </div>
+      </div>
+      <div class="shelf">
+        <div class="shelf__lineup product-lineup product-lineup--shelf productLineupJS">
+          <img class="product-lineup__item" src="./assets/images/cutout-ginger-bottle.webp" srcset="./assets/images/cutout-ginger-bottle-sm.webp 170w, ./assets/images/cutout-ginger-bottle.webp 341w" sizes="(max-width: 680px) 70px, 7vw" alt="RITA ginger milk tea bottle" width="341" height="1000" loading="lazy" decoding="async" style="--h: 77.2%">
+          <img class="product-lineup__item" src="./assets/images/cutout-kombucha.webp" srcset="./assets/images/cutout-kombucha-sm.webp 196w, ./assets/images/cutout-kombucha.webp 393w" sizes="(max-width: 680px) 70px, 7vw" alt="RITA sparkling kombucha lemon and green tea can" width="393" height="1000" loading="lazy" decoding="async" style="--h: 94.7%">
+          <img class="product-lineup__item" src="./assets/images/cutout-coco-blueberry.webp" srcset="./assets/images/cutout-coco-blueberry-sm.webp 168w, ./assets/images/cutout-coco-blueberry.webp 336w" sizes="(max-width: 680px) 70px, 7vw" alt="RITA coconut water blueberry bottle" width="336" height="924" loading="lazy" decoding="async" style="--h: 70.9%">
+          <img class="product-lineup__item" src="./assets/images/cutout-ice-tea.webp" srcset="./assets/images/cutout-ice-tea-sm.webp 170w, ./assets/images/cutout-ice-tea.webp 341w" sizes="(max-width: 680px) 70px, 7vw" alt="RITA ice tea blueberry and mint bottle" width="341" height="1000" loading="lazy" decoding="async" style="--h: 95.6%">
+          <img class="product-lineup__item" src="./assets/images/cutout-cherry-soda.webp" srcset="./assets/images/cutout-cherry-soda-sm.webp 198w, ./assets/images/cutout-cherry-soda.webp 396w" sizes="(max-width: 680px) 70px, 7vw" alt="RITA cherry limeade prebiotic soda can" width="396" height="760" loading="lazy" decoding="async" style="--h: 60.6%">
+          <img class="product-lineup__item" src="./assets/images/cutout-iced-coffee.webp" srcset="./assets/images/cutout-iced-coffee-sm.webp 170w, ./assets/images/cutout-iced-coffee.webp 339w" sizes="(max-width: 680px) 70px, 7vw" alt="RITA iced coffee mocha bottle" width="339" height="832" loading="lazy" decoding="async" style="--h: 63.8%">
+          <img class="product-lineup__item" src="./assets/images/cutout-aloe-apple.webp" srcset="./assets/images/cutout-aloe-apple-sm.webp 194w, ./assets/images/cutout-aloe-apple.webp 388w" sizes="(max-width: 680px) 70px, 7vw" alt="RITA aloe vera apple can" width="388" height="1000" loading="lazy" decoding="async" style="--h: 78.8%">
+          <img class="product-lineup__item" src="./assets/images/cutout-ginger-peach-tea.webp" srcset="./assets/images/cutout-ginger-peach-tea-sm.webp 199w, ./assets/images/cutout-ginger-peach-tea.webp 398w" sizes="(max-width: 680px) 70px, 7vw" alt="RITA ginger milk tea peach can" width="398" height="1000" loading="lazy" decoding="async" style="--h: 87.2%">
+          <img class="product-lineup__item" src="./assets/images/cutout-bird-nest-pear.webp" srcset="./assets/images/cutout-bird-nest-pear-sm.webp 129w, ./assets/images/cutout-bird-nest-pear.webp 258w" sizes="(max-width: 680px) 70px, 7vw" alt="RITA bird’s nest with pear bottle" width="258" height="980" loading="lazy" decoding="async" style="--h: 75%">
+          <img class="product-lineup__item" src="./assets/images/cutout-beauty-collagen.webp" srcset="./assets/images/cutout-beauty-collagen-sm.webp 194w, ./assets/images/cutout-beauty-collagen.webp 387w" sizes="(max-width: 680px) 70px, 7vw" alt="RITA beauty drink collagen can" width="387" height="1000" loading="lazy" decoding="async" style="--h: 78.8%">
+          <img class="product-lineup__item" src="./assets/images/cutout-aloe-strawberry.webp" srcset="./assets/images/cutout-aloe-strawberry-sm.webp 141w, ./assets/images/cutout-aloe-strawberry.webp 282w" sizes="(max-width: 680px) 70px, 7vw" alt="RITA aloe vera strawberry bottle" width="282" height="1000" loading="lazy" decoding="async" style="--h: 94.7%">
+          <img class="product-lineup__item" src="./assets/images/cutout-coco-energy.webp" srcset="./assets/images/cutout-coco-energy-sm.webp 194w, ./assets/images/cutout-coco-energy.webp 387w" sizes="(max-width: 680px) 70px, 7vw" alt="RITA Coco Energy watermelon can" width="387" height="1000" loading="lazy" decoding="async" style="--h: 78.8%">
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd pdb-overlap bg-surface cv-auto" aria-labelledby="reach-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="reach-title">Our global reach</h2>
+          <p class="section-desc section-desc--center">Connecting RITA with the world through dedicated websites across multiple countries and markets.</p>
+        </div>
+        <div class="world-map mapPinsJS">
+          <img class="world-map__img" src="./assets/images/map-world.webp" alt="World map of RITA websites: United States, United Kingdom, Europe, Russia, Iran, UAE, China, Vietnam, Singapore, India and Australia" width="1250" height="665" loading="lazy" decoding="async">
+          <a class="map-pin" style="--i: 0; top: 41.69%; left: 18.8%" href="https://ritadrinks.us" target="_blank" rel="noopener" data-label="United States" aria-label="RITA website for the United States"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+          <a class="map-pin" style="--i: 1; top: 29.5%; left: 46.3%" href="https://ritadrinks.co.uk" target="_blank" rel="noopener" data-label="United Kingdom" aria-label="RITA website for the United Kingdom"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+          <span class="map-pin" style="--i: 2; top: 33.24%; left: 49.95%" data-label="Europe" aria-hidden="true"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></span>
+          <a class="map-pin" style="--i: 3; top: 20.5%; left: 73.14%" href="https://ritabeverages.com" target="_blank" rel="noopener" data-label="Russia" aria-label="RITA website for Russia"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+          <a class="map-pin" style="--i: 4; top: 46.5%; left: 62.5%" href="https://beveragevietnam.com" target="_blank" rel="noopener" data-label="Iran" aria-label="RITA website for Iran"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+          <a class="map-pin" style="--i: 5; top: 51.25%; left: 62%" href="https://ritadrink.com" target="_blank" rel="noopener" data-label="UAE" aria-label="RITA website for the UAE"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+          <a class="map-pin" style="--i: 6; top: 45.57%; left: 79.06%" href="https://ritadrinks.cn" target="_blank" rel="noopener" data-label="China" aria-label="RITA website for China"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+          <span class="map-pin" style="--i: 7; top: 52%; left: 75.8%" data-label="Vietnam" aria-hidden="true"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></span>
+          <a class="map-pin" style="--i: 8; top: 62.5%; left: 75%" href="https://ritadrinks.asia" target="_blank" rel="noopener" data-label="Singapore" aria-label="RITA website for Singapore"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+          <a class="map-pin" style="--i: 9; top: 51.5%; left: 68.8%" href="https://ritadrinks.in" target="_blank" rel="noopener" data-label="India" aria-label="RITA website for India"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+          <a class="map-pin" style="--i: 10; top: 80.02%; left: 83.82%" href="https://ritadrinks.com" target="_blank" rel="noopener" data-label="Australia" aria-label="RITA website for Australia"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="overlap-band" aria-labelledby="build-title">
+      <div class="container">
+        <div class="cta-banner">
+          <img class="cta-banner__bg" src="./assets/images/banner-cta.webp" srcset="./assets/images/banner-cta-768.webp 768w, ./assets/images/banner-cta.webp 1512w" sizes="(max-width: 1440px) 100vw, 1440px" alt="" width="1512" height="500" loading="lazy" decoding="async">
+          <div class="cta-banner__body">
+            <h2 class="cta-banner__title" id="build-title">Let’s build your beverage with us</h2>
+            <p class="cta-banner__desc">Co-packing beverage manufacturer from Vietnam. Includes a quick value</p>
+            <div class="button-group button-group--equal cta-banner__actions">
+              <a class="button button--dark" href="https://www.youtube.com/watch?v=1Bfi8XvSLFs" data-fancybox data-caption="RITA company profile"><span class="button__icon button__icon--play" aria-hidden="true"></span><span class="button__text">Company profile</span></a>
+              <a class="button" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd cv-auto" aria-labelledby="exhibitions-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title section-title--wrap" id="exhibitions-title">Expanding global partnerships through international exhibitions</h2>
+        </div>
+      </div>
+      <div class="marquee marqueeJS">
+        <ul class="marquee__track" role="list">
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-thaifex.webp" alt="THAIFEX – Anuga Asia" width="240" height="241" loading="lazy" decoding="async" style="--h: 96"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-vietfood.png" alt="Vietfood &amp; Beverage" width="462" height="184" loading="lazy" decoding="async" style="--h: 72"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-africa-big.webp" alt="Africa’s Big 7" width="138" height="71" loading="lazy" decoding="async" style="--h: 72"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-anuga.webp" alt="Anuga" width="96" height="110" loading="lazy" decoding="async" style="--h: 104"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-fhc-china.webp" alt="FHC China" width="496" height="180" loading="lazy" decoding="async" style="--h: 64"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-gulfood.webp" alt="Gulfood" width="400" height="227" loading="lazy" decoding="async" style="--h: 80"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-plma.webp" alt="PLMA World of Private Label" width="105" height="105" loading="lazy" decoding="async" style="--h: 104"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-caexpo.png" alt="CAEXPO China–ASEAN Expo" width="81" height="92" loading="lazy" decoding="async" style="--h: 96"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-china-food-drinks.png" alt="China Food &amp; Drinks Fair" width="340" height="185" loading="lazy" decoding="async" style="--h: 64"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-fine-food-australia.webp" alt="Fine Food Australia" width="152" height="151" loading="lazy" decoding="async" style="--h: 96"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-prodexpo.webp" alt="Prodexpo" width="150" height="157" loading="lazy" decoding="async" style="--h: 100"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-sial.webp" alt="SIAL" width="345" height="145" loading="lazy" decoding="async" style="--h: 56"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-sfa.webp" alt="Specialty Food Association" width="118" height="117" loading="lazy" decoding="async" style="--h: 104"></li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="fair-table cardSliderJS">
+          <div class="fair-table__bar" aria-hidden="true">
+            <span class="fair-table__th fair-table__th--name">Exhibition</span>
+            <span class="fair-table__th fair-table__th--status">Status</span>
+            <span class="fair-table__th fair-table__th--place">Location</span>
+            <span class="fair-table__th fair-table__th--booth">Booth no.</span>
+            <span class="fair-table__th fair-table__th--photos">Photos</span>
+          </div>
+          <ul class="fair-list cardSliderTrackJS" role="list">
+            <li>
+              <a class="fair-row" href="./assets/images/fair-gulfood-1.webp" data-fancybox="fair-gulfood" data-caption="RITA at Gulfood 2026 · Dubai, UAE · Booth Z2-B4" aria-label="Gulfood, Dubai, UAE, booth Z2-B4: view photos">
+                <span class="fair-row__name">Gulfood</span>
+                <span class="status-badge">Attended</span>
+                <span class="fair-row__media" aria-hidden="true">
+                  <img src="./assets/images/fair-gulfood-1-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                  <img src="./assets/images/fair-gulfood-2-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                  <img src="./assets/images/fair-gulfood-3-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                </span>
+                <span class="fair-row__place"><span class="fair-row__label">Location</span>Dubai, UAE</span>
+                <span class="fair-row__booth"><span class="fair-row__label">Booth no.</span>Z2-B4</span>
+                <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+              </a>
+              <a href="./assets/images/fair-gulfood-2.webp" data-fancybox="fair-gulfood" data-caption="RITA at Gulfood 2026 · Dubai, UAE · Booth Z2-B4" hidden></a>
+              <a href="./assets/images/fair-gulfood-3.webp" data-fancybox="fair-gulfood" data-caption="RITA at Gulfood 2026 · Dubai, UAE · Booth Z2-B4" hidden></a>
+            </li>
+            <li>
+              <a class="fair-row" href="./assets/images/fair-prodexpo-1.webp" data-fancybox="fair-prodexpo" data-caption="RITA at Prodexpo 2026 · Moscow, Russia · Booth 1B108" aria-label="Prodexpo, Moscow, Russia, booth 1B108: view photos">
+                <span class="fair-row__name">Prodexpo</span>
+                <span class="status-badge">Attended</span>
+                <span class="fair-row__media" aria-hidden="true">
+                  <img src="./assets/images/fair-prodexpo-1-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                  <img src="./assets/images/fair-prodexpo-2-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                  <img src="./assets/images/fair-prodexpo-3-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                </span>
+                <span class="fair-row__place"><span class="fair-row__label">Location</span>Moscow, Russia</span>
+                <span class="fair-row__booth"><span class="fair-row__label">Booth no.</span>1B108</span>
+                <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+              </a>
+              <a href="./assets/images/fair-prodexpo-2.webp" data-fancybox="fair-prodexpo" data-caption="RITA at Prodexpo 2026 · Moscow, Russia · Booth 1B108" hidden></a>
+              <a href="./assets/images/fair-prodexpo-3.webp" data-fancybox="fair-prodexpo" data-caption="RITA at Prodexpo 2026 · Moscow, Russia · Booth 1B108" hidden></a>
+            </li>
+            <li>
+              <a class="fair-row" href="./assets/images/fair-china-food-drinks-1.webp" data-fancybox="fair-china-food-drinks" data-caption="RITA at the 114th China Food &amp; Drinks Fair 2026 · Chengdu, China · Booth 10B 008T-A" aria-label="China Food &amp; Drinks Fair, Chengdu, China, booth 10B 008T-A: view photos">
+                <span class="fair-row__name">China Food &amp; Drinks Fair</span>
+                <span class="status-badge">Attended</span>
+                <span class="fair-row__media" aria-hidden="true">
+                  <img src="./assets/images/fair-china-food-drinks-1-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                  <img src="./assets/images/fair-china-food-drinks-2-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                  <img src="./assets/images/fair-china-food-drinks-3-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                </span>
+                <span class="fair-row__place"><span class="fair-row__label">Location</span>Chengdu, China</span>
+                <span class="fair-row__booth"><span class="fair-row__label">Booth no.</span>10B 008T-A</span>
+                <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+              </a>
+              <a href="./assets/images/fair-china-food-drinks-2.webp" data-fancybox="fair-china-food-drinks" data-caption="RITA at the 114th China Food &amp; Drinks Fair 2026 · Chengdu, China · Booth 10B 008T-A" hidden></a>
+              <a href="./assets/images/fair-china-food-drinks-3.webp" data-fancybox="fair-china-food-drinks" data-caption="RITA at the 114th China Food &amp; Drinks Fair 2026 · Chengdu, China · Booth 10B 008T-A" hidden></a>
+            </li>
+            <li>
+              <a class="fair-row" href="./assets/images/fair-plma-1.webp" data-fancybox="fair-plma" data-caption="RITA at PLMA 2026 · Amsterdam, Netherlands · Booth 8.H90" aria-label="PLMA Netherlands, Amsterdam, Netherlands, booth 8.H90: view photos">
+                <span class="fair-row__name">PLMA Netherlands</span>
+                <span class="status-badge">Attended</span>
+                <span class="fair-row__media" aria-hidden="true">
+                  <img src="./assets/images/fair-plma-1-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                  <img src="./assets/images/fair-plma-2-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                  <img src="./assets/images/fair-plma-3-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                </span>
+                <span class="fair-row__place"><span class="fair-row__label">Location</span>Amsterdam, Netherlands</span>
+                <span class="fair-row__booth"><span class="fair-row__label">Booth no.</span>8.H90</span>
+                <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+              </a>
+              <a href="./assets/images/fair-plma-2.webp" data-fancybox="fair-plma" data-caption="RITA at PLMA 2026 · Amsterdam, Netherlands · Booth 8.H90" hidden></a>
+              <a href="./assets/images/fair-plma-3.webp" data-fancybox="fair-plma" data-caption="RITA at PLMA 2026 · Amsterdam, Netherlands · Booth 8.H90" hidden></a>
+            </li>
+            <li>
+              <a class="fair-row" href="./assets/images/fair-thaifex-1.webp" data-fancybox="fair-thaifex" data-caption="RITA at THAIFEX – Anuga Asia 2026 · Bangkok, Thailand · Booth Drink-Hall 3-Q57" aria-label="Thaifex, Bangkok, Thailand, booth Drink-Hall 3-Q57: view photos">
+                <span class="fair-row__name">Thaifex</span>
+                <span class="status-badge">Attended</span>
+                <span class="fair-row__media" aria-hidden="true">
+                  <img src="./assets/images/fair-thaifex-1-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                  <img src="./assets/images/fair-thaifex-2-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                  <img src="./assets/images/fair-thaifex-3-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                </span>
+                <span class="fair-row__place"><span class="fair-row__label">Location</span>Bangkok, Thailand</span>
+                <span class="fair-row__booth"><span class="fair-row__label">Booth no.</span>Drink-Hall 3-Q57</span>
+                <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+              </a>
+              <a href="./assets/images/fair-thaifex-2.webp" data-fancybox="fair-thaifex" data-caption="RITA at THAIFEX – Anuga Asia 2026 · Bangkok, Thailand · Booth Drink-Hall 3-Q57" hidden></a>
+              <a href="./assets/images/fair-thaifex-3.webp" data-fancybox="fair-thaifex" data-caption="RITA at THAIFEX – Anuga Asia 2026 · Bangkok, Thailand · Booth Drink-Hall 3-Q57" hidden></a>
+            </li>
+            <li>
+              <a class="fair-row" href="./assets/images/fair-fhc-1.webp" data-fancybox="fair-fhc" data-caption="RITA at FHC China 2026 · Shanghai, China · Booth N1H30" aria-label="FHC China, Shanghai, China, booth N1H30: view photos">
+                <span class="fair-row__name">FHC China</span>
+                <span class="status-badge">Attended</span>
+                <span class="fair-row__media" aria-hidden="true">
+                  <img src="./assets/images/fair-fhc-1-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                  <img src="./assets/images/fair-fhc-2-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                  <img src="./assets/images/fair-fhc-3-sm.webp" alt="" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                </span>
+                <span class="fair-row__place"><span class="fair-row__label">Location</span>Shanghai, China</span>
+                <span class="fair-row__booth"><span class="fair-row__label">Booth no.</span>N1H30</span>
+                <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+              </a>
+              <a href="./assets/images/fair-fhc-2.webp" data-fancybox="fair-fhc" data-caption="RITA at FHC China 2026 · Shanghai, China · Booth N1H30" hidden></a>
+              <a href="./assets/images/fair-fhc-3.webp" data-fancybox="fair-fhc" data-caption="RITA at FHC China 2026 · Shanghai, China · Booth N1H30" hidden></a>
+            </li>
+          </ul>
+          <div class="fair-table__bar" aria-hidden="true">
+            <span class="fair-table__th fair-table__th--name">Exhibition</span>
+            <span class="fair-table__th fair-table__th--status">Status</span>
+            <span class="fair-table__th fair-table__th--place">Location</span>
+            <span class="fair-table__th fair-table__th--booth">Booth no.</span>
+            <span class="fair-table__th fair-table__th--photos">Photos</span>
+          </div>
+        </div>
+        <div class="section-more">
+          <a class="button button--dark" href="./our-activities.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">See more</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd bg-surface cv-auto" aria-labelledby="news-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="news-title">News &amp; insights</h2>
+          <p class="section-desc section-desc--center">Stay up to date with RITA's latest company news, beverage innovations, manufacturing developments, global partnerships, and insights into the evolving beverage industry</p>
+        </div>
+        <div class="post-split">
+          <article class="post-card post-card--lead">
+            <div class="post-card__media">
+              <img src="./assets/images/news-raspberry-rose.webp" srcset="./assets/images/news-raspberry-rose-sm.webp 640w, ./assets/images/news-raspberry-rose.webp 1240w" sizes="(max-width: 1120px) 100vw, 41vw" alt="RITA Raspberry Rose Prebiotic Soda can with raspberries and roses" width="1240" height="716" loading="lazy" decoding="async">
+            </div>
+            <div class="post-card__body">
+              <p class="post-meta"><a class="post-meta__cat" href="./blog.html?category=rita-news">RITA News</a><time class="post-meta__date" datetime="2026-11-12">12/11/2026</time></p>
+              <h3 class="post-card__title"><a class="post-card__link" href="./blog-detail.html">Raspberry Rose Prebiotic Soda Emerges as a Global Export Play</a></h3>
+            </div>
+          </article>
+          <ul class="post-list" role="list">
+            <li>
+              <article class="post-card post-card--row">
+                <div class="post-card__media">
+                  <img src="./assets/images/news-womens-day-2026.webp" alt="RITA Vietnamese Women's Day 2026 artwork with Angry Water cans" width="480" height="277" loading="lazy" decoding="async">
+                </div>
+                <div class="post-card__body">
+                  <p class="post-meta"><a class="post-meta__cat" href="./blog.html?category=rita-news">RITA News</a><time class="post-meta__date" datetime="2026-10-20">20/10/2026</time></p>
+                  <p class="post-card__title"><a class="post-card__link" href="./blog-detail.html">Honoring the Women of RITA Beverage on Vietnamese Women's Day 2026</a></p>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="post-card post-card--row">
+                <div class="post-card__media">
+                  <img src="./assets/images/news-dragon-boat-2026.webp" alt="RITA Dragon Boat Festival 2026 artwork with kombucha and coconut drinks" width="480" height="277" loading="lazy" decoding="async">
+                </div>
+                <div class="post-card__body">
+                  <p class="post-meta"><a class="post-meta__cat" href="./blog.html?category=rita-news">RITA News</a><time class="post-meta__date" datetime="2026-06-19">19/06/2026</time></p>
+                  <p class="post-card__title"><a class="post-card__link" href="./blog-detail.html">A Warm Dragon Boat Festival with RITA Beverage Company: Spreading Culture, Connecting with Love</a></p>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="post-card post-card--row">
+                <div class="post-card__media">
+                  <img src="./assets/images/news-gulfood-2026.webp" alt="RITA at Gulfood Dubai and Prodexpo Moscow 2026 banner" width="480" height="277" loading="lazy" decoding="async">
+                </div>
+                <div class="post-card__body">
+                  <p class="post-meta"><a class="post-meta__cat" href="./blog.html?category=beverage-news">Beverage News</a><time class="post-meta__date" datetime="2026-01-16">16/01/2026</time></p>
+                  <p class="post-card__title"><a class="post-card__link" href="./blog-detail.html">Gulfood Dubai 2026 the Global Nexus for Next Generation Beverage Innovation with RITA Solutions</a></p>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="post-card post-card--row">
+                <div class="post-card__media">
+                  <img src="./assets/images/news-purple-compound.webp" alt="RITA Purple Compound Juice can in a purple fruit orchard" width="480" height="277" loading="lazy" decoding="async">
+                </div>
+                <div class="post-card__body">
+                  <p class="post-meta"><a class="post-meta__cat" href="./blog.html?category=tropical-fruit">Tropical Fruit</a><time class="post-meta__date" datetime="2026-04-13">13/04/2026</time></p>
+                  <p class="post-card__title"><a class="post-card__link" href="./blog-detail.html">The Rising Demand for Purple Compound Beverages in the Global F&amp;B Market</a></p>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+        <div class="section-more">
+          <a class="button button--dark" href="./blog.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">See more</span></a>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="site-footer cv-auto">
     <div class="container container--wide footer-main">
