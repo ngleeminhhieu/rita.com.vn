@@ -26,6 +26,14 @@ export default function CategoryPageModule() {
     image.height = category.height;
   }
 
+  const seo = document.querySelector(".categorySeoJS");
+  if (seo && category.slug !== seo.dataset.default) {
+    const template = seo.querySelector(`template[data-category="${CSS.escape(category.slug)}"]`);
+    const target = seo.querySelector(".categorySeoContentJS");
+    if (template && target) target.replaceChildren(template.content.cloneNode(true));
+    else seo.hidden = true;
+  }
+
   const names = document.querySelectorAll(".categoryNameJS");
   const defaultName = names[0]?.textContent.trim();
   names.forEach((el) => {

@@ -200,27 +200,25 @@
                 <option value="2l">2 L</option>
               </select>
             </label>
-            <label class="search-bar__field search-bar__field--wide">
-              <span class="sr-only">Product name</span>
-              <input type="search" name="s" placeholder="Search for products" autocomplete="off">
-            </label>
-            <button class="button button--primary button--sm search-bar__submit" type="submit"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Submit</span></button>
+            <div class="search-bar__field search-bar__field--wide search-bar__field--keyword">
+              <label>
+                <span class="sr-only">Product name</span>
+                <input type="search" name="s" placeholder="Search for products" autocomplete="off">
+              </label>
+              <button class="button button--primary search-bar__keyword-submit" type="submit" aria-label="Search products"><span class="icon icon--search" aria-hidden="true"></span></button>
+            </div>
           </div>
         </form>
       </div>
       <a class="header-contact" href="./contact.html"><span class="header-contact__dot" aria-hidden="true"></span>Contact</a>
       <div class="header-tools">
         <button class="header-icon searchToggleJS" type="button" aria-label="Open search" aria-controls="header-search" aria-expanded="false"><span class="icon icon--search"></span></button>
-        <button class="header-icon menuOpenJS" type="button" aria-label="Open menu" aria-controls="site-menu" aria-haspopup="dialog" aria-expanded="false"><span class="menu-icon"><span></span><span></span><span></span></span></button>
+        <button class="header-icon menuOpenJS" type="button" aria-label="Open menu" popovertarget="site-menu" aria-expanded="false"><span class="menu-icon"><span></span><span></span><span></span></span></button>
       </div>
     </div>
   </header>
-  <dialog class="site-menu siteMenuJS" id="site-menu" aria-label="Menu">
+  <div class="site-menu siteMenuJS" id="site-menu" popover aria-label="Menu">
     <div class="site-menu__panel">
-      <div class="site-menu__head">
-        <a class="site-menu__logo" href="./index.html" aria-label="RITA Food &amp; Drink home"><img src="./assets/images/logo.svg" alt="RITA" width="123" height="55"></a>
-        <button class="close-button site-menu__close menuCloseJS" type="button" aria-label="Close menu"></button>
-      </div>
       <nav class="site-menu__nav mobileNavJS" aria-label="Mobile menu">
         <button class="mobile-menu__back mobileBackJS" type="button" hidden>Back</button>
         <p class="mobile-menu__title mobileTitleJS" hidden></p>
@@ -268,18 +266,19 @@
               <li class="menu-item"><a href="./blog.html?category=fb-certificate">F&amp;B certificate</a></li>
             </ul>
           </li>
+          <li class="menu-item"><a href="./contact.html">Contact</a></li>
           <li class="menu-item"><a href="https://vn105660124.trustpass.alibaba.com/" target="_blank" rel="noopener">RITA on Alibaba</a></li>
         </ul>
       </nav>
       <div class="site-menu__extra">
-        <a class="button button--primary" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
         <ul class="site-menu__contacts">
-          <li><a href="mailto:marketing@rita.com.vn">marketing@rita.com.vn</a></li>
-          <li><a href="tel:+842743784788">(+84) 274 3784 788</a></li>
+          <li><a href="https://maps.app.goo.gl/1k4urKnhR8r7mSMo9" target="_blank" rel="noopener">No. 08, Thong Nhat Boulevard, Song Than 2 Industrial Park, Di An Ward, Ho Chi Minh City, Vietnam</a></li>
+          <li><span class="site-menu__contact-label">Sales inquiry</span><a href="tel:+842743784788">(+84) 274 3784 788</a></li>
+          <li><span class="site-menu__contact-label">Office</span><a href="tel:+842743784688">(+84) 274 3784 688</a></li>
         </ul>
       </div>
     </div>
-  </dialog>
+  </div>
   <main>
     <section class="hero heroJS" aria-label="Upcoming trade fairs">
       <h1 class="sr-only">RITA Food &amp; Drink, Vietnam’s leading beverage manufacturer</h1>
@@ -300,8 +299,9 @@
           <h2 class="section-title" id="categories-title">Our beverage capabilities</h2>
           <p class="section-desc">Explore beverage categories tailored to your brand. From energy drinks and juices to sparkling waters and plant-based milks, our OEM/ODM solutions help you launch products consumers love.</p>
         </div>
-        <div class="loadMoreJS" data-rows="2">
-          <ul class="card-grid loadMoreListJS">
+        <div class="loadMoreJS" data-rows="2" data-media="(min-width: 681px)">
+          <div class="card-slider cardSliderJS" data-slider="group" data-group="2">
+          <ul class="card-grid loadMoreListJS cardSliderTrackJS">
             <li><a class="media-card"href="./product-category.html?category=fruit-juice"><span class="media-card__media"><img src="./assets/images/cate-fruit-juice.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Fruit juice</span><span class="media-card__meta">9 products</span></a></li>
             <li><a class="media-card"href="./product-category.html?category=coconut-products"><span class="media-card__media"><img src="./assets/images/cate-coconut.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Coconut products</span><span class="media-card__meta">9 products</span></a></li>
             <li><a class="media-card"href="./product-category.html?category=aloe-vera-drinks"><span class="media-card__media"><img src="./assets/images/cate-aloe-vera.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Aloe vera drinks</span><span class="media-card__meta">9 products</span></a></li>
@@ -313,6 +313,7 @@
             <li><a class="media-card"href="./product-category.html?category=tea-drinks"><span class="media-card__media"><img src="./assets/images/cate-tea.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Tea drinks</span><span class="media-card__meta">9 products</span></a></li>
             <li><a class="media-card"href="./product-category.html?category=special-drinks"><span class="media-card__media"><img src="./assets/images/cate-special.webp" alt="" width="900" height="555" loading="lazy" decoding="async"></span><span class="media-card__title">Special drinks</span><span class="media-card__meta">9 products</span></a></li>
           </ul>
+          </div>
           <div class="section-more" hidden>
             <button class="button button--dark loadMoreButtonJS" type="button"><span class="button__icon" aria-hidden="true"></span><span class="button__text">See more</span></button>
           </div>
@@ -320,13 +321,13 @@
       </div>
     </section>
 
-    <section class="ss-pd pdb-0 bg-surface cv-auto" aria-labelledby="new-releases-title">
+    <section class="ss-pd pdb-0 bg-surface" aria-labelledby="new-releases-title">
       <div class="container">
         <div class="section-head section-head--center">
           <h2 class="section-title" id="new-releases-title">New releases</h2>
           <p class="section-desc">Explore beverage categories tailored to your brand. From energy drinks and juices to sparkling waters and plant-based milks, our OEM/ODM solutions help you launch products consumers love.</p>
         </div>
-        <div class="filter filterJS">
+        <div class="filter filter--sticky filter--sticky-desktop filterJS stickyFilterJS">
           <button class="button button--primary filter__toggle filterToggleJS" type="button" aria-expanded="false" aria-controls="new-releases-filter"><span class="button__icon button__icon--filter" aria-hidden="true"></span><span class="button__text">Find your perfect drink</span></button>
           <form class="search-bar search-bar--inline filter__panel" id="new-releases-filter" action="./searching.html" method="get" role="search" aria-label="Filter products">
             <input type="hidden" name="post_type" value="product">
@@ -397,11 +398,13 @@
                 <option value="2l">2 L</option>
               </select>
             </label>
-            <label class="search-bar__field search-bar__field--wide">
-              <span class="sr-only">Product name</span>
-              <input type="search" name="s" placeholder="Search for products" autocomplete="off">
-            </label>
-            <button class="button button--primary search-bar__submit" type="submit"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Search</span></button>
+            <div class="search-bar__field search-bar__field--wide search-bar__field--keyword">
+              <label>
+                <span class="sr-only">Product name</span>
+                <input type="search" name="s" placeholder="Search for products" autocomplete="off">
+              </label>
+              <button class="button button--primary search-bar__keyword-submit" type="submit" aria-label="Search products"><span class="icon icon--search" aria-hidden="true"></span></button>
+            </div>
           </form>
         </div>
         <ul class="card-grid card-grid--5">
@@ -436,10 +439,10 @@
       <div class="stack-reveal__back bg-factory">
         <div class="container">
           <h2 class="display-title stackAnchorJS" id="story-title">
-            <span class="display-title__line stackLineJS" data-run="1">Being founded in 2004 and</span>
+            <span class="display-title__line stackLineJS" data-run="1">Founded in 2004 and</span>
             <span class="display-title__line display-title__line--end stackLineJS" data-run="-1">having since grown to become</span>
-            <span class="display-title__line display-title__line--accent stackLineJS" data-run="1">a leading beverage</span>
-            <span class="display-title__line display-title__line--accent display-title__line--end stackLineJS" data-run="-1">manufacturer in Vietnam</span>
+            <span class="display-title__line display-title__line--accent stackLineJS" data-run="1">the leading beverage</span>
+            <span class="display-title__line display-title__line--accent display-title__line--end stackLineJS" data-run="-1">manufacturer from Vietnam</span>
           </h2>
         </div>
       </div>
@@ -492,19 +495,19 @@
           <p class="section-desc section-desc--center">With decades of beverage expertise, RITA combines advanced manufacturing capabilities, in-house R&amp;D, and flexible OEM/ODM solutions to bring your ideas to life. From product development to global delivery, we ensure consistent quality, scalable production, and reliable partnership for brands worldwide.</p>
         </div>
         <div class="feature-split">
-          <ul class="feature-split__list" role="list">
-            <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-free-sample.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Free sample</h3><p class="feature-card__text">Get your custom sample in just 7–14 days, completely free of charge.</p></div></li>
-            <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-label-design.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Free label design</h3><p class="feature-card__text">Professional label design that makes your products stand out.</p></div></li>
-            <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-moq.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Small MOQ <span class="feature-card__note">(1x20ft)</span></h3><p class="feature-card__text">Start with just one 20ft container, with no large upfront commitment.</p></div></li>
-          </ul>
+          <div class="feature-split__slider card-slider cardSliderJS" data-slider="group" data-group="2" data-slider-media="(max-width: 1120px)">
+            <ul class="feature-split__list cardSliderTrackJS" role="list">
+              <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-free-sample.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Free sample</h3><p class="feature-card__text">Get your custom sample in just 7–14 days, completely free of charge.</p></div></li>
+              <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-label-design.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Free label design</h3><p class="feature-card__text">Professional label design that makes your products stand out.</p></div></li>
+              <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-moq.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Small MOQ <span class="feature-card__note">(1x20ft)</span></h3><p class="feature-card__text">Start with just one 20ft container, with no large upfront commitment.</p></div></li>
+              <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-rnd.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">In-house R&amp;D</h3><p class="feature-card__text">Our R&amp;D creates innovative beverage formulas tailored to your brand.</p></div></li>
+              <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-oem-odm.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Flexible OEM &amp; ODM</h3><p class="feature-card__text">Customize your own formula or let our R&amp;D create for your brand.</p></div></li>
+              <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-fast-delivery.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Fast delivery</h3><p class="feature-card__text">Reliable production and efficient worldwide delivery you can count on.</p></div></li>
+            </ul>
+          </div>
           <div class="feature-split__media can-spin">
             <canvas class="can-spin__canvas canSpinJS" width="514" height="1154" data-base="./assets/images/can-base.webp" data-label="./assets/images/can-label.webp" role="img" aria-label="RITA Your Size can"></canvas>
           </div>
-          <ul class="feature-split__list" role="list">
-            <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-rnd.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">In-house R&amp;D</h3><p class="feature-card__text">Our R&amp;D creates innovative beverage formulas tailored to your brand.</p></div></li>
-            <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-oem-odm.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Flexible OEM &amp; ODM</h3><p class="feature-card__text">Customize your own formula or let our R&amp;D create for your brand.</p></div></li>
-            <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-fast-delivery.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Fast delivery</h3><p class="feature-card__text">Reliable production and efficient worldwide delivery you can count on.</p></div></li>
-          </ul>
         </div>
         <div class="button-group feature-split__more">
           <a class="dot-link popupOpenJS" href="./products.html" aria-haspopup="dialog" aria-controls="formats-popup"><span class="dot-link__dot" aria-hidden="true"></span>Our formats</a>
@@ -514,8 +517,8 @@
     </section>
 
     <dialog class="popup popupJS" id="formats-popup" aria-label="Packaging formats">
+      <button class="close-button popup__close popupCloseJS" type="button" aria-label="Close"></button>
       <div class="popup__panel">
-        <button class="close-button popup__close popupCloseJS" type="button" aria-label="Close"></button>
         <div class="format-viewer formatViewerJS">
           <div class="format-viewer__media">
             <div class="format-viewer__stage">
@@ -587,8 +590,8 @@
     </dialog>
 
     <dialog class="popup popupJS" id="labels-popup" aria-label="Label options">
+      <button class="close-button popup__close popupCloseJS" type="button" aria-label="Close"></button>
       <div class="popup__panel">
-        <button class="close-button popup__close popupCloseJS" type="button" aria-label="Close"></button>
         <ul class="label-grid" role="list">
           <li class="label-card"><div class="label-card__media"><img src="./assets/images/label-glossy.webp" alt="Red can with a glossy label" width="157" height="412" loading="lazy" decoding="async"></div><h3 class="label-card__title">Glossy</h3><p class="label-card__text">High-shine surface for vibrant eye-catching colors</p></li>
           <li class="label-card"><div class="label-card__media"><img src="./assets/images/label-matte.webp" alt="Red can with a matte label" width="149" height="410" loading="lazy" decoding="async"></div><h3 class="label-card__title">Matte</h3><p class="label-card__text">Soft, textured finish that feels premium and reduces glare</p></li>
@@ -621,7 +624,7 @@
       <div class="container">
         <p class="section-desc section-desc--center section-desc--spaced">RITA's products are certified for both domestic and international markets — including some of the world's most demanding, where standards leave no room for compromise</p>
         <div class="section-more">
-          <div class="button-group button-group--equal">
+          <div class="button-group">
             <a class="button button--dark" href="./our-certificates.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">See more</span></a>
             <a class="button" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
           </div>
@@ -693,7 +696,7 @@
       </div>
     </section>
 
-    <section class="ss-pd cv-auto" aria-labelledby="exhibitions-title">
+    <section class="ss-pd bg-white cv-auto" aria-labelledby="exhibitions-title">
       <div class="container">
         <div class="section-head">
           <h2 class="section-title section-title--wrap" id="exhibitions-title">Expanding global partnerships through international exhibitions</h2>
@@ -977,6 +980,39 @@
       <p class="container container--wide footer-copy">© 2026 RITA Food &amp; Drink Co.,Ltd</p>
     </div>
   </footer>
+  <nav class="bottom-nav" aria-label="Quick links">
+    <ul class="bottom-nav__list">
+      <li><a class="bottom-nav__item is-current" href="./index.html" aria-current="page"><span class="icon icon--nav-home" aria-hidden="true"></span><span class="bottom-nav__label">Home</span></a></li>
+      <li><button class="bottom-nav__item" type="button" popovertarget="services-sheet" aria-expanded="false"><span class="icon icon--nav-services" aria-hidden="true"></span><span class="bottom-nav__label">Services</span></button></li>
+      <li><button class="bottom-nav__item" type="button" popovertarget="products-sheet" aria-expanded="false"><span class="icon icon--nav-products" aria-hidden="true"></span><span class="bottom-nav__label">Products</span></button></li>
+      <li><a class="bottom-nav__item" href="./our-story.html"><span class="icon icon--nav-about" aria-hidden="true"></span><span class="bottom-nav__label">About</span></a></li>
+      <li><a class="bottom-nav__item" href="./contact.html"><span class="icon icon--nav-contact" aria-hidden="true"></span><span class="bottom-nav__label">Contact</span></a></li>
+    </ul>
+    <div class="bottom-nav__sheet bottomSheetJS" id="services-sheet" popover aria-label="Services">
+      <div class="bottom-nav__sheet-panel">
+        <div class="bottom-nav__sheet-grid">
+          <a class="bottom-nav__sheet-link" href="./oem-service.html">OEM service</a>
+          <a class="bottom-nav__sheet-link" href="./odm-service.html">ODM service</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-nav__sheet bottomSheetJS" id="products-sheet" popover aria-label="Products">
+      <div class="bottom-nav__sheet-panel">
+        <div class="bottom-nav__sheet-grid">
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=fruit-juice">Fruit juice</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=aloe-vera-drinks">Aloe vera drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=coconut-products">Coconut products</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=sparkling-drinks">Sparkling drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=milk-drinks">Milk drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=seed-drinks">Seed drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=energy-drinks">Energy drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=coffee-drinks">Coffee drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=tea-drinks">Tea drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=special-drinks">Special drinks</a>
+        </div>
+      </div>
+    </div>
+  </nav>
   <script src="./assets/library/swiper/swiper-bundle.min.js" defer></script>
   <script src="./assets/library/smoothscroll/SmoothScroll.min.js" defer></script>
   <script src="./js/main.js" type="module"></script>

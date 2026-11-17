@@ -138,27 +138,25 @@
                 <option value="2l">2 L</option>
               </select>
             </label>
-            <label class="search-bar__field search-bar__field--wide">
-              <span class="sr-only">Product name</span>
-              <input type="search" name="s" placeholder="Search for products" autocomplete="off">
-            </label>
-            <button class="button button--primary button--sm search-bar__submit" type="submit"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Submit</span></button>
+            <div class="search-bar__field search-bar__field--wide search-bar__field--keyword">
+              <label>
+                <span class="sr-only">Product name</span>
+                <input type="search" name="s" placeholder="Search for products" autocomplete="off">
+              </label>
+              <button class="button button--primary search-bar__keyword-submit" type="submit" aria-label="Search products"><span class="icon icon--search" aria-hidden="true"></span></button>
+            </div>
           </div>
         </form>
       </div>
       <a class="header-contact" href="./contact.html"><span class="header-contact__dot" aria-hidden="true"></span>Contact</a>
       <div class="header-tools">
         <button class="header-icon searchToggleJS" type="button" aria-label="Open search" aria-controls="header-search" aria-expanded="false"><span class="icon icon--search"></span></button>
-        <button class="header-icon menuOpenJS" type="button" aria-label="Open menu" aria-controls="site-menu" aria-haspopup="dialog" aria-expanded="false"><span class="menu-icon"><span></span><span></span><span></span></span></button>
+        <button class="header-icon menuOpenJS" type="button" aria-label="Open menu" popovertarget="site-menu" aria-expanded="false"><span class="menu-icon"><span></span><span></span><span></span></span></button>
       </div>
     </div>
   </header>
-  <dialog class="site-menu siteMenuJS" id="site-menu" aria-label="Menu">
+  <div class="site-menu siteMenuJS" id="site-menu" popover aria-label="Menu">
     <div class="site-menu__panel">
-      <div class="site-menu__head">
-        <a class="site-menu__logo" href="./index.html" aria-label="RITA Food &amp; Drink home"><img src="./assets/images/logo.svg" alt="RITA" width="123" height="55"></a>
-        <button class="close-button site-menu__close menuCloseJS" type="button" aria-label="Close menu"></button>
-      </div>
       <nav class="site-menu__nav mobileNavJS" aria-label="Mobile menu">
         <button class="mobile-menu__back mobileBackJS" type="button" hidden>Back</button>
         <p class="mobile-menu__title mobileTitleJS" hidden></p>
@@ -206,18 +204,19 @@
               <li class="menu-item"><a href="./blog.html?category=fb-certificate">F&amp;B certificate</a></li>
             </ul>
           </li>
+          <li class="menu-item"><a href="./contact.html">Contact</a></li>
           <li class="menu-item"><a href="https://vn105660124.trustpass.alibaba.com/" target="_blank" rel="noopener">RITA on Alibaba</a></li>
         </ul>
       </nav>
       <div class="site-menu__extra">
-        <a class="button button--primary" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
         <ul class="site-menu__contacts">
-          <li><a href="mailto:marketing@rita.com.vn">marketing@rita.com.vn</a></li>
-          <li><a href="tel:+842743784788">(+84) 274 3784 788</a></li>
+          <li><a href="https://maps.app.goo.gl/1k4urKnhR8r7mSMo9" target="_blank" rel="noopener">No. 08, Thong Nhat Boulevard, Song Than 2 Industrial Park, Di An Ward, Ho Chi Minh City, Vietnam</a></li>
+          <li><span class="site-menu__contact-label">Sales inquiry</span><a href="tel:+842743784788">(+84) 274 3784 788</a></li>
+          <li><span class="site-menu__contact-label">Office</span><a href="tel:+842743784688">(+84) 274 3784 688</a></li>
         </ul>
       </div>
     </div>
-  </dialog>
+  </div>
   <main>
     <header class="page-banner">
       <div class="page-banner__media">
@@ -302,6 +301,39 @@
       <p class="container container--wide footer-copy">© 2026 RITA Food &amp; Drink Co.,Ltd</p>
     </div>
   </footer>
+  <nav class="bottom-nav" aria-label="Quick links">
+    <ul class="bottom-nav__list">
+      <li><a class="bottom-nav__item" href="./index.html"><span class="icon icon--nav-home" aria-hidden="true"></span><span class="bottom-nav__label">Home</span></a></li>
+      <li><button class="bottom-nav__item is-current" type="button" popovertarget="services-sheet" aria-expanded="false"><span class="icon icon--nav-services" aria-hidden="true"></span><span class="bottom-nav__label">Services</span></button></li>
+      <li><button class="bottom-nav__item" type="button" popovertarget="products-sheet" aria-expanded="false"><span class="icon icon--nav-products" aria-hidden="true"></span><span class="bottom-nav__label">Products</span></button></li>
+      <li><a class="bottom-nav__item" href="./our-story.html"><span class="icon icon--nav-about" aria-hidden="true"></span><span class="bottom-nav__label">About</span></a></li>
+      <li><a class="bottom-nav__item" href="./contact.html"><span class="icon icon--nav-contact" aria-hidden="true"></span><span class="bottom-nav__label">Contact</span></a></li>
+    </ul>
+    <div class="bottom-nav__sheet bottomSheetJS" id="services-sheet" popover aria-label="Services">
+      <div class="bottom-nav__sheet-panel">
+        <div class="bottom-nav__sheet-grid">
+          <a class="bottom-nav__sheet-link" href="./oem-service.html">OEM service</a>
+          <a class="bottom-nav__sheet-link is-current" href="./odm-service.html" aria-current="page">ODM service</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-nav__sheet bottomSheetJS" id="products-sheet" popover aria-label="Products">
+      <div class="bottom-nav__sheet-panel">
+        <div class="bottom-nav__sheet-grid">
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=fruit-juice">Fruit juice</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=aloe-vera-drinks">Aloe vera drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=coconut-products">Coconut products</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=sparkling-drinks">Sparkling drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=milk-drinks">Milk drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=seed-drinks">Seed drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=energy-drinks">Energy drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=coffee-drinks">Coffee drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=tea-drinks">Tea drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=special-drinks">Special drinks</a>
+        </div>
+      </div>
+    </div>
+  </nav>
   <script src="./assets/library/smoothscroll/SmoothScroll.min.js" defer></script>
   <script src="./js/main.js" type="module"></script>
 </body>

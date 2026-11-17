@@ -29,6 +29,9 @@ const ON_DEMAND = [
   [".cardSliderJS", () => import("./modules/CardSliderModule.js")],
   [".postSliderJS", () => import("./modules/PostSliderModule.js")],
   [".categoryDataJS", () => import("./modules/CategoryPageModule.js")],
+  [".stickyFilterJS", () => import("./modules/StickyFilterModule.js")],
+  [".readMoreJS", () => import("./modules/ReadMoreModule.js")],
+  [".bottomSheetJS", () => import("./modules/BottomSheetModule.js")],
   [".blogCategoriesJS, .postContentJS, .shareJS, .tocJS", () => import("./modules/BlogModule.js")],
   ["[data-fancybox]", () => import("./modules/LightboxModule.js")],
 ];

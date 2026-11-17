@@ -5,7 +5,6 @@ export default function MobileMenuModule() {
   const title = nav?.querySelector(".mobileTitleJS");
   if (!menu || !back || !title) return;
 
-  const panel = nav.closest(".site-menu__panel");
   const parents = [...menu.querySelectorAll(":scope > .menu-item-has-children")];
   let active = null;
 
@@ -20,7 +19,7 @@ export default function MobileMenuModule() {
     back.hidden = false;
     title.hidden = false;
     linkOf(item).setAttribute("aria-expanded", "true");
-    panel?.scrollTo({ top: 0 });
+    nav.scrollTo({ top: 0 });
     back.focus({ preventScroll: true });
   };
 

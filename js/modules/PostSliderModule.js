@@ -25,6 +25,7 @@ export default function PostSliderModule() {
         ...mode.options,
         loop: true,
         loopedSlides: count,
+        autoplay: { delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true },
         speed: 600,
         grabCursor: true,
         keyboard: { enabled: true, onlyInViewport: true },

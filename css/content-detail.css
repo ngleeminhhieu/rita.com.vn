@@ -6,14 +6,6 @@
   overflow-wrap: break-word;
 }
 
-.content-detail > :first-child {
-  margin-top: 0;
-}
-
-.content-detail > :last-child {
-  margin-bottom: 0;
-}
-
 .content-detail :is(h1, h2, h3, h4, h5, h6) {
   margin: 32px 0 0;
   font-weight: var(--fw-bold);
@@ -45,6 +37,14 @@
 
 .content-detail :is(p, ul, ol, dl, figure, blockquote, table, pre, iframe, video, .content-detail__table) {
   margin: 16px 0 0;
+}
+
+.content-detail > :first-child {
+  margin-top: 0;
+}
+
+.content-detail > :last-child {
+  margin-bottom: 0;
 }
 
 .content-detail a {
@@ -177,7 +177,36 @@
   border-top: 1px solid var(--line-soft);
 }
 
+.content-detail--float-media {
+  display: flow-root;
+}
+
+@media (min-width: 681px) {
+  .content-detail--float-media > p:has(> img:only-child) {
+    float: left;
+    width: min(40%, 360px);
+    margin: 6px clamp(20px, 2.116vw, 32px) 16px 0;
+  }
+
+  .content-detail--float-media > p:has(> img:only-child) + p {
+    margin-top: 0;
+  }
+
+  .content-detail--float-media > p:has(> img:only-child) img {
+    width: 100%;
+    max-height: none;
+  }
+
+  .content-detail--float-media > :is(iframe, video, table, .content-detail__table, h2, h3) {
+    clear: both;
+  }
+}
+
 @media (max-width: 680px) {
+  .content-detail--float-media img {
+    max-height: 320px;
+  }
+
   .content-detail ul,
   .content-detail ol {
     padding-left: 18px;

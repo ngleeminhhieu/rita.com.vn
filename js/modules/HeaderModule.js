@@ -1,5 +1,7 @@
 import { pointerMoved } from "../pointer.js";
 
+const NAV_DELTA = 8;
+
 export default function HeaderModule() {
   const header = document.querySelector(".siteHeaderJS");
   if (!header) return;
@@ -25,11 +27,31 @@ export default function HeaderModule() {
     });
   };
 
+  const desktop = window.matchMedia("(min-width: 1121px)");
+  let lastY = window.scrollY;
+  let frame = 0;
+
+  const updateNav = () => {
+    frame = 0;
+    const y = window.scrollY;
+    if (!desktop.matches || y <= header.offsetHeight) {
+      header.classList.remove("is-nav-hidden");
+      lastY = y;
+      return;
+    }
+    if (Math.abs(y - lastY) < NAV_DELTA) return;
+    header.classList.toggle("is-nav-hidden", y > lastY);
+    lastY = y;
+  };
+
   window.addEventListener("scroll", () => {
     parents.forEach((item) => {
       if (item.classList.contains("is-open") && !item.contains(document.activeElement)) setOpen(item, false);
     });
+    if (!frame) frame = window.requestAnimationFrame(updateNav);
   }, { passive: true });
+  desktop.addEventListener("change", updateNav);
+  updateNav();
 
   header.addEventListener("header:search", (event) => {
     if (event.detail) closeAll();

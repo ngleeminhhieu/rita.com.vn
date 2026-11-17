@@ -9,12 +9,14 @@ export default function LoadMoreModule() {
     const items = [...list.children];
     const rows = Number(wrap.dataset.rows) || 2;
     const more = button.closest(".section-more") || button;
+    const media = wrap.dataset.media ? window.matchMedia(wrap.dataset.media) : null;
     let expanded = false;
 
     const columns = () => window.getComputedStyle(list).gridTemplateColumns.split(" ").filter(Boolean).length || 1;
 
     const render = () => {
-      const limit = expanded ? items.length : columns() * rows;
+      const active = !media || media.matches;
+      const limit = expanded || !active ? items.length : columns() * rows;
       items.forEach((item, index) => {
         item.hidden = index >= limit;
       });
@@ -31,6 +33,8 @@ export default function LoadMoreModule() {
       render();
       revealed[0]?.querySelector("a")?.focus({ preventScroll: true });
     });
+
+    media?.addEventListener("change", render);
 
     let frame = 0;
     window.addEventListener("resize", () => {

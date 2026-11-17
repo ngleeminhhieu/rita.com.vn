@@ -138,27 +138,25 @@
                 <option value="2l">2 L</option>
               </select>
             </label>
-            <label class="search-bar__field search-bar__field--wide">
-              <span class="sr-only">Product name</span>
-              <input type="search" name="s" placeholder="Search for products" autocomplete="off">
-            </label>
-            <button class="button button--primary button--sm search-bar__submit" type="submit"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Submit</span></button>
+            <div class="search-bar__field search-bar__field--wide search-bar__field--keyword">
+              <label>
+                <span class="sr-only">Product name</span>
+                <input type="search" name="s" placeholder="Search for products" autocomplete="off">
+              </label>
+              <button class="button button--primary search-bar__keyword-submit" type="submit" aria-label="Search products"><span class="icon icon--search" aria-hidden="true"></span></button>
+            </div>
           </div>
         </form>
       </div>
       <a class="header-contact" href="./contact.html"><span class="header-contact__dot" aria-hidden="true"></span>Contact</a>
       <div class="header-tools">
         <button class="header-icon searchToggleJS" type="button" aria-label="Open search" aria-controls="header-search" aria-expanded="false"><span class="icon icon--search"></span></button>
-        <button class="header-icon menuOpenJS" type="button" aria-label="Open menu" aria-controls="site-menu" aria-haspopup="dialog" aria-expanded="false"><span class="menu-icon"><span></span><span></span><span></span></span></button>
+        <button class="header-icon menuOpenJS" type="button" aria-label="Open menu" popovertarget="site-menu" aria-expanded="false"><span class="menu-icon"><span></span><span></span><span></span></span></button>
       </div>
     </div>
   </header>
-  <dialog class="site-menu siteMenuJS" id="site-menu" aria-label="Menu">
+  <div class="site-menu siteMenuJS" id="site-menu" popover aria-label="Menu">
     <div class="site-menu__panel">
-      <div class="site-menu__head">
-        <a class="site-menu__logo" href="./index.html" aria-label="RITA Food &amp; Drink home"><img src="./assets/images/logo.svg" alt="RITA" width="123" height="55"></a>
-        <button class="close-button site-menu__close menuCloseJS" type="button" aria-label="Close menu"></button>
-      </div>
       <nav class="site-menu__nav mobileNavJS" aria-label="Mobile menu">
         <button class="mobile-menu__back mobileBackJS" type="button" hidden>Back</button>
         <p class="mobile-menu__title mobileTitleJS" hidden></p>
@@ -206,18 +204,19 @@
               <li class="menu-item"><a href="./blog.html?category=fb-certificate">F&amp;B certificate</a></li>
             </ul>
           </li>
+          <li class="menu-item"><a href="./contact.html">Contact</a></li>
           <li class="menu-item"><a href="https://vn105660124.trustpass.alibaba.com/" target="_blank" rel="noopener">RITA on Alibaba</a></li>
         </ul>
       </nav>
       <div class="site-menu__extra">
-        <a class="button button--primary" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
         <ul class="site-menu__contacts">
-          <li><a href="mailto:marketing@rita.com.vn">marketing@rita.com.vn</a></li>
-          <li><a href="tel:+842743784788">(+84) 274 3784 788</a></li>
+          <li><a href="https://maps.app.goo.gl/1k4urKnhR8r7mSMo9" target="_blank" rel="noopener">No. 08, Thong Nhat Boulevard, Song Than 2 Industrial Park, Di An Ward, Ho Chi Minh City, Vietnam</a></li>
+          <li><span class="site-menu__contact-label">Sales inquiry</span><a href="tel:+842743784788">(+84) 274 3784 788</a></li>
+          <li><span class="site-menu__contact-label">Office</span><a href="tel:+842743784688">(+84) 274 3784 688</a></li>
         </ul>
       </div>
     </div>
-  </dialog>
+  </div>
   <main>
     <header class="page-banner">
       <div class="page-banner__media">
@@ -230,6 +229,130 @@
         </div>
       </div>
     </header>
+    <section class="ss-pd bg-surface" aria-labelledby="product-list-title">
+      <div class="container">
+        <h2 class="sr-only" id="product-list-title">Search results</h2>
+        <div class="filter filter--sticky filter--sticky-desktop filterJS stickyFilterJS">
+          <button class="button button--primary filter__toggle filterToggleJS" type="button" aria-expanded="false" aria-controls="product-filter"><span class="button__icon button__icon--filter" aria-hidden="true"></span><span class="button__text">Find your perfect drink</span></button>
+          <form class="search-bar search-bar--inline filter__panel" id="product-filter" action="./searching.html" method="get" role="search" aria-label="Filter products">
+            <input type="hidden" name="post_type" value="product">
+            <label class="search-bar__field">
+              <span class="sr-only">Category</span>
+              <select name="product_cat">
+                <option value="" selected>Choose category</option>
+                <option value="fruit-juice">Fruit juice</option>
+                <option value="aloe-vera-drinks">Aloe vera drinks</option>
+                <option value="coconut-products">Coconut products</option>
+                <option value="sparkling-drinks">Sparkling drinks</option>
+                <option value="milk-drinks">Milk drinks</option>
+                <option value="seed-drinks">Seed drinks</option>
+                <option value="energy-drinks">Energy drinks</option>
+                <option value="coffee-drinks">Coffee drinks</option>
+                <option value="tea-drinks">Tea drinks</option>
+                <option value="special-drinks">Special drinks</option>
+              </select>
+            </label>
+            <label class="search-bar__field">
+              <span class="sr-only">Packaging</span>
+              <select name="filter_packaging">
+                <option value="" selected>Choose packaging</option>
+                <option value="tin-can">Tin can</option>
+                <option value="slim-can">Slim can</option>
+                <option value="short-can">Short can</option>
+                <option value="aluminum-can">Aluminum can</option>
+                <option value="pet-bottle">PET bottle</option>
+                <option value="glass-bottle">Glass bottle</option>
+                <option value="pp-bottle">PP bottle</option>
+                <option value="pp-paper">PP paper</option>
+                <option value="bag">Bag</option>
+                <option value="tetra-pak">Tetra Pak</option>
+              </select>
+            </label>
+            <label class="search-bar__field">
+              <span class="sr-only">Volume</span>
+              <select name="filter_volume">
+                <option value="" selected>Choose volume</option>
+                <option value="190ml">190 ml</option>
+                <option value="200ml">200 ml</option>
+                <option value="240ml">240 ml</option>
+                <option value="250ml">250 ml</option>
+                <option value="280ml">280 ml</option>
+                <option value="290ml">290 ml</option>
+                <option value="300ml">300 ml</option>
+                <option value="310ml">310 ml</option>
+                <option value="315ml">315 ml</option>
+                <option value="320ml">320 ml</option>
+                <option value="325ml">325 ml</option>
+                <option value="330ml">330 ml</option>
+                <option value="340ml">340 ml</option>
+                <option value="350ml">350 ml</option>
+                <option value="360ml">360 ml</option>
+                <option value="400ml">400 ml</option>
+                <option value="410ml">410 ml</option>
+                <option value="450ml">450 ml</option>
+                <option value="470ml">470 ml</option>
+                <option value="485ml">485 ml</option>
+                <option value="490ml">490 ml</option>
+                <option value="500ml">500 ml</option>
+                <option value="600ml">600 ml</option>
+                <option value="750ml">750 ml</option>
+                <option value="960ml">960 ml</option>
+                <option value="1l">1 L</option>
+                <option value="1-25l">1.25 L</option>
+                <option value="1-5l">1.5 L</option>
+                <option value="2l">2 L</option>
+              </select>
+            </label>
+            <div class="search-bar__field search-bar__field--wide search-bar__field--keyword">
+              <label>
+                <span class="sr-only">Product name</span>
+                <input type="search" name="s" placeholder="Search for products" autocomplete="off">
+              </label>
+              <button class="button button--primary search-bar__keyword-submit" type="submit" aria-label="Search products"><span class="icon icon--search" aria-hidden="true"></span></button>
+            </div>
+          </form>
+        </div>
+        <ul class="card-grid card-grid--5" id="product-list" role="list">
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-peach.webp" alt="" width="489" height="489" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Peach Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-soursop.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Soursop Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-pineapple.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Pineapple Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-orange.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Orange Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-mixed-fruit.webp" alt="" width="492" height="492" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Mixed Fruit Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-mangosteen.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Mangosteen Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-mango.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Mango Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-red-grape.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Red Grape Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-juice-guava.webp" alt="" width="492" height="492" loading="lazy" decoding="async"></span><span class="product-card__title">100% Guava Juice Drink 490ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-juice-pineapple.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100% Pineapple Juice Drink 490ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-juice-mango.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100% Mango Juice Drink 490ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-purple-compound.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">Purple Compound Juice Drink 490ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-coco-pistachio.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Coco Pistachio Coconut Water 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-ginger-milk-tea.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">Ginger Milk Tea Peach Flavor Drink Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-red-fusion.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">Red Fusion Tropical Fruit Juice 250ml Slim Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-gold-fusion.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Gold Fusion Tropical Fruit Juice 250ml Slim Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-green-fusion.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Green Fusion Tropical Fruit Juice 250ml Slim Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-real-grape.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Real Grape Juice Drink 330ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-real-slice.webp" alt="" width="413" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Real Slice Sparkling Lemon Water 330ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-soda-original.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Original Soda Water 330ml Sleek Can</span></a></li>
+        </ul>
+        <div class="pagination-bar">
+          <nav class="pagination__wrapper" aria-label="Pagination">
+            <ul class="pagination">
+              <li class="disabled page-item"><span class="page-link page-link--text">First</span></li>
+              <li class="disabled page-item"><span class="page-link" aria-hidden="true"><span class="icon-angle-left" aria-hidden="true"></span></span></li>
+              <li class="active page-item"><a aria-current="true" aria-label="Page 1" href="#" class="page-link">1</a></li>
+              <li class="page-item"><a aria-label="Go to page 2" href="./searching.html?start=20" class="page-link">2</a></li>
+              <li class="page-item"><a aria-label="Go to page 3" href="./searching.html?start=40" class="page-link">3</a></li>
+              <li class="page-item"><a aria-label="Go to next page" href="./searching.html?start=20" class="page-link"><span class="icon-angle-right" aria-hidden="true"></span></a></li>
+              <li class="page-item"><a aria-label="Go to end page" href="./searching.html?start=40" class="page-link page-link--text">Last</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="shop-empty" hidden>
+          <p class="shop-empty__text">No products match these filters.</p>
+          <a class="button button--dark" href="./searching.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Clear filters</span></a>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="site-footer cv-auto">
     <div class="container container--wide footer-main">
@@ -302,6 +425,39 @@
       <p class="container container--wide footer-copy">© 2026 RITA Food &amp; Drink Co.,Ltd</p>
     </div>
   </footer>
+  <nav class="bottom-nav" aria-label="Quick links">
+    <ul class="bottom-nav__list">
+      <li><a class="bottom-nav__item" href="./index.html"><span class="icon icon--nav-home" aria-hidden="true"></span><span class="bottom-nav__label">Home</span></a></li>
+      <li><button class="bottom-nav__item" type="button" popovertarget="services-sheet" aria-expanded="false"><span class="icon icon--nav-services" aria-hidden="true"></span><span class="bottom-nav__label">Services</span></button></li>
+      <li><button class="bottom-nav__item is-current" type="button" popovertarget="products-sheet" aria-expanded="false"><span class="icon icon--nav-products" aria-hidden="true"></span><span class="bottom-nav__label">Products</span></button></li>
+      <li><a class="bottom-nav__item" href="./our-story.html"><span class="icon icon--nav-about" aria-hidden="true"></span><span class="bottom-nav__label">About</span></a></li>
+      <li><a class="bottom-nav__item" href="./contact.html"><span class="icon icon--nav-contact" aria-hidden="true"></span><span class="bottom-nav__label">Contact</span></a></li>
+    </ul>
+    <div class="bottom-nav__sheet bottomSheetJS" id="services-sheet" popover aria-label="Services">
+      <div class="bottom-nav__sheet-panel">
+        <div class="bottom-nav__sheet-grid">
+          <a class="bottom-nav__sheet-link" href="./oem-service.html">OEM service</a>
+          <a class="bottom-nav__sheet-link" href="./odm-service.html">ODM service</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-nav__sheet bottomSheetJS" id="products-sheet" popover aria-label="Products">
+      <div class="bottom-nav__sheet-panel">
+        <div class="bottom-nav__sheet-grid">
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=fruit-juice">Fruit juice</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=aloe-vera-drinks">Aloe vera drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=coconut-products">Coconut products</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=sparkling-drinks">Sparkling drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=milk-drinks">Milk drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=seed-drinks">Seed drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=energy-drinks">Energy drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=coffee-drinks">Coffee drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=tea-drinks">Tea drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=special-drinks">Special drinks</a>
+        </div>
+      </div>
+    </div>
+  </nav>
   <script src="./assets/library/smoothscroll/SmoothScroll.min.js" defer></script>
   <script src="./js/main.js" type="module"></script>
 </body>

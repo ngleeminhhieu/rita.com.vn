@@ -10,6 +10,7 @@
   <link rel="preload" href="./assets/fonts/montserrat/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./css/fonts.css">
   <link rel="stylesheet" href="./css/site.css">
+  <link rel="stylesheet" href="./css/content-detail.css">
   <link rel="modulepreload" href="./js/main.js">
 </head>
 <body>
@@ -138,27 +139,25 @@
                 <option value="2l">2 L</option>
               </select>
             </label>
-            <label class="search-bar__field search-bar__field--wide">
-              <span class="sr-only">Product name</span>
-              <input type="search" name="s" placeholder="Search for products" autocomplete="off">
-            </label>
-            <button class="button button--primary button--sm search-bar__submit" type="submit"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Submit</span></button>
+            <div class="search-bar__field search-bar__field--wide search-bar__field--keyword">
+              <label>
+                <span class="sr-only">Product name</span>
+                <input type="search" name="s" placeholder="Search for products" autocomplete="off">
+              </label>
+              <button class="button button--primary search-bar__keyword-submit" type="submit" aria-label="Search products"><span class="icon icon--search" aria-hidden="true"></span></button>
+            </div>
           </div>
         </form>
       </div>
       <a class="header-contact" href="./contact.html"><span class="header-contact__dot" aria-hidden="true"></span>Contact</a>
       <div class="header-tools">
         <button class="header-icon searchToggleJS" type="button" aria-label="Open search" aria-controls="header-search" aria-expanded="false"><span class="icon icon--search"></span></button>
-        <button class="header-icon menuOpenJS" type="button" aria-label="Open menu" aria-controls="site-menu" aria-haspopup="dialog" aria-expanded="false"><span class="menu-icon"><span></span><span></span><span></span></span></button>
+        <button class="header-icon menuOpenJS" type="button" aria-label="Open menu" popovertarget="site-menu" aria-expanded="false"><span class="menu-icon"><span></span><span></span><span></span></span></button>
       </div>
     </div>
   </header>
-  <dialog class="site-menu siteMenuJS" id="site-menu" aria-label="Menu">
+  <div class="site-menu siteMenuJS" id="site-menu" popover aria-label="Menu">
     <div class="site-menu__panel">
-      <div class="site-menu__head">
-        <a class="site-menu__logo" href="./index.html" aria-label="RITA Food &amp; Drink home"><img src="./assets/images/logo.svg" alt="RITA" width="123" height="55"></a>
-        <button class="close-button site-menu__close menuCloseJS" type="button" aria-label="Close menu"></button>
-      </div>
       <nav class="site-menu__nav mobileNavJS" aria-label="Mobile menu">
         <button class="mobile-menu__back mobileBackJS" type="button" hidden>Back</button>
         <p class="mobile-menu__title mobileTitleJS" hidden></p>
@@ -206,18 +205,19 @@
               <li class="menu-item"><a href="./blog.html?category=fb-certificate">F&amp;B certificate</a></li>
             </ul>
           </li>
+          <li class="menu-item"><a href="./contact.html">Contact</a></li>
           <li class="menu-item"><a href="https://vn105660124.trustpass.alibaba.com/" target="_blank" rel="noopener">RITA on Alibaba</a></li>
         </ul>
       </nav>
       <div class="site-menu__extra">
-        <a class="button button--primary" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
         <ul class="site-menu__contacts">
-          <li><a href="mailto:marketing@rita.com.vn">marketing@rita.com.vn</a></li>
-          <li><a href="tel:+842743784788">(+84) 274 3784 788</a></li>
+          <li><a href="https://maps.app.goo.gl/1k4urKnhR8r7mSMo9" target="_blank" rel="noopener">No. 08, Thong Nhat Boulevard, Song Than 2 Industrial Park, Di An Ward, Ho Chi Minh City, Vietnam</a></li>
+          <li><span class="site-menu__contact-label">Sales inquiry</span><a href="tel:+842743784788">(+84) 274 3784 788</a></li>
+          <li><span class="site-menu__contact-label">Office</span><a href="tel:+842743784688">(+84) 274 3784 688</a></li>
         </ul>
       </div>
     </div>
-  </dialog>
+  </div>
   <main>
     <header class="page-banner">
       <div class="page-banner__media">
@@ -230,6 +230,219 @@
         </div>
       </div>
     </header>
+    <section class="ss-pd bg-surface" aria-labelledby="product-list-title">
+      <div class="container">
+        <h2 class="sr-only categoryNameJS" id="product-list-title">Fruit juice</h2>
+        <div class="filter filter--sticky filter--sticky-desktop filterJS stickyFilterJS">
+          <button class="button button--primary filter__toggle filterToggleJS" type="button" aria-expanded="false" aria-controls="product-filter"><span class="button__icon button__icon--filter" aria-hidden="true"></span><span class="button__text">Find your perfect drink</span></button>
+          <form class="search-bar search-bar--inline filter__panel" id="product-filter" action="./searching.html" method="get" role="search" aria-label="Filter products">
+            <input type="hidden" name="post_type" value="product">
+            <label class="search-bar__field">
+              <span class="sr-only">Category</span>
+              <select name="product_cat">
+                <option value="" selected>Choose category</option>
+                <option value="fruit-juice">Fruit juice</option>
+                <option value="aloe-vera-drinks">Aloe vera drinks</option>
+                <option value="coconut-products">Coconut products</option>
+                <option value="sparkling-drinks">Sparkling drinks</option>
+                <option value="milk-drinks">Milk drinks</option>
+                <option value="seed-drinks">Seed drinks</option>
+                <option value="energy-drinks">Energy drinks</option>
+                <option value="coffee-drinks">Coffee drinks</option>
+                <option value="tea-drinks">Tea drinks</option>
+                <option value="special-drinks">Special drinks</option>
+              </select>
+            </label>
+            <label class="search-bar__field">
+              <span class="sr-only">Packaging</span>
+              <select name="filter_packaging">
+                <option value="" selected>Choose packaging</option>
+                <option value="tin-can">Tin can</option>
+                <option value="slim-can">Slim can</option>
+                <option value="short-can">Short can</option>
+                <option value="aluminum-can">Aluminum can</option>
+                <option value="pet-bottle">PET bottle</option>
+                <option value="glass-bottle">Glass bottle</option>
+                <option value="pp-bottle">PP bottle</option>
+                <option value="pp-paper">PP paper</option>
+                <option value="bag">Bag</option>
+                <option value="tetra-pak">Tetra Pak</option>
+              </select>
+            </label>
+            <label class="search-bar__field">
+              <span class="sr-only">Volume</span>
+              <select name="filter_volume">
+                <option value="" selected>Choose volume</option>
+                <option value="190ml">190 ml</option>
+                <option value="200ml">200 ml</option>
+                <option value="240ml">240 ml</option>
+                <option value="250ml">250 ml</option>
+                <option value="280ml">280 ml</option>
+                <option value="290ml">290 ml</option>
+                <option value="300ml">300 ml</option>
+                <option value="310ml">310 ml</option>
+                <option value="315ml">315 ml</option>
+                <option value="320ml">320 ml</option>
+                <option value="325ml">325 ml</option>
+                <option value="330ml">330 ml</option>
+                <option value="340ml">340 ml</option>
+                <option value="350ml">350 ml</option>
+                <option value="360ml">360 ml</option>
+                <option value="400ml">400 ml</option>
+                <option value="410ml">410 ml</option>
+                <option value="450ml">450 ml</option>
+                <option value="470ml">470 ml</option>
+                <option value="485ml">485 ml</option>
+                <option value="490ml">490 ml</option>
+                <option value="500ml">500 ml</option>
+                <option value="600ml">600 ml</option>
+                <option value="750ml">750 ml</option>
+                <option value="960ml">960 ml</option>
+                <option value="1l">1 L</option>
+                <option value="1-25l">1.25 L</option>
+                <option value="1-5l">1.5 L</option>
+                <option value="2l">2 L</option>
+              </select>
+            </label>
+            <div class="search-bar__field search-bar__field--wide search-bar__field--keyword">
+              <label>
+                <span class="sr-only">Product name</span>
+                <input type="search" name="s" placeholder="Search for products" autocomplete="off">
+              </label>
+              <button class="button button--primary search-bar__keyword-submit" type="submit" aria-label="Search products"><span class="icon icon--search" aria-hidden="true"></span></button>
+            </div>
+          </form>
+        </div>
+        <ul class="card-grid card-grid--5" id="product-list" role="list">
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-peach.webp" alt="" width="489" height="489" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Peach Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-soursop.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Soursop Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-pineapple.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Pineapple Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-orange.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Orange Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-mixed-fruit.webp" alt="" width="492" height="492" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Mixed Fruit Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-mangosteen.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Mangosteen Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-mango.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Mango Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-natural-red-grape.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100 Natural Red Grape Juice Drink 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-juice-guava.webp" alt="" width="492" height="492" loading="lazy" decoding="async"></span><span class="product-card__title">100% Guava Juice Drink 490ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-juice-pineapple.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100% Pineapple Juice Drink 490ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-juice-mango.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">100% Mango Juice Drink 490ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-purple-compound.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">Purple Compound Juice Drink 490ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-coco-pistachio.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Coco Pistachio Coconut Water 325ml Sleek Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-ginger-milk-tea.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">Ginger Milk Tea Peach Flavor Drink Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-red-fusion.webp" alt="" width="480" height="480" loading="lazy" decoding="async"></span><span class="product-card__title">Red Fusion Tropical Fruit Juice 250ml Slim Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-gold-fusion.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Gold Fusion Tropical Fruit Juice 250ml Slim Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-green-fusion.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Green Fusion Tropical Fruit Juice 250ml Slim Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-real-grape.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Real Grape Juice Drink 330ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-real-slice.webp" alt="" width="413" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Real Slice Sparkling Lemon Water 330ml Can</span></a></li>
+          <li><a class="product-card" href="./product-detail.html"><span class="product-card__media"><img src="./assets/images/product-soda-original.webp" alt="" width="392" height="413" loading="lazy" decoding="async"></span><span class="product-card__title">Original Soda Water 330ml Sleek Can</span></a></li>
+        </ul>
+        <div class="pagination-bar">
+          <nav class="pagination__wrapper" aria-label="Pagination">
+            <ul class="pagination">
+              <li class="disabled page-item"><span class="page-link page-link--text">First</span></li>
+              <li class="disabled page-item"><span class="page-link" aria-hidden="true"><span class="icon-angle-left" aria-hidden="true"></span></span></li>
+              <li class="active page-item"><a aria-current="true" aria-label="Page 1" href="#" class="page-link">1</a></li>
+              <li class="page-item"><a aria-label="Go to page 2" href="./product-category.html?category=fruit-juice&amp;start=20" class="page-link">2</a></li>
+              <li class="page-item"><a aria-label="Go to page 3" href="./product-category.html?category=fruit-juice&amp;start=40" class="page-link">3</a></li>
+              <li class="page-item"><a aria-label="Go to next page" href="./product-category.html?category=fruit-juice&amp;start=20" class="page-link"><span class="icon-angle-right" aria-hidden="true"></span></a></li>
+              <li class="page-item"><a aria-label="Go to end page" href="./product-category.html?category=fruit-juice&amp;start=40" class="page-link page-link--text">Last</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="shop-empty" hidden>
+          <p class="shop-empty__text">No products match these filters.</p>
+          <a class="button button--dark" href="./product-category.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Clear filters</span></a>
+        </div>
+      </div>
+    </section>
+    <section class="ss-pd pdt-0 bg-surface categorySeoJS" data-default="fruit-juice" aria-label="About this category">
+      <div class="container read-more">
+        <div class="read-more__body" id="category-seo-body">
+          <div class="content-detail content-detail--float-media categorySeoContentJS">
+            <p><img src="./assets/images/seo-fruit-juice-1.webp" alt="tropical fruit juice RITA beverage brand" width="700" height="829" loading="lazy" decoding="async"></p>
+            <p>With a foundation laid in 2004, RITA Food &amp; Drink Co., Ltd is one of Vietnam's most experienced juice manufacturers. With a factory scale of 42.000 m2 and more than 500 employees, we supply over 100,000 tons of our exceptional products to meet the market's demands. Throughout our journey, we have successfully established a fruit juice brand that garnered widespread acclaim and appreciation worldwide.</p>
+            <p>If you're searching for "fruit juice near me," look no further! Rita company offers many flavorful fruit juices that satisfy your cravings. We utilize the freshest fruits and employ meticulous processes to make fruit juice bursting with flavor and nutrients. Our modern manufacturer blends ingredients due to a particular traditional recipe. We ensure proper packaging to create convenient and delicious products that provide the benefits of tropical juice.</p>
+            <p>Our unwavering dedication to ensuring the highest quality of our products is fundamental to our success. Therefore, we meticulously adhere to international standards and certifications, such as HACCP, Halal, ISO, GMP, and more, guaranteeing that all our products meet rigorous quality benchmarks.</p>
+            <p>Rita's delectable product range encompasses a variety of delightful options, including orange juice, mango juice, tamarind juice, soursop juice, pineapple juice, peach juice, mangosteen juice, dragon fruit juice, tart cherry juice, apple juice, mixed fruit juice from tropical fruit, and more.</p>
+            <p>Besides the Vietnamese market, Rita company specializes in fruit juice export, delivering the highest quality beverages to over 200 countries and regions worldwide. In addition to our renowned Rita brand, we offer OEM products that provide flexibility in customizing ingredients, flavors, and packaging to meet our customers' unique demands.</p></p>
+            <iframe src="https://www.youtube.com/embed/tohquJeFtNY" title="RITA video" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>
+            <p>Our low minimum order quantity (MOQ) and efficient delivery services ensure a seamless experience for our clients, enabling them to swiftly and efficiently bring their customized products to market swiftly and efficiently.</p>
+            <p>We are proud to be the leading beverage company in Vietnam and a reliable partner for our customers.</p>
+            <p><strong>RITA – GOOD TASTE, GOOD HEALTH</strong></p>
+          </div>
+        </div>
+        <div class="read-more__toggle" hidden>
+          <button class="button button--dark readMoreJS" type="button" aria-controls="category-seo-body" aria-expanded="false" data-more="Show more" data-less="Show less"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Show more</span></button>
+        </div>
+      </div>
+      <template data-category="aloe-vera-drinks">
+        <p><img src="./assets/images/seo-aloe-vera-drinks-1.webp" alt="aloe vera juice" width="700" height="355" loading="lazy" decoding="async"></p>
+        <p>RITA Food & Drink Co., Ltd. has firmly established itself as the epitome of excellence in the realm of the best aloe vera juice company in Vietnam. Whether your requirement calls for a substantial volume of aloe vera juice bulk or you desire the finest brands known for their aloe vera products, RITA is your comprehensive solution.</p>
+        <p>Rita is committed to being a trusted provider of aloe vera drinks, placing utmost importance on quality of products. Our meticulous process begins with carefully selecting the finest aloe vera plants, harvested precisely at their peak, to ensure optimal flavor and nutritional content. Through our state-of-the-art manufacturing facilities, equipped with cutting-edge techniques, we employ advanced methods to preserve aloe vera's natural goodness and health benefits.</p>
+        <p>Drawing on our extensive experience in the beverage industry, we have curated an incredibly diverse product line at RITA company. Our offerings encompass a wide array of aloe vera-based beverages, including sparkling aloe vera, aloe vera drink with pulp, aloe vera juice, aloe vera with bird's nest, aloe vera with fruit juice, and much more.</p>
+        <p>One of our particular sources of pride is our aloe vera drink with pulp, which guarantees a delightful and refreshing drinking experience. The inclusion of pulp adds a refreshing texture that elevates the overall enjoyment and satisfaction derived from each sip. We understand the importance of sensory pleasure, and our commitment to delivering exceptional aloe vera drink with pulp sets us apart in providing a genuinely gratifying drinking experience.</p></p>
+        <iframe src="https://www.youtube.com/embed/cP18pLVOyfE" title="RITA video" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>
+        <p>Whether you're a distributor, retailer, or consumer seeking the best aloe vera juice brands, we go above and beyond to provide exceptional products, exceptional service, and an exceptional aloe vera journey. Trust us to quench your thirst and invigorate your well-being with our remarkable range of aloe vera drink products.</p>
+      </template>
+      <template data-category="coconut-products">
+        <p><img src="./assets/images/seo-coconut-products-1.webp" alt="coconut water RITA beverage brand" width="700" height="1050" loading="lazy" decoding="async"></p>
+        <p>Founded in 2004, RITA Food &amp; Drink Co., Ltd is a Vietnam-based beverage manufacturer specializing in coconut water and coconut-based drinks.</p>
+        <p>RITA sources coconuts selected for beverage production and develops a diverse range of products, including coconut water, sparkling coconut water, coconut water with pulp, coconut water with nata de coco, coconut water blended with fruit juice, coconut milk, and other beverage options.</p>
+        <p>Coconut water is valued for its naturally occurring electrolytes and refreshing taste, with a mild sweetness and distinctive coconut flavor. RITA focuses on product consistency, practical packaging solutions, and competitive pricing to meet the needs of different markets and business partners.</p>
+        <p>With an established export network, RITA has expanded its presence to more than 200 countries and regions worldwide. We support a variety of business needs, including bulk purchasing, coconut water wholesale, and customized beverage solutions. Our products are supplied to different distribution channels, including supermarkets, retailers, food trading companies, and distributors. RITA has also worked with well-known business partners and retail organizations, including Disney, Walmart, and Mega Market.</p>
+        <p>Beyond supplying finished beverages, RITA provides OEM and ODM manufacturing services to support businesses in developing their own beverage brands. With a broad product portfolio and flexible customization options, we work with partners to develop products that align with their target markets, packaging requirements, and business objectives.</p></p>
+        <iframe src="https://www.youtube.com/embed/I7hlTL3FT_0" title="RITA video" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>
+        <p data-pm-slice="1 1 []">At RITA, we focus on developing a diverse range of beverages and building long-term partnerships with customers worldwide. We are committed to maintaining product quality, delivering reliable service, and offering beverage solutions that meet the needs of different markets. Through continuous development and a customer-focused approach, RITA strives to be a dependable partner for businesses seeking beverage products and manufacturing solutions.</p>
+        <p><strong><strong>RITA – GOOD HEALTH, GOOD TASTE</strong></strong></p>
+      </template>
+      <template data-category="sparkling-drinks">
+        <p><img src="./assets/images/seo-sparkling-drinks-1.webp" alt="soft drink sparkling water RITA beverage brand" width="700" height="524" loading="lazy" decoding="async"></p>
+        <p>Rita Food and Drink Co., Ltd takes great pride in being one of the prominent and well-established sparkling water brands.</p>
+        <p>A notable trend that has captivated consumers is the rise of natural fruit sparkling water, and Rita has embraced this trend with enthusiasm. Rita real fruit sparkling water is a delightful fusion of invigorating carbonation and vibrant natural flavors. Indulge in a thirst-quenching experience that revitalizes your senses with every sip, as the lively bubbles gracefully dance across your palate, and the authentic fruit flavors burst forth.</p>
+        <p>In addition to our trendy line of fruit-flavored carbonated water, we have dedicated our research efforts to developing another fascinating variation for our valued customers. Rita sparkling electrolyte drink offers a refreshing twist to traditional sports beverages, combining the invigorating carbonation fizz with the replenishing benefits of electrolytes. These sparkling drinks non alcoholic are perfect for those seeking a healthier alternative while still enjoying the enthusiasm and excitement of carbonated beverages. With sparkling electrolyte drink, you can stay hydrated and energized, indulging in delightful bubbles without needing alcohol.</p>
+        <p>At Rita Food and Drink Co., Ltd, we understand the importance of catering to diverse preferences, so we provide our customers with the convenience of choice through our sparkling drink bottle and drink can options. Our sparkling drink bottle combines functionality and style, offering a portable and resalable solution that allows you to enjoy our refreshing beverages on the go. On the other hand, our sparkling drink can evoke a sense of tradition and familiarity, encapsulating the classic charm of carbonated drinks. Whichever option you prefer, we strive to ensure you can quench your thirst and experience the delightful, enthusiasm carbonated drink in the packaging that suits your taste and lifestyle.</p><div>
+      </template>
+      <template data-category="milk-drinks">
+        <p><img src="./assets/images/seo-milk-drinks-1.webp" alt="milk drink RITA beverage brand" width="700" height="964" loading="lazy" decoding="async"></p>
+        <p>Besides their well-established product lines, Rita Company remains dedicated to pioneering fruit milk and nut drink options continuously. These innovative creations align with conventional tastes and address the dietary requirements of vegetarians and those with milk allergies.</p>
+        <p>In the world of culinary creativity, combining fruit and milk has led to a range of captivating dishes meant to delight both the taste buds and the imagination. Rita expertly creates various fruit milk bottle options that flawlessly mix the silky texture of milk cream with the vibrant essence of different fruits.</p>
+        <p>Among the array of exceptional offerings from Rita, the spotlight falls on fruit milk bubble tea, which stands out as a genuine signature creation. This unique product showcases a harmonious blend of flavors and textures, where the marriage of tapioca pearls and fruit-infused milk creates a sip that is not only refreshingly invigorating but also boasts a distinctive and layered flavor profile.</p>
+        <p>Delving into the world of exotic indulgence, coconut fruit milk infuses the tropical richness of coconut milk with an orchestra of fruits, resulting in a drink that whisks drinkers away to distant shores through its sumptuous fusion. And for those pursuing an exceptional textural experience, milk nata de coco seamlessly marries the creaminess of milk with the chewy, gelatinous texture of nata de coco, crafting a delightful symphony of sensations.</p>
+        <p>Experience the pleasure of Rita company's innovative products for a delightful and satisfying journey.</p>
+      </template>
+      <template data-category="seed-drinks">
+        <p><img src="./assets/images/seo-seed-drinks-1.webp" alt="chia and basil seed drink RITA beverage brand" width="600" height="298" loading="lazy" decoding="async"></p>
+        <p>The seed drink has gained a significant foothold in the market due to its unique flavor profile and abundant nutritional value. Recognizing the market trend, Rita company has introduced an array of seed beverages, including basil seed fruit drink and chia seed drink bottle.</p>
+        <p>Discovering the ultimate hydrating companion is a delightful pursuit when delving into the realm of the best basil seed vs chia seed drink. These contenders showcase remarkable nutritional profiles, with basil seeds offering a unique gelatinous texture, while chia seeds bring forth their omega-3 potency. Navigating these two options is a flavorful journey where individual taste and health preferences intersect to define the perfect sip.</p>
+        <p>Known as "Sabja" in Hindi, basil seeds add a refreshing twist to the beverage, enhancing its nutritional value and aesthetic appeal. This unique concoction presents a variety of basil seed drink flavors to choose from, catering to diverse palates. In response to specific market preferences, we have proudly developed a range of products that center around the unique combination of basil seed Hindi, tailored to cater to the discerning needs of Muslim markets.</p>
+        <p>In your quest for a chia seed drink brand, look no further – Rita proudly emerges as the ultimate choice. Rita chia seed drink is a harmonious fusion of well-being and indulgence. We use the high nutrition chia seed and fresh fruit flavor to create a true symphony of delicious natural energy drinks. Rita chia seed-infused beverages redefine refreshment, offering a delicious way to nourish your body. Experience the essence of vitality with every sip of Rita chia seed drink brand.</p>
+      </template>
+      <template data-category="energy-drinks">
+        <p><img src="./assets/images/seo-energy-drinks-1.webp" alt="Energy drink RITA beverage brand" width="600" height="300" loading="lazy" decoding="async"></p>
+        <p>Rita's best energy drink has taken the market by storm with its exceptional blend of taste, performance, and quality. As one of the leading energy drink companies, Rita has established a strong reputation for delivering an unparalleled boost of vitality to consumers worldwide.</p>
+        <p>Our commitment to using high-quality, natural ingredients is a critical factor that sets Rita's energy drinks apart. By harnessing the power of natural extracts, vitamins, and minerals, the Rita energy drink brand offers a refreshing and invigorating taste without compromising health. This focus on using premium ingredients has garnered them a loyal following among health-conscious consumers looking for an energy drink caffeine.</p>
+        <p>Furthermore, we have paid particular attention to the design and packaging, including the energy drink can and energy drink bottle. The sleek and eye-catching designs stand out on store shelves and make them convenient to carry and consume on the go. This thoughtful packaging approach aligns perfectly with our target consumers' fast-paced lifestyles.</p>
+        <p>In addition to classic energy drink offerings, Rita has expanded their product line to cater to afresh energy drink. We now offer sugar-free and low-calorie variants, appealing to health-conscious individuals seeking to minimize their sugar intake while enjoying a revitalizing energy boost.</p>
+        <p>In conclusion, Rita's prime energy drinks have earned their place among the top contenders in the energy drink market. With our focus on quality ingredients, sustained energy, and attractive packaging, we continue to win over consumers seeking a reliable and refreshing source of vitality. Whether for work, exercise, or daily life, Rita brand energy drinks provide the perfect pick-me-up to stay at the top of your game.</p>
+      </template>
+      <template data-category="coffee-drinks">
+        <p><img src="./assets/images/seo-coffee-drinks-1.webp" alt="Coffee drink RITA beverage brand" width="600" height="300" loading="lazy" decoding="async"></p>
+        <p>Vietnam stands as a renowned coffee destination known for its exceptional quality. The coffee beans harvested in Vietnam consistently deliver a robust and delightful flavor. When it comes to selecting one of the coffee drink brands for business ventures or savoring the complete essence of Vietnamese coffee, we assure you that we are the ideal choice.</p>
+        <p>Rita Food And Drink Co., Ltd proudly sources and utilizes authentic Vietnamese coffee beans to craft the best coffee drink. Rita's ingenuity has brought forth a remarkable black coffee drink that beautifully showcases the distinct flavors of Vietnamese coffee. In addition to our famous black coffee line, we proudly present an extensive selection of coffee options to cater to diverse tastes. Indulge in our refreshing ice coffee drink, revel in the creamy indulgence of our milk coffee drink, or experience the perfect balance of flavors in our latte, mocha, cappuccino, espresso, and vanilla coffee creations. With a wide range of options available, there's something to suit every preference, ensuring a memorable and satisfying sip every time.</p>
+        <p>To elevate the coffee experience to its fullest, we have carefully curated a selection of suitable packaging options. Our range includes coffee cups, aluminum cans, glass bottles to ensure that your coffee is presented appealingly and preserves its freshness, allowing you to savor every sip with utmost satisfaction.</p>
+        <p>At the heart of our products lies the journey of Vietnamese coffee beans, carefully cultivated on the farms and infused into each offering. We take pride in sharing these exceptional beans with the world, spreading the flavors and essence of Vietnam far and wide.</p></p></p>
+        <iframe src="https://www.youtube.com/embed/F2yJLjUYiuo" title="RITA video" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>
+        <p>
+        <p><strong>COFFEE DRINK - HAPPINESS IN A SIP AND LONG-LASTING</strong></p>
+      </template>
+      <template data-category="tea-drinks">
+        <p><img src="./assets/images/seo-tea-drinks-1.webp" alt="tea drink RITA beverage brand" width="700" height="990" loading="lazy" decoding="async"></p>
+        <p>Tea was merely a leaf five millennia ago, but today, it has evolved into a way of life. The Rita Company's extensive research and production efforts have yielded a wide range of tea varieties, catering to the diverse tastes of our valued customers. Among the myriad tea drink brands, Rita has carved a niche as a cherished choice among discerning connoisseurs.<br />Rita offers a variety to explore, from classic choices like ginger tea to trendy favorites like bubble milk tea drinks. These bottled tea drinks offer a convenient way to enjoy your preferred tea flavors on the go.<br />Green tea drink offers a subtle aroma, an elegant flavor, a mild bitterness, and a delightful, lingering sweetness. Crafted from authentic tea leaves, it encapsulates numerous health benefits, providing the perfect choice to elevate any ordinary moment.<br />Kombucha tea drink is crafted from fresh tea, sugar, and a symbiotic colony of bacteria and yeast (SCOBY), which undergo a fermentation process to produce a vibrant, lightly effervescent, and naturally fizzy beverage.<br />Ginger tea, renowned for its soothing properties and refreshing taste, is a timeless classic. Many tea drink brands now offer ginger-infused options that deliver a warming and spicy kick with each sip. Whether you prefer hot or cold, ginger tea is a versatile choice to enjoy year-round.<br />Bubble milk tea drink made from tea, milk, and chewy tapioca pearls creates delightful flavors and textures. With its thick, creamy, and irresistibly smooth texture, this beverage is an excellent choice for those who relish afternoon tea indulgence. And, of course, it's a delightful treat to savor anytime you desire.</p>
+      </template>
+    </section>
     <script type="application/json" class="categoryDataJS">[{"slug": "fruit-juice", "name": "Fruit juice", "image": "./assets/images/cate-fruit-juice-1800.webp", "srcset": "./assets/images/cate-fruit-juice.webp 900w, ./assets/images/cate-fruit-juice-1280.webp 1280w, ./assets/images/cate-fruit-juice-1800.webp 1800w", "alt": "RITA fruit juice", "width": 1800, "height": 1110}, {"slug": "aloe-vera-drinks", "name": "Aloe vera drinks", "image": "./assets/images/cate-aloe-vera-1800.webp", "srcset": "./assets/images/cate-aloe-vera.webp 900w, ./assets/images/cate-aloe-vera-1280.webp 1280w, ./assets/images/cate-aloe-vera-1800.webp 1800w", "alt": "RITA aloe vera drinks", "width": 1800, "height": 1110}, {"slug": "coconut-products", "name": "Coconut products", "image": "./assets/images/cate-coconut-1800.webp", "srcset": "./assets/images/cate-coconut.webp 900w, ./assets/images/cate-coconut-1280.webp 1280w, ./assets/images/cate-coconut-1800.webp 1800w", "alt": "RITA coconut products", "width": 1800, "height": 1110}, {"slug": "sparkling-drinks", "name": "Sparkling drinks", "image": "./assets/images/cate-sparkling-1800.webp", "srcset": "./assets/images/cate-sparkling.webp 900w, ./assets/images/cate-sparkling-1280.webp 1280w, ./assets/images/cate-sparkling-1800.webp 1800w", "alt": "RITA sparkling drinks", "width": 1800, "height": 1110}, {"slug": "milk-drinks", "name": "Milk drinks", "image": "./assets/images/cate-milk-1800.webp", "srcset": "./assets/images/cate-milk.webp 900w, ./assets/images/cate-milk-1280.webp 1280w, ./assets/images/cate-milk-1800.webp 1800w", "alt": "RITA milk drinks", "width": 1800, "height": 1110}, {"slug": "seed-drinks", "name": "Seed drinks", "image": "./assets/images/cate-seed-1800.webp", "srcset": "./assets/images/cate-seed.webp 900w, ./assets/images/cate-seed-1280.webp 1280w, ./assets/images/cate-seed-1800.webp 1800w", "alt": "RITA seed drinks", "width": 1800, "height": 1110}, {"slug": "energy-drinks", "name": "Energy drinks", "image": "./assets/images/cate-energy-1800.webp", "srcset": "./assets/images/cate-energy.webp 900w, ./assets/images/cate-energy-1280.webp 1280w, ./assets/images/cate-energy-1800.webp 1800w", "alt": "RITA energy drinks", "width": 1800, "height": 1110}, {"slug": "coffee-drinks", "name": "Coffee drinks", "image": "./assets/images/cate-coffee-1800.webp", "srcset": "./assets/images/cate-coffee.webp 900w, ./assets/images/cate-coffee-1280.webp 1280w, ./assets/images/cate-coffee-1800.webp 1800w", "alt": "RITA coffee drinks", "width": 1800, "height": 1110}, {"slug": "tea-drinks", "name": "Tea drinks", "image": "./assets/images/cate-tea-1800.webp", "srcset": "./assets/images/cate-tea.webp 900w, ./assets/images/cate-tea-1280.webp 1280w, ./assets/images/cate-tea-1800.webp 1800w", "alt": "RITA tea drinks", "width": 1800, "height": 1110}, {"slug": "special-drinks", "name": "Special drinks", "image": "./assets/images/cate-special-1800.webp", "srcset": "./assets/images/cate-special.webp 900w, ./assets/images/cate-special-1280.webp 1280w, ./assets/images/cate-special-1800.webp 1800w", "alt": "RITA special drinks", "width": 1800, "height": 1110}]</script>
   </main>
   <footer class="site-footer cv-auto">
@@ -303,6 +516,39 @@
       <p class="container container--wide footer-copy">© 2026 RITA Food &amp; Drink Co.,Ltd</p>
     </div>
   </footer>
+  <nav class="bottom-nav" aria-label="Quick links">
+    <ul class="bottom-nav__list">
+      <li><a class="bottom-nav__item" href="./index.html"><span class="icon icon--nav-home" aria-hidden="true"></span><span class="bottom-nav__label">Home</span></a></li>
+      <li><button class="bottom-nav__item" type="button" popovertarget="services-sheet" aria-expanded="false"><span class="icon icon--nav-services" aria-hidden="true"></span><span class="bottom-nav__label">Services</span></button></li>
+      <li><button class="bottom-nav__item is-current" type="button" popovertarget="products-sheet" aria-expanded="false"><span class="icon icon--nav-products" aria-hidden="true"></span><span class="bottom-nav__label">Products</span></button></li>
+      <li><a class="bottom-nav__item" href="./our-story.html"><span class="icon icon--nav-about" aria-hidden="true"></span><span class="bottom-nav__label">About</span></a></li>
+      <li><a class="bottom-nav__item" href="./contact.html"><span class="icon icon--nav-contact" aria-hidden="true"></span><span class="bottom-nav__label">Contact</span></a></li>
+    </ul>
+    <div class="bottom-nav__sheet bottomSheetJS" id="services-sheet" popover aria-label="Services">
+      <div class="bottom-nav__sheet-panel">
+        <div class="bottom-nav__sheet-grid">
+          <a class="bottom-nav__sheet-link" href="./oem-service.html">OEM service</a>
+          <a class="bottom-nav__sheet-link" href="./odm-service.html">ODM service</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-nav__sheet bottomSheetJS" id="products-sheet" popover aria-label="Products">
+      <div class="bottom-nav__sheet-panel">
+        <div class="bottom-nav__sheet-grid">
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=fruit-juice">Fruit juice</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=aloe-vera-drinks">Aloe vera drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=coconut-products">Coconut products</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=sparkling-drinks">Sparkling drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=milk-drinks">Milk drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=seed-drinks">Seed drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=energy-drinks">Energy drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=coffee-drinks">Coffee drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=tea-drinks">Tea drinks</a>
+          <a class="bottom-nav__sheet-link" href="./product-category.html?category=special-drinks">Special drinks</a>
+        </div>
+      </div>
+    </div>
+  </nav>
   <script src="./assets/library/smoothscroll/SmoothScroll.min.js" defer></script>
   <script src="./js/main.js" type="module"></script>
 </body>
