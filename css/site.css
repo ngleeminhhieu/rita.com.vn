@@ -370,7 +370,7 @@ h3 {
   :root {
     --page-gutter: clamp(16px, 3.125vw, 32px);
     --page-gutter-wide: var(--page-gutter);
-    /* --btn-h: 46px; */
+    --btn-h: 45px;
     --btn-h-sm: 42px;
     --btn-min-w: 128px;
     --btn-pad: 18px;
@@ -391,7 +391,7 @@ h3 {
 
 @media (max-width: 680px) {
   :root {
-    /* --btn-h: 40px; */
+    --btn-h: 40px;
     --btn-h-sm: 40px;
     --btn-gap: 2px;
     --btn-min-w: 104px;
@@ -1248,19 +1248,8 @@ main {
   line-height: var(--lh-text);
 }
 
-.site-menu__contacts li {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 2px 10px;
-}
-
 .site-menu__contact-label {
-  color: var(--muted);
-  font-size: var(--fs-label);
   font-weight: var(--fw-bold);
-  letter-spacing: .06em;
-  text-transform: uppercase;
 }
 
 .site-menu__contacts a {
@@ -4200,6 +4189,10 @@ html:has(.filter--sticky.is-stuck) {
     padding-bottom: env(safe-area-inset-bottom);
     background: var(--white);
     box-shadow: 0 -4px 16px rgb(0 0 0 / 6%);
+  }
+
+  body:has(:is(.site-menu, .bottom-nav__sheet):popover-open) .bottom-nav {
+    box-shadow: none;
   }
 
   .bottom-nav__list {
