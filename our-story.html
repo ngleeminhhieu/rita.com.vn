@@ -9,17 +9,86 @@
   <link rel="icon" href="./assets/images/favicon.jpg" type="image/jpeg">
   <link rel="preload" href="./assets/fonts/montserrat/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./css/fonts.css">
+  <link rel="stylesheet" href="./assets/library/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="./css/site.css">
   <link rel="modulepreload" href="./js/main.js">
+  <link rel="modulepreload" href="./js/modules/WelcomeScreenModule.js">
+  <link rel="modulepreload" href="./js/modules/WaveRibbonModule.js">
+  <link rel="modulepreload" href="./js/modules/ProductLineupModule.js">
+  <script>
+    document.documentElement.classList.add("is-welcome");
+    window.setTimeout(() => {
+      if (document.querySelector(".welcomeScreenJS.is-ready")) return;
+      document.documentElement.classList.remove("is-welcome");
+      document.dispatchEvent(new CustomEvent("welcome:dismissed"));
+    }, 6000);
+  </script>
 </head>
 <body>
-  <header class="site-header site-header--overlay siteHeaderJS">
+  <div class="welcome-screen welcomeScreenJS" role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-describedby="welcome-desc" tabindex="-1">
+    <div class="page-loader welcomeLoaderJS" aria-hidden="true" style="--load: .6">
+      <p class="page-loader__count"><span class="welcomeCountJS">60</span><span class="page-loader__unit">%</span></p>
+      <span class="page-loader__bar"><span class="page-loader__fill"></span></span>
+    </div>
+    <div class="container container--wide welcome-screen__bar">
+      <a class="site-logo" href="./index.html" aria-label="RITA Food &amp; Drink home"><img src="./assets/images/logo.svg" alt="RITA" width="123" height="55"></a>
+      <a class="header-cta" href="https://rita.com.vn/Profile-Rita/index.html" target="_blank" rel="noopener"><span class="header-cta__dot" aria-hidden="true"></span>Catalog</a>
+    </div>
+    <div class="welcome-screen__head">
+      <p class="welcome-screen__title" id="welcome-title">RITA Food and Drink Co.,Ltd</p>
+      <p class="welcome-screen__desc" id="welcome-desc">Established in 2004, RITA Food and Drink Co., Ltd. is Vietnam’s preeminent beverage manufacturer and a core pillar of the global beverage supply chain. Partnering with leading brands across more than 180+ countries and territories worldwide, we deliver robust industrial production capacity and profound technical expertise to support large-scale global distribution.</p>
+      <div class="button-group button-group--start welcome-screen__actions">
+        <a class="button button--line" href="./our-history.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Our history</span></a>
+        <a class="button button--dark" href="./products.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Our products</span></a>
+      </div>
+    </div>
+    <div class="welcome-screen__stage">
+      <div class="welcome-screen__lineup product-lineup productLineupJS">
+        <svg class="product-lineup__ribbon wave-ribbon waveRibbonJS" viewBox="0 0 1512 570" aria-hidden="true" focusable="false">
+          <mask id="welcome-wave-mask">
+            <path class="wave-ribbon__reveal" pathLength="1" d="M-330 250C-150 250-150 86 30 86C270 86 290 268 430 268C481 268 566 34 769 34C889 34 916 182 1036 182C1191 182 1190 24 1345 24C1534 24 1597 262 1660 262C1825 262 1825 40 1990 40"/>
+          </mask>
+          <g mask="url(#welcome-wave-mask)">
+            <path class="wave-ribbon__band" id="welcome-wave" d="M-330 250C-150 250-150 86 30 86C270 86 290 268 430 268C481 268 566 34 769 34C889 34 916 182 1036 182C1191 182 1190 24 1345 24C1534 24 1597 262 1660 262C1825 262 1825 40 1990 40"/>
+            <text class="wave-ribbon__text"><textPath class="waveRibbonTextJS" href="#welcome-wave">YOUR BRAND, OUR PRODUCTION × BEVERAGE INNOVATION ✱ OEM &amp; ODM EXPERTISE → PRIVATE LABEL SOLUTIONS × FROM CONCEPT TO CREATION ✱ QUALITY YOU CAN TRUST → MADE FOR GLOBAL MARKETS × BUILDING BRANDS TOGETHER ✱</textPath></text>
+          </g>
+        </svg>
+        <img class="product-lineup__item" src="./assets/images/pack-can-190ml.webp" alt="RITA passion fruit juice drink 180ml can" width="297" height="650" decoding="async" style="--h: 28.5%">
+        <img class="product-lineup__item" src="./assets/images/pack-can-245ml.webp" alt="RITA turmeric passion fruit drink 250ml slim can" width="286" height="734" decoding="async" style="--h: 35.5%">
+        <img class="product-lineup__item" src="./assets/images/pack-can-325ml.webp" alt="RITA Coco Juice coconut water 325ml sleek can" width="283" height="773" decoding="async" style="--h: 40.5%">
+        <img class="product-lineup__item" src="./assets/images/pack-can-330ml.webp" alt="RITA cherry limeade prebiotic soda 330ml short can" width="396" height="709" decoding="async" style="--h: 30.6%">
+        <img class="product-lineup__item" src="./assets/images/pack-can-495ml.webp" alt="RITA Coco Pista coconut water 490ml can" width="354" height="900" decoding="async" style="--h: 44.1%">
+        <img class="product-lineup__item" src="./assets/images/pack-glass-250ml.webp" alt="RITA chia seed drink kiwi 250ml glass bottle" width="298" height="750" decoding="async" style="--h: 38.9%">
+        <img class="product-lineup__item" src="./assets/images/pack-glass-280ml.webp" alt="RITA ginger milk tea 280ml glass bottle" width="227" height="589" decoding="async" style="--h: 41.3%">
+        <img class="product-lineup__item" src="./assets/images/pack-glass-290ml.webp" alt="RITA basil seed drink passion fruit 290ml glass bottle" width="272" height="758" decoding="async" style="--h: 43.9%">
+        <img class="product-lineup__item" src="./assets/images/pack-glass-300ml.webp" alt="RITA avocado juice 300ml glass bottle" width="203" height="762" decoding="async" style="--h: 54.3%">
+        <img class="product-lineup__item" src="./assets/images/pack-glass-315ml.webp" alt="RITA bubble tea banana 315ml glass bottle" width="205" height="769" decoding="async" style="--h: 55.1%">
+        <img class="product-lineup__item" src="./assets/images/pack-glass-470ml.webp" alt="RITA coconut milk with nata de coco strawberry 470ml glass bottle" width="282" height="752" decoding="async" style="--h: 49.9%">
+        <img class="product-lineup__item" src="./assets/images/pack-pet-330ml.webp" alt="RITA aloe vera strawberry 330ml PET bottle" width="245" height="733" decoding="async" style="--h: 45.7%">
+        <img class="product-lineup__item" src="./assets/images/pack-pet-350ml.webp" alt="RITA mango juice 350ml PET bottle" width="272" height="761" decoding="async" style="--h: 44.4%">
+        <img class="product-lineup__item" src="./assets/images/pack-pet-400ml.webp" alt="RITA Strong energy drink ginseng 400ml PET bottle" width="218" height="776" decoding="async" style="--h: 54.8%">
+        <img class="product-lineup__item" src="./assets/images/pack-pet-450ml.webp" alt="RITA young coconut water 450ml PET bottle" width="197" height="602" loading="lazy" decoding="async" style="--h: 51.4%">
+        <img class="product-lineup__item" src="./assets/images/pack-pet-1l.webp" alt="RITA BiGi BiGi mango with nata de coco 1L PET bottle" width="250" height="744" loading="lazy" decoding="async" style="--h: 65.8%">
+        <img class="product-lineup__item" src="./assets/images/pack-pet-1-5l.webp" alt="RITA orange juice with pulp 1.5L PET bottle" width="228" height="770" loading="lazy" decoding="async" style="--h: 82.0%">
+        <img class="product-lineup__item" src="./assets/images/pack-pet-2l.webp" alt="RITA NFC orange juice 2L PET bottle" width="346" height="760" loading="lazy" decoding="async" style="--h: 67.6%">
+        <img class="product-lineup__item" src="./assets/images/pack-pp-250ml.webp" alt="RITA coconut milk chocolate 250ml PP bottle" width="295" height="715" loading="lazy" decoding="async" style="--h: 35.8%">
+        <img class="product-lineup__item" src="./assets/images/pack-pp-300ml.webp" alt="RITA Ripumi apple milk 310ml PP bottle" width="259" height="782" loading="lazy" decoding="async" style="--h: 44.7%">
+        <img class="product-lineup__item" src="./assets/images/pack-pp-330ml.webp" alt="RITA protein milk shake strawberry 330ml PP bottle" width="246" height="716" loading="lazy" decoding="async" style="--h: 44.4%">
+        <img class="product-lineup__item" src="./assets/images/pack-pp-500ml.webp" alt="RITA watermelon juice 500ml PP bottle" width="218" height="707" loading="lazy" decoding="async" style="--h: 54.8%">
+        <img class="product-lineup__item" src="./assets/images/pack-pp-1l.webp" alt="RITA coconut water 1L square PP bottle" width="312" height="729" loading="lazy" decoding="async" style="--h: 51.2%">
+        <img class="product-lineup__item" src="./assets/images/pack-pp-1-25l.webp" alt="RITA pear milk 1.25L PP bottle" width="293" height="900" loading="lazy" decoding="async" style="--h: 71.6%">
+        <img class="product-lineup__item" src="./assets/images/pack-pp-2l.webp" alt="RITA coconut water 2L square PP bottle" width="304" height="745" loading="lazy" decoding="async" style="--h: 66.6%">
+      </div>
+    </div>
+    <button class="scroll-cue welcome-screen__cue welcomeDismissJS" type="button"><span class="scroll-cue__text">Scroll down</span><span class="scroll-cue__icon" aria-hidden="true"></span></button>
+  </div>
+  <header class="site-header siteHeaderJS">
     <div class="container container--wide site-header__inner">
       <a class="site-logo" href="./index.html" aria-label="RITA Food &amp; Drink home">
         <img src="./assets/images/logo.svg" alt="RITA" width="123" height="55">
       </a>
       <div class="primary-nav">
-        <nav class="primary-nav__menu" aria-label="Main menu">
+        <div role="navigation" class="primary-nav__menu" aria-label="Main menu">
           <ul class="primary-menu">
             <li class="menu-item"><a href="./index.html">Home</a></li>
             <li class="menu-item menu-item-has-children current-menu-ancestor current-menu-parent"><a href="./our-story.html">About us</a>
@@ -34,6 +103,7 @@
             </li>
             <li class="menu-item menu-item-has-children"><a href="./products.html">Products</a>
               <ul class="sub-menu">
+                <li class="menu-item"><a href="./new-products.html">New products</a></li>
                 <li class="menu-item"><a href="./product-category.html?category=fruit-juice">Fruit juice</a></li>
                 <li class="menu-item"><a href="./product-category.html?category=aloe-vera-drinks">Aloe vera drinks</a></li>
                 <li class="menu-item"><a href="./product-category.html?category=coconut-products">Coconut products</a></li>
@@ -50,6 +120,7 @@
               <ul class="sub-menu">
                 <li class="menu-item"><a href="./oem-service.html">OEM service</a></li>
                 <li class="menu-item"><a href="./odm-service.html">ODM service</a></li>
+                <li class="menu-item"><a href="./wholesale-service.html">Wholesale service</a></li>
               </ul>
             </li>
             <li class="menu-item menu-item-has-children"><a href="./blog.html">Blog</a>
@@ -64,29 +135,13 @@
                 <li class="menu-item"><a href="./blog.html?category=fb-certificate">F&amp;B certificate</a></li>
               </ul>
             </li>
-            <li class="menu-item"><a href="https://vn105660124.trustpass.alibaba.com/" target="_blank" rel="noopener">RITA on Alibaba</a></li>
+            <li class="menu-item"><a href="./contact.html">Contact</a></li>
           </ul>
-        </nav>
+        </div>
         <button class="header-icon search-toggle searchToggleJS" type="button" aria-label="Open search" aria-controls="header-search" aria-expanded="false"><span class="icon icon--search"></span></button>
         <form class="header-search headerSearchJS" id="header-search" action="./searching.html" method="get" role="search" aria-label="Search products" hidden>
           <input type="hidden" name="post_type" value="product">
           <div class="search-bar">
-            <label class="search-bar__field">
-              <span class="sr-only">Category</span>
-              <select name="product_cat">
-                <option value="" selected>Choose category</option>
-                <option value="fruit-juice">Fruit juice</option>
-                <option value="aloe-vera-drinks">Aloe vera drinks</option>
-                <option value="coconut-products">Coconut products</option>
-                <option value="sparkling-drinks">Sparkling drinks</option>
-                <option value="milk-drinks">Milk drinks</option>
-                <option value="seed-drinks">Seed drinks</option>
-                <option value="energy-drinks">Energy drinks</option>
-                <option value="coffee-drinks">Coffee drinks</option>
-                <option value="tea-drinks">Tea drinks</option>
-                <option value="special-drinks">Special drinks</option>
-              </select>
-            </label>
             <label class="search-bar__field">
               <span class="sr-only">Packaging</span>
               <select name="filter_packaging">
@@ -148,7 +203,7 @@
           </div>
         </form>
       </div>
-      <a class="header-contact" href="./contact.html"><span class="header-contact__dot" aria-hidden="true"></span>Contact</a>
+      <button class="header-cta popupOpenJS" type="button" aria-haspopup="dialog" aria-controls="catalog-popup"><span class="header-cta__dot" aria-hidden="true"></span>Catalog</button>
       <div class="header-tools">
         <button class="header-icon searchToggleJS" type="button" aria-label="Open search" aria-controls="header-search" aria-expanded="false"><span class="icon icon--search"></span></button>
         <button class="header-icon menuOpenJS" type="button" aria-label="Open menu" popovertarget="site-menu" aria-expanded="false"><span class="menu-icon"><span></span><span></span><span></span></span></button>
@@ -157,7 +212,7 @@
   </header>
   <div class="site-menu siteMenuJS" id="site-menu" popover aria-label="Menu">
     <div class="site-menu__panel">
-      <nav class="site-menu__nav mobileNavJS" aria-label="Mobile menu">
+      <div role="navigation" class="site-menu__nav mobileNavJS" aria-label="Mobile menu">
         <button class="mobile-menu__back mobileBackJS" type="button" hidden>Back</button>
         <p class="mobile-menu__title mobileTitleJS" hidden></p>
         <ul class="mobile-menu">
@@ -174,6 +229,7 @@
           </li>
           <li class="menu-item menu-item-has-children"><a href="./products.html">Products</a>
             <ul class="sub-menu">
+              <li class="menu-item"><a href="./new-products.html">New products</a></li>
               <li class="menu-item"><a href="./product-category.html?category=fruit-juice">Fruit juice</a></li>
               <li class="menu-item"><a href="./product-category.html?category=aloe-vera-drinks">Aloe vera drinks</a></li>
               <li class="menu-item"><a href="./product-category.html?category=coconut-products">Coconut products</a></li>
@@ -190,6 +246,7 @@
             <ul class="sub-menu">
               <li class="menu-item"><a href="./oem-service.html">OEM service</a></li>
               <li class="menu-item"><a href="./odm-service.html">ODM service</a></li>
+              <li class="menu-item"><a href="./wholesale-service.html">Wholesale service</a></li>
             </ul>
           </li>
           <li class="menu-item menu-item-has-children"><a href="./blog.html">Blog</a>
@@ -205,9 +262,8 @@
             </ul>
           </li>
           <li class="menu-item"><a href="./contact.html">Contact</a></li>
-          <li class="menu-item"><a href="https://vn105660124.trustpass.alibaba.com/" target="_blank" rel="noopener">RITA on Alibaba</a></li>
         </ul>
-      </nav>
+      </div>
       <div class="site-menu__extra">
         <ul class="site-menu__contacts">
           <li><span class="site-menu__contact-label">Address:</span> <a href="https://maps.app.goo.gl/1k4urKnhR8r7mSMo9" target="_blank" rel="noopener">No. 08, Thong Nhat Boulevard, Song Than 2 Industrial Park, Di An Ward, Ho Chi Minh City, Vietnam</a></li>
@@ -223,12 +279,542 @@
         <img src="./assets/images/banner-story.webp" srcset="./assets/images/banner-story-768.webp 768w, ./assets/images/banner-story-1280.webp 1280w, ./assets/images/banner-story.webp 1920w" sizes="100vw" alt="RITA R&amp;D laboratory team developing new beverage formulas" width="1920" height="1082" fetchpriority="high">
         <div class="container page-banner__content">
           <h1 class="page-banner__title">Our story</h1>
-          <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <div role="navigation" class="breadcrumbs" aria-label="Breadcrumb">
             <ol><li><a href="./index.html"><span class="sr-only">Home</span></a></li><li><a href="./our-story.html">About us</a></li><li aria-current="page">Our story</li></ol>
-          </nav>
+          </div>
         </div>
       </div>
     </header>
+    <section class="ss-pd pdb-0 bg-surface" aria-labelledby="story-intro-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="story-intro-title">The leading in beverage manufacturing from Viet Nam</h2>
+          <p class="section-desc section-desc--center">Established in 2004, RITA Food and Drink Co., Ltd. is Vietnam’s preeminent beverage manufacturer and a core pillar of the global beverage supply chain. Partnering with leading brands across more than 180+ countries and territories worldwide, we deliver robust industrial production capacity and profound technical expertise to support large-scale global distribution.</p>
+        </div>
+      </div>
+      <div class="photo-strip photoStripJS">
+        <ul class="photo-strip__track" role="list">
+          <li class="photo-strip__item"><img src="./assets/images/story-01.webp" alt="RITA team reviewing documents together" width="273" height="338" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><img src="./assets/images/story-03.webp" alt="RITA staff celebrating a birthday at the office" width="275" height="340" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><img src="./assets/images/story-05.webp" alt="Worker harvesting dragon fruit at a RITA farm" width="273" height="339" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><img src="./assets/images/story-06.webp" alt="RITA team travelling to an international exhibition" width="275" height="339" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><img src="./assets/images/story-07.webp" alt="Buyers inspecting cans on the RITA production line" width="273" height="339" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><img src="./assets/images/story-08.webp" alt="Workers preparing fresh fruit in the RITA factory" width="275" height="339" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><img src="./assets/images/story-09.webp" alt="Cans moving along the RITA filling line" width="275" height="339" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><img src="./assets/images/story-10.webp" alt="Technician checking stainless steel processing tanks" width="275" height="340" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><img src="./assets/images/story-12.webp" alt="RITA drinks on supermarket shelves" width="273" height="338" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><img src="./assets/images/story-02.webp" alt="RITA team building day" width="273" height="338" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><img src="./assets/images/story-04.webp" alt="Aerial view of the RITA factory and solar roof" width="275" height="340" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><img src="./assets/images/story-11.webp" alt="RITA team meeting in the showroom" width="275" height="340" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><img src="./assets/images/story-13.webp" alt="RITA staff training session" width="273" height="338" loading="lazy" decoding="async"></li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="photo-strip__caption">
+          <h3 class="section-subtitle">Unmatched Industrial Capacity</h3>
+          <p class="section-desc section-desc--center">Our integrated manufacturing ecosystem is engineered for high-volume global output. Equipped with over 50+ advanced automated production lines and a monthly export capacity of more than 1,200+ containers, RITA is fully capable of supporting the world’s most rigorous and demanding supply chains.</p>
+        </div>
+        <dl class="stat-list stat-list--accent photo-strip__stats">
+          <div class="stat"><dt class="stat__label">Product<br>lines</dt><dd class="stat__value countUpJS">50+</dd></div>
+          <div class="stat"><dt class="stat__label">OEM/ODM<br>flexible</dt><dd class="stat__value countUpJS">100%</dd></div>
+          <div class="stat"><dt class="stat__label">Countries and<br>territories</dt><dd class="stat__value countUpJS">180+</dd></div>
+          <div class="stat"><dt class="stat__label">Containers<br>per month</dt><dd class="stat__value countUpJS">1200+</dd></div>
+        </dl>
+        <div class="section-more">
+          <div class="button-group">
+            <a class="button button--dark" href="./our-history.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Our history</span></a>
+            <a class="button" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd pdb-0 bg-surface" aria-labelledby="leader-title">
+      <div class="container">
+        <div class="leader">
+          <div class="leader__message">
+            <h2 class="section-title" id="leader-title">Leadership &amp; direction</h2>
+            <figure class="leader__body">
+              <blockquote class="leader__quote">
+                <p>At RITA, our vision goes beyond manufacturing beverages. We are building a global ecosystem where innovation, quality, and sustainability create lasting value for our customers, our partners, and the communities we serve.</p>
+                <p>As we expand into new markets, our focus stays on excellence in every bottle. Together with partners in over 180 countries, we keep pushing boundaries and proudly share the taste of Vietnam with the world.</p>
+              </blockquote>
+              <figcaption class="leader__sign"><strong class="leader__name">Lin Hong Wei</strong><span class="leader__role">Chairman of RITA Beverage</span></figcaption>
+            </figure>
+          </div>
+          <a class="leader__video" href="https://www.youtube.com/watch?v=1Bfi8XvSLFs" data-fancybox data-caption="RITA company profile" aria-label="Watch the RITA company profile video">
+            <img src="./assets/images/video-factory.webp" alt="Aerial view of the RITA factory with solar panel roofs" width="1200" height="669" loading="lazy" decoding="async">
+            <span class="leader__play" aria-hidden="true"></span>
+            <span class="leader__video-label">Company profile</span>
+          </a>
+          <ul class="vm-grid">
+            <li class="vm-card">
+              <img class="vm-card__icon" src="./assets/images/decor-vision.webp" alt="" width="100" height="100" loading="lazy" decoding="async">
+              <h3 class="vm-card__title">Our vision</h3>
+              <p class="vm-card__text">To become the region’s most trusted beverage manufacturer, driven by innovation and sustainable growth — building a global ecosystem where Vietnamese quality earns trust worldwide.</p>
+            </li>
+            <li class="vm-card">
+              <img class="vm-card__icon" src="./assets/images/decor-mission.webp" alt="" width="100" height="100" loading="lazy" decoding="async">
+              <h3 class="vm-card__title">Our mission</h3>
+              <p class="vm-card__text">To deliver safe, high-quality, innovative beverages for customers at home and abroad — growing alongside our partners while giving back to our people, communities, and environment.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd pdb-0 bg-surface" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="process-title">Our production process</h2>
+          <p class="section-desc section-desc--center">A streamlined manufacturing journey designed for quality and scale — from raw material inspection to sealed, export-ready products, every step runs in a controlled and hygienic environment.</p>
+        </div>
+        <div class="process-path processPathJS">
+          <ol class="process-path__list processPathListJS">
+            <li class="process-step">
+              <div class="process-step__media"><img src="./assets/images/process-1.webp" alt="Inspecting fresh lychees at the raw material intake" width="488" height="471" loading="lazy" decoding="async"></div>
+              <span class="process-step__dot" aria-hidden="true">01</span>
+              <h3 class="process-step__title">Raw material inspection</h3>
+              <p class="process-step__desc">Only the finest ingredients pass our strict entry checks.</p>
+            </li>
+            <li class="process-step">
+              <div class="process-step__media"><img src="./assets/images/process-2.webp" alt="Workers moving crates of lychees to the washing line" width="488" height="471" loading="lazy" decoding="async"></div>
+              <span class="process-step__dot" aria-hidden="true">02</span>
+              <h3 class="process-step__title">Material transport to washing</h3>
+              <p class="process-step__desc">A controlled line keeps every ingredient clean and fresh.</p>
+            </li>
+            <li class="process-step">
+              <div class="process-step__media"><img src="./assets/images/process-3.webp" alt="Lychees being washed under running water" width="488" height="471" loading="lazy" decoding="async"></div>
+              <span class="process-step__dot" aria-hidden="true">03</span>
+              <h3 class="process-step__title">Raw material washing</h3>
+              <p class="process-step__desc">Multi-stage washing removes impurities and keeps the natural flavor.</p>
+            </li>
+            <li class="process-step">
+              <div class="process-step__media"><img src="./assets/images/process-4.webp" alt="Worker in full protective clothing in the changing area" width="488" height="471" loading="lazy" decoding="async"></div>
+              <span class="process-step__dot" aria-hidden="true">04</span>
+              <h3 class="process-step__title">Changing area</h3>
+              <p class="process-step__desc">Hygiene gates prepare every team member for production.</p>
+            </li>
+            <li class="process-step">
+              <div class="process-step__media"><img src="./assets/images/process-5.webp" alt="Workers peeling lychees in the preliminary processing room" width="488" height="471" loading="lazy" decoding="async"></div>
+              <span class="process-step__dot" aria-hidden="true">05</span>
+              <h3 class="process-step__title">Preliminary processing room</h3>
+              <p class="process-step__desc">Ingredients are prepped to production-ready standards.</p>
+            </li>
+            <li class="process-step">
+              <div class="process-step__media"><img src="./assets/images/process-6.webp" alt="Liquid flowing through the filter conveyor" width="488" height="471" loading="lazy" decoding="async"></div>
+              <span class="process-step__dot" aria-hidden="true">06</span>
+              <h3 class="process-step__title">Filter conveyor</h3>
+              <p class="process-step__desc">Continuous filtering protects purity at every transfer.</p>
+            </li>
+            <li class="process-step">
+              <div class="process-step__media"><img src="./assets/images/process-7.webp" alt="Technician checking stainless steel mixing and pasteurization tanks" width="488" height="471" loading="lazy" decoding="async"></div>
+              <span class="process-step__dot" aria-hidden="true">07</span>
+              <h3 class="process-step__title">Mixing &amp; pasteurization</h3>
+              <p class="process-step__desc">Each recipe is blended to spec, then heat-treated for safety and shelf life.</p>
+            </li>
+            <li class="process-step">
+              <div class="process-step__media"><img src="./assets/images/process-8.webp" alt="Bottles on the automated filling and sealing line" width="488" height="471" loading="lazy" decoding="async"></div>
+              <span class="process-step__dot" aria-hidden="true">08</span>
+              <h3 class="process-step__title">Filling &amp; sealing</h3>
+              <p class="process-step__desc">Automated lines fill and seal every can and bottle in a closed, hygienic room.</p>
+            </li>
+            <li class="process-step">
+              <div class="process-step__media"><img src="./assets/images/process-9.webp" alt="Pallets of finished RITA cartons in the incubation area" width="488" height="471" loading="lazy" decoding="async"></div>
+              <span class="process-step__dot" aria-hidden="true">09</span>
+              <h3 class="process-step__title">Incubation area</h3>
+              <p class="process-step__desc">Controlled incubation locks in quality and stability before export.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd pdb-0 bg-surface cv-auto" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="why-title">Why choose us</h2>
+          <p class="section-desc section-desc--center">With decades of beverage expertise, RITA combines advanced manufacturing capabilities, in-house R&amp;D, and flexible OEM/ODM solutions to bring your ideas to life. From product development to global delivery, we ensure consistent quality, scalable production, and reliable partnership for brands worldwide.</p>
+        </div>
+        <div class="feature-split">
+          <div class="feature-split__slider card-slider cardSliderJS" data-slider="group" data-group="2" data-slider-media="(max-width: 1120px)">
+            <ul class="feature-split__list cardSliderTrackJS" role="list">
+              <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-free-sample.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Free sample</h3><p class="feature-card__text">Get your custom sample in just 7–14 days, completely free of charge.</p></div></li>
+              <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-label-design.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Free label design</h3><p class="feature-card__text">Professional label design that makes your products stand out.</p></div></li>
+              <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-moq.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Small MOQ <span class="feature-card__note">(1x20ft)</span></h3><p class="feature-card__text">Start with just one 20ft container, with no large upfront commitment.</p></div></li>
+              <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-rnd.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">In-house R&amp;D</h3><p class="feature-card__text">Our R&amp;D creates innovative beverage formulas tailored to your brand.</p></div></li>
+              <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-oem-odm.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Flexible OEM &amp; ODM</h3><p class="feature-card__text">Customize your own formula or let our R&amp;D create for your brand.</p></div></li>
+              <li class="feature-card"><img class="feature-card__icon" src="./assets/images/ic-fast-delivery.png" alt="" width="128" height="128" loading="lazy" decoding="async"><div><h3 class="feature-card__title">Fast delivery</h3><p class="feature-card__text">Reliable production and efficient worldwide delivery you can count on.</p></div></li>
+            </ul>
+          </div>
+          <div class="feature-split__media can-spin">
+            <canvas class="can-spin__canvas canSpinJS" width="514" height="1154" data-base="./assets/images/can-base.webp" data-label="./assets/images/can-label.webp" role="img" aria-label="RITA Your Size can"></canvas>
+          </div>
+        </div>
+        <div class="button-group button-group--pair feature-split__more">
+          <a class="dot-link popupOpenJS" href="./products.html" aria-haspopup="dialog" aria-controls="formats-popup"><span class="dot-link__dot" aria-hidden="true"></span>Our formats</a>
+          <a class="dot-link dot-link--blue popupOpenJS" href="./oem-service.html" aria-haspopup="dialog" aria-controls="labels-popup">Our labels<span class="dot-link__dot" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="popup popupJS" id="formats-popup" aria-label="Packaging formats">
+      <button class="close-button popup__close popupCloseJS" type="button" aria-label="Close"></button>
+      <div class="popup__panel">
+        <div class="format-viewer formatViewerJS">
+          <div class="format-viewer__media">
+            <div class="format-viewer__stage">
+              <img class="format-viewer__image" src="./assets/images/format-can.webp" alt="Aluminum can with a Your Size label" width="98" height="221" loading="lazy" decoding="async">
+              <img class="format-viewer__image" src="./assets/images/format-glass.webp" alt="Glass bottle with a Your Size label" width="74" height="271" loading="lazy" decoding="async" hidden>
+              <img class="format-viewer__image" src="./assets/images/format-pet.webp" alt="PET bottle with a Your Size label" width="62" height="231" loading="lazy" decoding="async" hidden>
+              <img class="format-viewer__image" src="./assets/images/format-pp.webp" alt="PP bottle with a Your Size label" width="64" height="234" loading="lazy" decoding="async" hidden>
+              <button class="icon-button format-viewer__arrow format-viewer__arrow--prev formatPrevJS" type="button" aria-label="Previous format"><span class="icon icon--prev" aria-hidden="true"></span></button>
+              <button class="icon-button format-viewer__arrow format-viewer__arrow--next formatNextJS" type="button" aria-label="Next format"><span class="icon icon--next" aria-hidden="true"></span></button>
+            </div>
+            <div class="format-viewer__thumbs" role="tablist" aria-label="Packaging formats">
+              <button class="format-viewer__thumb" type="button" role="tab" id="format-tab-can" aria-selected="true" aria-controls="format-panel-can"><img src="./assets/images/format-can.webp" alt="Aluminum can" width="98" height="221" loading="lazy" decoding="async"></button>
+              <button class="format-viewer__thumb" type="button" role="tab" id="format-tab-glass" aria-selected="false" aria-controls="format-panel-glass" tabindex="-1"><img src="./assets/images/format-glass.webp" alt="Glass bottle" width="74" height="271" loading="lazy" decoding="async"></button>
+              <button class="format-viewer__thumb" type="button" role="tab" id="format-tab-pet" aria-selected="false" aria-controls="format-panel-pet" tabindex="-1"><img src="./assets/images/format-pet.webp" alt="PET bottle" width="62" height="231" loading="lazy" decoding="async"></button>
+              <button class="format-viewer__thumb" type="button" role="tab" id="format-tab-pp" aria-selected="false" aria-controls="format-panel-pp" tabindex="-1"><img src="./assets/images/format-pp.webp" alt="PP bottle" width="64" height="234" loading="lazy" decoding="async"></button>
+            </div>
+          </div>
+          <div class="format-viewer__info">
+            <div class="format-viewer__panel" id="format-panel-can" role="tabpanel" aria-labelledby="format-tab-can">
+              <h3 class="format-viewer__title">Aluminum can</h3>
+              <p class="format-viewer__desc">Lightweight, durable, and fully customizable aluminum cans designed to preserve beverage freshness and deliver a premium look.</p>
+              <ul class="spec-list" role="list">
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-material.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Material</p><p class="spec__value">Aluminum</p></div></li>
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-capacity.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Capacity</p><p class="spec__value">250ml – 500ml</p></div></li>
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-customize.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Customization</p><p class="spec__value">Full-color printing</p></div></li>
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-application.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Application</p><p class="spec__value">Fruit Juice, Energy Drinks, Soft Drinks, etc.</p></div></li>
+              </ul>
+            </div>
+            <div class="format-viewer__panel" id="format-panel-glass" role="tabpanel" aria-labelledby="format-tab-glass" hidden>
+              <h3 class="format-viewer__title">Glass bottle</h3>
+              <p class="format-viewer__desc">Premium glass bottles that keep flavor pure and showcase your drink with a clear, high-end finish.</p>
+              <ul class="spec-list" role="list">
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-material.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Material</p><p class="spec__value">Glass</p></div></li>
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-capacity.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Capacity</p><p class="spec__value">250ml – 490ml</p></div></li>
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-customize.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Customization</p><p class="spec__value">Paper label or shrink sleeve</p></div></li>
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-application.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Application</p><p class="spec__value">Coffee, Juice, Bird’s Nest, Coconut Water, etc.</p></div></li>
+              </ul>
+            </div>
+            <div class="format-viewer__panel" id="format-panel-pet" role="tabpanel" aria-labelledby="format-tab-pet" hidden>
+              <h3 class="format-viewer__title">PET bottle</h3>
+              <p class="format-viewer__desc">Clear, shatter-resistant PET bottles that are light to ship and easy to brand for everyday drinks.</p>
+              <ul class="spec-list" role="list">
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-material.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Material</p><p class="spec__value">PET</p></div></li>
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-capacity.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Capacity</p><p class="spec__value">320ml – 1500ml</p></div></li>
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-customize.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Customization</p><p class="spec__value">Shrink sleeve or label</p></div></li>
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-application.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Application</p><p class="spec__value">Aloe Vera, Juice, Tea, Water, etc.</p></div></li>
+              </ul>
+            </div>
+            <div class="format-viewer__panel" id="format-panel-pp" role="tabpanel" aria-labelledby="format-tab-pp" hidden>
+              <h3 class="format-viewer__title">PP bottle</h3>
+              <p class="format-viewer__desc">Sturdy, opaque PP bottles that protect light-sensitive drinks and suit hot filling.</p>
+              <ul class="spec-list" role="list">
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-material.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Material</p><p class="spec__value">PP</p></div></li>
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-capacity.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Capacity</p><p class="spec__value">250ml – 2000ml</p></div></li>
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-customize.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Customization</p><p class="spec__value">Shrink sleeve or label</p></div></li>
+                <li class="spec"><span class="spec__icon"><img src="./assets/images/ic-spec-application.png" alt="" width="78" height="78" loading="lazy" decoding="async"></span><div><p class="spec__label">Application</p><p class="spec__value">Milk, Coconut Milk, Juice, etc.</p></div></li>
+              </ul>
+            </div>
+            <div class="cta-box">
+              <h3 class="cta-box__title">Ready to create your own beverage?</h3>
+              <div class="cta-box__row">
+                <p class="cta-box__text">Discover the right packaging solution to bring your beverage ideas to market.</p>
+                <a class="button" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="popup popupJS" id="labels-popup" aria-label="Label options">
+      <button class="close-button popup__close popupCloseJS" type="button" aria-label="Close"></button>
+      <div class="popup__panel">
+        <ul class="label-grid" role="list">
+          <li class="label-card"><div class="label-card__media"><img src="./assets/images/label-glossy.webp" alt="Red can with a glossy label" width="157" height="412" loading="lazy" decoding="async"></div><h3 class="label-card__title">Glossy</h3><p class="label-card__text">High-shine surface for vibrant eye-catching colors</p></li>
+          <li class="label-card"><div class="label-card__media"><img src="./assets/images/label-matte.webp" alt="Red can with a matte label" width="149" height="410" loading="lazy" decoding="async"></div><h3 class="label-card__title">Matte</h3><p class="label-card__text">Soft, textured finish that feels premium and reduces glare</p></li>
+          <li class="label-card"><div class="label-card__media"><img src="./assets/images/label-direct-printing.webp" alt="Red can printed directly on the metal" width="155" height="411" loading="lazy" decoding="async"></div><h3 class="label-card__title">Direct Printing</h3><p class="label-card__text">Printed directly on the can surface for a seamless premium metallic look</p></li>
+        </ul>
+      </div>
+    </dialog>
+
+    <section class="ss-pd pdb-0 bg-surface cv-auto" aria-labelledby="certificates-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="certificates-title">Our certificates</h2>
+        </div>
+        <ul class="logo-grid" role="list">
+          <li><img class="logo-mark" src="./assets/images/cert-brcgs.webp" alt="BRCGS Food Safety certificated" width="270" height="204" loading="lazy" decoding="async" style="--h: 102"></li>
+          <li><img class="logo-mark" src="./assets/images/cert-iso-22000.webp" alt="ISO 22000 certified" width="224" height="222" loading="lazy" decoding="async" style="--h: 111"></li>
+          <li><img class="logo-mark" src="./assets/images/cert-halal-hca.webp" alt="Halal Certification Agency (HCA)" width="223" height="222" loading="lazy" decoding="async" style="--h: 111"></li>
+          <li><img class="logo-mark" src="./assets/images/cert-gmp.webp" alt="GMP certified" width="210" height="212" loading="lazy" decoding="async" style="--h: 106"></li>
+          <li><img class="logo-mark" src="./assets/images/cert-haccp.webp" alt="HACCP certified" width="220" height="243" loading="lazy" decoding="async" style="--h: 122"></li>
+          <li><img class="logo-mark" src="./assets/images/cert-fssc-22000.webp" alt="FSSC 22000" width="446" height="83" loading="lazy" decoding="async" style="--h: 42"></li>
+        </ul>
+        <p class="section-desc section-desc--center section-desc--spaced">RITA's products are certified for both domestic and international markets — including some of the world's most demanding, where standards leave no room for compromise</p>
+        <div class="section-more">
+          <div class="button-group">
+            <a class="button button--dark" href="./our-certificates.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">See more<span class="sr-only"> certificates</span></span></a>
+            <a class="button" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd bg-surface cv-auto" aria-labelledby="reach-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title" id="reach-title">Our global reach</h2>
+          <p class="section-desc section-desc--center">Connecting RITA with the world through dedicated websites across multiple countries and markets — and meeting partners face to face at international trade fairs.</p>
+        </div>
+        <div class="reach-split">
+          <div class="world-map mapPinsJS">
+            <img class="world-map__img" src="./assets/images/map-world.webp" alt="World map of RITA websites: United States, United Kingdom, Europe, Russia, Iran, UAE, China, Vietnam, Singapore, India and Australia" width="1250" height="665" loading="lazy" decoding="async">
+            <a class="map-pin" style="--i: 0; top: 41.69%; left: 18.8%" href="https://ritadrinks.us" target="_blank" rel="noopener" data-label="United States" aria-label="RITA website for the United States"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+            <a class="map-pin" style="--i: 1; top: 29.5%; left: 46.3%" href="https://ritadrinks.co.uk" target="_blank" rel="noopener" data-label="United Kingdom" aria-label="RITA website for the United Kingdom"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+            <span class="map-pin" style="--i: 2; top: 33.24%; left: 49.95%" data-label="Europe" aria-hidden="true"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></span>
+            <a class="map-pin" style="--i: 3; top: 20.5%; left: 73.14%" href="https://ritabeverages.com" target="_blank" rel="noopener" data-label="Russia" aria-label="RITA website for Russia"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+            <a class="map-pin" style="--i: 4; top: 46.5%; left: 62.5%" href="https://beveragevietnam.com" target="_blank" rel="noopener" data-label="Iran" aria-label="RITA website for Iran"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+            <a class="map-pin" style="--i: 5; top: 51.25%; left: 62%" href="https://ritadrink.com" target="_blank" rel="noopener" data-label="UAE" aria-label="RITA website for the UAE"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+            <a class="map-pin" style="--i: 6; top: 45.57%; left: 79.06%" href="https://ritadrinks.cn" target="_blank" rel="noopener" data-label="China" aria-label="RITA website for China"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+            <span class="map-pin" style="--i: 7; top: 52%; left: 75.8%" data-label="Vietnam" aria-hidden="true"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></span>
+            <a class="map-pin" style="--i: 8; top: 62.5%; left: 75%" href="https://ritadrinks.asia" target="_blank" rel="noopener" data-label="Singapore" aria-label="RITA website for Singapore"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+            <a class="map-pin" style="--i: 9; top: 51.5%; left: 68.8%" href="https://ritadrinks.in" target="_blank" rel="noopener" data-label="India" aria-label="RITA website for India"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+            <a class="map-pin" style="--i: 10; top: 80.02%; left: 83.82%" href="https://ritadrinks.com" target="_blank" rel="noopener" data-label="Australia" aria-label="RITA website for Australia"><img src="./assets/images/ic-map-pin.svg" alt="" width="59" height="72"></a>
+            <span class="map-spot" data-spot-id="plma-chicago" style="top: 39.27%; left: 22.68%" data-label="Chicago, USA" aria-hidden="true"></span>
+            <span class="map-spot" data-spot-id="fine-food" style="top: 87.28%; left: 86.88%" data-label="Melbourne, Australia" aria-hidden="true"></span>
+            <span class="map-spot" data-spot-id="gulfood" style="top: 49.97%; left: 62.12%" data-label="Dubai, UAE" aria-hidden="true"></span>
+            <span class="map-spot" data-spot-id="prodexpo" style="top: 29.04%; left: 57.25%" data-label="Moscow, Russia" aria-hidden="true"></span>
+            <span class="map-spot" data-spot-id="china-food-drinks" style="top: 46.6%; left: 75.59%" data-label="Chengdu, China" aria-hidden="true"></span>
+            <span class="map-spot" data-spot-id="plma" style="top: 31.7%; left: 48.22%" data-label="Amsterdam, Netherlands" aria-hidden="true"></span>
+            <span class="map-spot" data-spot-id="thaifex" style="top: 56.75%; left: 74.61%" data-label="Bangkok, Thailand" aria-hidden="true"></span>
+            <span class="map-spot" data-spot-id="fhc" style="top: 46.24%; left: 80.39%" data-label="Shanghai, China" aria-hidden="true"></span>
+          </div>
+          <div class="reach-split__fairs relocateJS" data-relocate-to="#fair-slot">
+            <div class="fair-table fair-table--side cardSliderJS" data-slider="group" data-group="4" data-group-cols="2" data-peek>
+              <ul class="fair-list cardSliderTrackJS" role="list">
+                <li>
+                  <a class="fair-row spotLinkJS" data-spot="plma-chicago" href="./assets/images/fair-plma-chicago-1.webp" data-fancybox="fair-plma-chicago" data-caption="RITA at PLMA Chicago 2026 · Chicago, USA" aria-label="PLMA Chicago, Chicago, USA: view photos">
+                    <span class="fair-row__name">PLMA Chicago</span>
+                    <span class="status-badge">Attended</span>
+                    <span class="fair-row__media" aria-hidden="true">
+                      <img src="./assets/images/fair-plma-chicago-1-sm.webp" alt="RITA at PLMA Chicago 2026 · Chicago, USA – photo 1" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                      <img src="./assets/images/fair-plma-chicago-2-sm.webp" alt="RITA at PLMA Chicago 2026 · Chicago, USA – photo 2" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                      <img src="./assets/images/fair-plma-chicago-3-sm.webp" alt="RITA at PLMA Chicago 2026 · Chicago, USA – photo 3" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                    </span>
+                    <span class="fair-row__place"><span class="fair-row__label">Location</span>Chicago, USA</span>
+                    <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+                  </a>
+                  <a href="./assets/images/fair-plma-chicago-2.webp" data-fancybox="fair-plma-chicago" data-caption="RITA at PLMA Chicago 2026 · Chicago, USA" aria-label="RITA at PLMA Chicago 2026 · Chicago, USA – photo 2" hidden></a>
+                  <a href="./assets/images/fair-plma-chicago-3.webp" data-fancybox="fair-plma-chicago" data-caption="RITA at PLMA Chicago 2026 · Chicago, USA" aria-label="RITA at PLMA Chicago 2026 · Chicago, USA – photo 3" hidden></a>
+                </li>
+                <li>
+                  <a class="fair-row spotLinkJS" data-spot="fine-food" href="./assets/images/fair-fine-food-australia-1.webp" data-fancybox="fair-fine-food-australia" data-caption="RITA at Fine Food Australia 2026 · Melbourne, Australia" aria-label="Fine Food Australia, Melbourne, Australia: view photos">
+                    <span class="fair-row__name">Fine Food Australia</span>
+                    <span class="status-badge">Attended</span>
+                    <span class="fair-row__media" aria-hidden="true">
+                      <img src="./assets/images/fair-fine-food-australia-1-sm.webp" alt="RITA at Fine Food Australia 2026 · Melbourne, Australia – photo 1" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                      <img src="./assets/images/fair-fine-food-australia-2-sm.webp" alt="RITA at Fine Food Australia 2026 · Melbourne, Australia – photo 2" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                      <img src="./assets/images/fair-fine-food-australia-3-sm.webp" alt="RITA at Fine Food Australia 2026 · Melbourne, Australia – photo 3" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                    </span>
+                    <span class="fair-row__place"><span class="fair-row__label">Location</span>Melbourne, Australia</span>
+                    <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+                  </a>
+                  <a href="./assets/images/fair-fine-food-australia-2.webp" data-fancybox="fair-fine-food-australia" data-caption="RITA at Fine Food Australia 2026 · Melbourne, Australia" aria-label="RITA at Fine Food Australia 2026 · Melbourne, Australia – photo 2" hidden></a>
+                  <a href="./assets/images/fair-fine-food-australia-3.webp" data-fancybox="fair-fine-food-australia" data-caption="RITA at Fine Food Australia 2026 · Melbourne, Australia" aria-label="RITA at Fine Food Australia 2026 · Melbourne, Australia – photo 3" hidden></a>
+                </li>
+                <li>
+                  <a class="fair-row spotLinkJS" data-spot="gulfood" href="./assets/images/fair-gulfood-1.webp" data-fancybox="fair-gulfood" data-caption="RITA at Gulfood 2026 · Dubai, UAE" aria-label="Gulfood, Dubai, UAE: view photos">
+                    <span class="fair-row__name">Gulfood</span>
+                    <span class="status-badge">Attended</span>
+                    <span class="fair-row__media" aria-hidden="true">
+                      <img src="./assets/images/fair-gulfood-1-sm.webp" alt="RITA at Gulfood 2026 · Dubai, UAE – photo 1" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                      <img src="./assets/images/fair-gulfood-2-sm.webp" alt="RITA at Gulfood 2026 · Dubai, UAE – photo 2" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                      <img src="./assets/images/fair-gulfood-3-sm.webp" alt="RITA at Gulfood 2026 · Dubai, UAE – photo 3" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                    </span>
+                    <span class="fair-row__place"><span class="fair-row__label">Location</span>Dubai, UAE</span>
+                    <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+                  </a>
+                  <a href="./assets/images/fair-gulfood-2.webp" data-fancybox="fair-gulfood" data-caption="RITA at Gulfood 2026 · Dubai, UAE" aria-label="RITA at Gulfood 2026 · Dubai, UAE – photo 2" hidden></a>
+                  <a href="./assets/images/fair-gulfood-3.webp" data-fancybox="fair-gulfood" data-caption="RITA at Gulfood 2026 · Dubai, UAE" aria-label="RITA at Gulfood 2026 · Dubai, UAE – photo 3" hidden></a>
+                </li>
+                <li>
+                  <a class="fair-row spotLinkJS" data-spot="prodexpo" href="./assets/images/fair-prodexpo-1.webp" data-fancybox="fair-prodexpo" data-caption="RITA at Prodexpo 2026 · Moscow, Russia" aria-label="Prodexpo, Moscow, Russia: view photos">
+                    <span class="fair-row__name">Prodexpo</span>
+                    <span class="status-badge">Attended</span>
+                    <span class="fair-row__media" aria-hidden="true">
+                      <img src="./assets/images/fair-prodexpo-1-sm.webp" alt="RITA at Prodexpo 2026 · Moscow, Russia – photo 1" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                      <img src="./assets/images/fair-prodexpo-2-sm.webp" alt="RITA at Prodexpo 2026 · Moscow, Russia – photo 2" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                      <img src="./assets/images/fair-prodexpo-3-sm.webp" alt="RITA at Prodexpo 2026 · Moscow, Russia – photo 3" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                    </span>
+                    <span class="fair-row__place"><span class="fair-row__label">Location</span>Moscow, Russia</span>
+                    <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+                  </a>
+                  <a href="./assets/images/fair-prodexpo-2.webp" data-fancybox="fair-prodexpo" data-caption="RITA at Prodexpo 2026 · Moscow, Russia" aria-label="RITA at Prodexpo 2026 · Moscow, Russia – photo 2" hidden></a>
+                  <a href="./assets/images/fair-prodexpo-3.webp" data-fancybox="fair-prodexpo" data-caption="RITA at Prodexpo 2026 · Moscow, Russia" aria-label="RITA at Prodexpo 2026 · Moscow, Russia – photo 3" hidden></a>
+                </li>
+                <li>
+                  <a class="fair-row spotLinkJS" data-spot="china-food-drinks" href="./assets/images/fair-china-food-drinks-1.webp" data-fancybox="fair-china-food-drinks" data-caption="RITA at the 114th China Food &amp; Drinks Fair 2026 · Chengdu, China" aria-label="China Food &amp; Drinks Fair, Chengdu, China: view photos">
+                    <span class="fair-row__name">China Food &amp; Drinks Fair</span>
+                    <span class="status-badge">Attended</span>
+                    <span class="fair-row__media" aria-hidden="true">
+                      <img src="./assets/images/fair-china-food-drinks-1-sm.webp" alt="RITA at the 114th China Food &amp; Drinks Fair 2026 · Chengdu, China – photo 1" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                      <img src="./assets/images/fair-china-food-drinks-2-sm.webp" alt="RITA at the 114th China Food &amp; Drinks Fair 2026 · Chengdu, China – photo 2" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                      <img src="./assets/images/fair-china-food-drinks-3-sm.webp" alt="RITA at the 114th China Food &amp; Drinks Fair 2026 · Chengdu, China – photo 3" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                    </span>
+                    <span class="fair-row__place"><span class="fair-row__label">Location</span>Chengdu, China</span>
+                    <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+                  </a>
+                  <a href="./assets/images/fair-china-food-drinks-2.webp" data-fancybox="fair-china-food-drinks" data-caption="RITA at the 114th China Food &amp; Drinks Fair 2026 · Chengdu, China" aria-label="RITA at the 114th China Food &amp; Drinks Fair 2026 · Chengdu, China – photo 2" hidden></a>
+                  <a href="./assets/images/fair-china-food-drinks-3.webp" data-fancybox="fair-china-food-drinks" data-caption="RITA at the 114th China Food &amp; Drinks Fair 2026 · Chengdu, China" aria-label="RITA at the 114th China Food &amp; Drinks Fair 2026 · Chengdu, China – photo 3" hidden></a>
+                </li>
+                <li>
+                  <a class="fair-row spotLinkJS" data-spot="plma" href="./assets/images/fair-plma-1.webp" data-fancybox="fair-plma" data-caption="RITA at PLMA 2026 · Amsterdam, Netherlands" aria-label="PLMA Netherlands, Amsterdam, Netherlands: view photos">
+                    <span class="fair-row__name">PLMA Netherlands</span>
+                    <span class="status-badge">Attended</span>
+                    <span class="fair-row__media" aria-hidden="true">
+                      <img src="./assets/images/fair-plma-1-sm.webp" alt="RITA at PLMA 2026 · Amsterdam, Netherlands – photo 1" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                      <img src="./assets/images/fair-plma-2-sm.webp" alt="RITA at PLMA 2026 · Amsterdam, Netherlands – photo 2" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                      <img src="./assets/images/fair-plma-3-sm.webp" alt="RITA at PLMA 2026 · Amsterdam, Netherlands – photo 3" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                    </span>
+                    <span class="fair-row__place"><span class="fair-row__label">Location</span>Amsterdam, Netherlands</span>
+                    <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+                  </a>
+                  <a href="./assets/images/fair-plma-2.webp" data-fancybox="fair-plma" data-caption="RITA at PLMA 2026 · Amsterdam, Netherlands" aria-label="RITA at PLMA 2026 · Amsterdam, Netherlands – photo 2" hidden></a>
+                  <a href="./assets/images/fair-plma-3.webp" data-fancybox="fair-plma" data-caption="RITA at PLMA 2026 · Amsterdam, Netherlands" aria-label="RITA at PLMA 2026 · Amsterdam, Netherlands – photo 3" hidden></a>
+                </li>
+                <li>
+                  <a class="fair-row spotLinkJS" data-spot="thaifex" href="./assets/images/fair-thaifex-1.webp" data-fancybox="fair-thaifex" data-caption="RITA at THAIFEX – Anuga Asia 2026 · Bangkok, Thailand" aria-label="Thaifex, Bangkok, Thailand: view photos">
+                    <span class="fair-row__name">Thaifex</span>
+                    <span class="status-badge">Attended</span>
+                    <span class="fair-row__media" aria-hidden="true">
+                      <img src="./assets/images/fair-thaifex-1-sm.webp" alt="RITA at THAIFEX – Anuga Asia 2026 · Bangkok, Thailand – photo 1" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                      <img src="./assets/images/fair-thaifex-2-sm.webp" alt="RITA at THAIFEX – Anuga Asia 2026 · Bangkok, Thailand – photo 2" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                      <img src="./assets/images/fair-thaifex-3-sm.webp" alt="RITA at THAIFEX – Anuga Asia 2026 · Bangkok, Thailand – photo 3" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                    </span>
+                    <span class="fair-row__place"><span class="fair-row__label">Location</span>Bangkok, Thailand</span>
+                    <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+                  </a>
+                  <a href="./assets/images/fair-thaifex-2.webp" data-fancybox="fair-thaifex" data-caption="RITA at THAIFEX – Anuga Asia 2026 · Bangkok, Thailand" aria-label="RITA at THAIFEX – Anuga Asia 2026 · Bangkok, Thailand – photo 2" hidden></a>
+                  <a href="./assets/images/fair-thaifex-3.webp" data-fancybox="fair-thaifex" data-caption="RITA at THAIFEX – Anuga Asia 2026 · Bangkok, Thailand" aria-label="RITA at THAIFEX – Anuga Asia 2026 · Bangkok, Thailand – photo 3" hidden></a>
+                </li>
+                <li>
+                  <a class="fair-row spotLinkJS" data-spot="fhc" href="./assets/images/fair-fhc-1.webp" data-fancybox="fair-fhc" data-caption="RITA at FHC China 2026 · Shanghai, China" aria-label="FHC China, Shanghai, China: view photos">
+                    <span class="fair-row__name">FHC China</span>
+                    <span class="status-badge">Attended</span>
+                    <span class="fair-row__media" aria-hidden="true">
+                      <img src="./assets/images/fair-fhc-1-sm.webp" alt="RITA at FHC China 2026 · Shanghai, China – photo 1" width="640" height="480" loading="lazy" decoding="async" style="--i: 0">
+                      <img src="./assets/images/fair-fhc-2-sm.webp" alt="RITA at FHC China 2026 · Shanghai, China – photo 2" width="640" height="480" loading="lazy" decoding="async" style="--i: 1">
+                      <img src="./assets/images/fair-fhc-3-sm.webp" alt="RITA at FHC China 2026 · Shanghai, China – photo 3" width="640" height="480" loading="lazy" decoding="async" style="--i: 2">
+                    </span>
+                    <span class="fair-row__place"><span class="fair-row__label">Location</span>Shanghai, China</span>
+                    <span class="button fair-row__arrow" aria-hidden="true"><span class="button__icon"></span></span>
+                  </a>
+                  <a href="./assets/images/fair-fhc-2.webp" data-fancybox="fair-fhc" data-caption="RITA at FHC China 2026 · Shanghai, China" aria-label="RITA at FHC China 2026 · Shanghai, China – photo 2" hidden></a>
+                  <a href="./assets/images/fair-fhc-3.webp" data-fancybox="fair-fhc" data-caption="RITA at FHC China 2026 · Shanghai, China" aria-label="RITA at FHC China 2026 · Shanghai, China – photo 3" hidden></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd pdb-overlap bg-white cv-auto" aria-labelledby="exhibitions-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title section-title--wrap" id="exhibitions-title">Expanding global partnerships through international exhibitions</h2>
+        </div>
+      </div>
+      <div class="marquee marqueeJS">
+        <ul class="marquee__track" role="list">
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-thaifex.webp" alt="THAIFEX – Anuga Asia" width="240" height="241" loading="lazy" decoding="async" style="--h: 96"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-vietfood.png" alt="Vietfood &amp; Beverage" width="462" height="184" loading="lazy" decoding="async" style="--h: 72"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-africa-big.webp" alt="Africa’s Big 7" width="138" height="71" loading="lazy" decoding="async" style="--h: 72"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-anuga.webp" alt="Anuga" width="96" height="110" loading="lazy" decoding="async" style="--h: 104"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-fhc-china.webp" alt="FHC China" width="496" height="180" loading="lazy" decoding="async" style="--h: 64"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-gulfood.webp" alt="Gulfood" width="400" height="227" loading="lazy" decoding="async" style="--h: 80"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-plma.webp" alt="PLMA World of Private Label" width="105" height="105" loading="lazy" decoding="async" style="--h: 104"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-caexpo.png" alt="CAEXPO China–ASEAN Expo" width="81" height="92" loading="lazy" decoding="async" style="--h: 96"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-china-food-drinks.png" alt="China Food &amp; Drinks Fair" width="340" height="185" loading="lazy" decoding="async" style="--h: 64"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-fine-food-australia.webp" alt="Fine Food Australia" width="152" height="151" loading="lazy" decoding="async" style="--h: 96"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-prodexpo.webp" alt="Prodexpo" width="150" height="157" loading="lazy" decoding="async" style="--h: 100"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-sial.webp" alt="SIAL" width="345" height="145" loading="lazy" decoding="async" style="--h: 56"></li>
+          <li class="marquee__item"><img class="logo-mark" src="./assets/images/exhi-sfa.webp" alt="Specialty Food Association" width="118" height="117" loading="lazy" decoding="async" style="--h: 104"></li>
+        </ul>
+      </div>
+      <div class="container fair-slot" id="fair-slot"></div>
+      <div class="container">
+        <dl class="stat-list stat-list--accent fair-stats">
+          <div class="stat"><dt class="stat__label">Awards &amp;<br>recognition</dt><dd class="stat__value countUpJS">8+</dd></div>
+          <div class="stat"><dt class="stat__label">International<br>exhibitions attended</dt><dd class="stat__value countUpJS">13+</dd></div>
+          <div class="stat"><dt class="stat__label">Customer<br>conversion rate</dt><dd class="stat__value countUpJS">86%</dd></div>
+          <div class="stat"><dt class="stat__label">Booth<br>visitors</dt><dd class="stat__value countUpJS">5000+</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="overlap-band" aria-labelledby="build-title">
+      <div class="container">
+        <div class="cta-banner">
+          <img class="cta-banner__bg" src="./assets/images/banner-cta.webp" srcset="./assets/images/banner-cta-768.webp 768w, ./assets/images/banner-cta.webp 1512w" sizes="(max-width: 1440px) 100vw, 1440px" alt="" width="1512" height="500" loading="lazy" decoding="async">
+          <div class="cta-banner__body">
+            <h2 class="cta-banner__title" id="build-title">Let’s build your beverage with us</h2>
+            <p class="cta-banner__desc">Co-packing beverage manufacturer from Vietnam. Includes a quick value</p>
+            <div class="button-group button-group--equal cta-banner__actions">
+              <a class="button button--dark" href="https://www.youtube.com/watch?v=1Bfi8XvSLFs" data-fancybox data-caption="RITA company profile"><span class="button__icon button__icon--play" aria-hidden="true"></span><span class="button__text">Company profile</span></a>
+              <a class="button" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd bg-surface cv-auto" aria-labelledby="faq-title">
+      <div class="container faq">
+        <div class="faq__aside">
+          <h2 class="section-title" id="faq-title">Frequently asked questions</h2>
+          <p class="section-desc">Quick answers to what buyers ask us most. Can’t find yours? Send it to our sales team and we will come back to you within one working day.</p>
+          <div class="button-group button-group--start">
+            <a class="button" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
+          </div>
+        </div>
+        <div class="faq__list">
+            <details class="faq-item" name="faq" open>
+              <summary class="faq-item__head">How quickly will I hear back?<span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__body"><p>Our sales team usually replies within one working day (Vietnam time, GMT+7). For anything urgent, call our sales line on <a href="tel:+842743784788">(+84) 274 3784 788</a> or email <a href="mailto:marketing@rita.com.vn">marketing@rita.com.vn</a>.</p></div>
+            </details>
+            <details class="faq-item" name="faq">
+              <summary class="faq-item__head">What should I include in my inquiry?<span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__body"><p>The more we know, the faster we can quote: the product or flavor you have in mind, your target market, the packaging format and size, an estimated volume per order and whether it will carry your brand or RITA’s.</p></div>
+            </details>
+            <details class="faq-item" name="faq">
+              <summary class="faq-item__head">Can I get free samples first?<span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__body"><p>Yes. Samples are free and usually ready in 7–14 days, so you can check taste, quality and packaging before you commit. Tell us where they should go and we will arrange delivery.</p></div>
+            </details>
+            <details class="faq-item" name="faq">
+              <summary class="faq-item__head">What is the minimum order quantity?<span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__body"><p>RITA-branded products start from 200 cartons per order. Private label and custom formulas usually start from one 20ft container per SKU, and we can discuss a smaller first trial.</p></div>
+            </details>
+            <details class="faq-item" name="faq">
+              <summary class="faq-item__head">How long does an order take?<span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__body"><p>For products on an existing formula, goods are ready to ship 20–25 days after order confirmation. A new formula, new packaging or a market-specific certification brings it closer to 4–8 weeks.</p></div>
+            </details>
+            <details class="faq-item" name="faq">
+              <summary class="faq-item__head">Which payment terms and port do you use?<span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__body"><p>We work with L/C and T/T and ship from Ho Chi Minh Port, Vietnam. The Incoterm, such as FOB or CIF, is confirmed in your quotation.</p></div>
+            </details>
+            <details class="faq-item" name="faq">
+              <summary class="faq-item__head">Can I visit the factory?<span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__body"><p>Of course. Our head office and factory are in Song Than 2 Industrial Park, Di An Ward, Ho Chi Minh City. Share your preferred dates and we will plan the visit, from the production lines to quality control.</p></div>
+            </details>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="site-footer cv-auto">
     <div class="container container--wide footer-main">
@@ -241,7 +827,7 @@
         </ul>
       </div>
       <dl class="footer-facts">
-        <div class="footer-fact">
+        <div class="footer-fact footer-fact--wide">
           <dt>Headquarter address</dt>
           <dd><a href="https://maps.app.goo.gl/1k4urKnhR8r7mSMo9" target="_blank" rel="noopener">No. 08, Thong Nhat Boulevard, Song Than 2 Industrial Park, Di An Ward, Ho Chi Minh City, Vietnam</a></dd>
         </div>
@@ -298,15 +884,39 @@
       </nav>
     </div>
     <div class="footer-bottom">
-      <p class="container container--wide footer-copy">© 2026 RITA Food &amp; Drink Co.,Ltd</p>
+      <div class="container container--wide footer-bottom__inner">
+        <p class="footer-copy">© 2026 RITA Food &amp; Drink Co.,Ltd</p>
+        <div role="navigation" class="footer-legal" aria-label="Company information">
+          <ul class="footer-legal__list" role="list">
+            <li><a href="./our-story.html">About us</a></li>
+            <li><a href="./contact.html">Contact us</a></li>
+            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="./terms-of-service.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </footer>
-  <nav class="bottom-nav" aria-label="Quick links">
+  <dialog class="popup popup--catalog popupJS" id="catalog-popup" aria-labelledby="catalog-title">
+    <button class="close-button popup__close popupCloseJS" type="button" aria-label="Close"></button>
+    <div class="popup__panel catalog-card">
+      <a class="catalog-card__cover" href="https://rita.com.vn/Profile-Rita/index.html" target="_blank" rel="noopener"><img src="./assets/images/catalog-cover.webp" alt="RITA company profile cover: leading juice drink manufacturer and exporter in Vietnam" width="850" height="850" loading="lazy" decoding="async"></a>
+      <div class="catalog-card__body">
+        <p class="catalog-card__title" id="catalog-title">Catalog</p>
+        <p class="catalog-card__desc">View and download our product categories and company brochure.</p>
+        <div class="catalog-card__actions">
+          <a class="button button--primary" href="https://rita.com.vn/Profile-Rita/index.html" target="_blank" rel="noopener"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Categories</span></a>
+          <a class="button button--dark" href="https://rita.com.vn/Profile-Rita/brochure.html" target="_blank" rel="noopener"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Brochure</span></a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+  <div role="navigation" class="bottom-nav" aria-label="Quick links">
     <ul class="bottom-nav__list">
       <li><a class="bottom-nav__item" href="./index.html"><span class="icon icon--nav-home" aria-hidden="true"></span><span class="bottom-nav__label">Home</span></a></li>
       <li><button class="bottom-nav__item" type="button" popovertarget="services-sheet" aria-expanded="false"><span class="icon icon--nav-services" aria-hidden="true"></span><span class="bottom-nav__label">Services</span></button></li>
       <li><button class="bottom-nav__item" type="button" popovertarget="products-sheet" aria-expanded="false"><span class="icon icon--nav-products" aria-hidden="true"></span><span class="bottom-nav__label">Products</span></button></li>
-      <li><a class="bottom-nav__item is-current" href="./our-story.html" aria-current="page"><span class="icon icon--nav-about" aria-hidden="true"></span><span class="bottom-nav__label">About</span></a></li>
+      <li><button class="bottom-nav__item is-current" type="button" popovertarget="about-sheet" aria-expanded="false"><span class="icon icon--nav-about" aria-hidden="true"></span><span class="bottom-nav__label">About</span></button></li>
       <li><a class="bottom-nav__item" href="./contact.html"><span class="icon icon--nav-contact" aria-hidden="true"></span><span class="bottom-nav__label">Contact</span></a></li>
     </ul>
     <div class="bottom-nav__sheet bottomSheetJS" id="services-sheet" popover aria-label="Services">
@@ -314,12 +924,14 @@
         <div class="bottom-nav__sheet-grid">
           <a class="bottom-nav__sheet-link" href="./oem-service.html">OEM service</a>
           <a class="bottom-nav__sheet-link" href="./odm-service.html">ODM service</a>
+          <a class="bottom-nav__sheet-link" href="./wholesale-service.html">Wholesale service</a>
         </div>
       </div>
     </div>
     <div class="bottom-nav__sheet bottomSheetJS" id="products-sheet" popover aria-label="Products">
       <div class="bottom-nav__sheet-panel">
         <div class="bottom-nav__sheet-grid">
+          <a class="bottom-nav__sheet-link" href="./new-products.html">New products</a>
           <a class="bottom-nav__sheet-link" href="./product-category.html?category=fruit-juice">Fruit juice</a>
           <a class="bottom-nav__sheet-link" href="./product-category.html?category=aloe-vera-drinks">Aloe vera drinks</a>
           <a class="bottom-nav__sheet-link" href="./product-category.html?category=coconut-products">Coconut products</a>
@@ -333,7 +945,20 @@
         </div>
       </div>
     </div>
-  </nav>
+    <div class="bottom-nav__sheet bottomSheetJS" id="about-sheet" popover aria-label="About us">
+      <div class="bottom-nav__sheet-panel">
+        <div class="bottom-nav__sheet-grid">
+          <a class="bottom-nav__sheet-link is-current" href="./our-story.html" aria-current="page">Our story</a>
+          <a class="bottom-nav__sheet-link" href="./our-activities.html">Our activities</a>
+          <a class="bottom-nav__sheet-link" href="./our-awards.html">Our awards</a>
+          <a class="bottom-nav__sheet-link" href="./our-certificates.html">Our certificates</a>
+          <a class="bottom-nav__sheet-link" href="./our-history.html">Our history</a>
+          <a class="bottom-nav__sheet-link" href="./our-brands.html">Our brands</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./assets/library/swiper/swiper-bundle.min.js" defer></script>
   <script src="./assets/library/smoothscroll/SmoothScroll.min.js" defer></script>
   <script src="./js/main.js" type="module"></script>
 </body>

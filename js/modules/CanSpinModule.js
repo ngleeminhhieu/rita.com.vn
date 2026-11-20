@@ -10,17 +10,18 @@ const load = (src) => new Promise((resolve, reject) => {
   image.src = src;
 });
 
-const repeatLabel = (label, copies) => {
+const composeLabels = (labels) => {
+  const [first] = labels;
   const sheet = document.createElement("canvas");
-  sheet.width = label.width;
-  sheet.height = label.height;
+  sheet.width = first.width;
+  sheet.height = first.height;
   const ctx = sheet.getContext("2d");
-  ctx.drawImage(label, 0, 0);
+  ctx.drawImage(first, 0, 0);
   ctx.globalCompositeOperation = "multiply";
-  for (let k = 1; k < copies; k += 1) {
-    const dx = Math.round((k * label.width) / copies);
-    ctx.drawImage(label, dx, 0);
-    ctx.drawImage(label, dx - label.width, 0);
+  for (let k = 1; k < labels.length; k += 1) {
+    const dx = Math.round((k * sheet.width) / labels.length);
+    ctx.drawImage(labels[k], dx, 0, sheet.width, sheet.height);
+    ctx.drawImage(labels[k], dx - sheet.width, 0, sheet.width, sheet.height);
   }
   return sheet;
 };
@@ -38,15 +39,20 @@ export default function CanSpinModule() {
 
     let base;
     let label;
+    let back;
     try {
-      [base, label] = await Promise.all([load(canvas.dataset.base), load(canvas.dataset.label)]);
+      [base, label, back] = await Promise.all([
+        load(canvas.dataset.base),
+        load(canvas.dataset.label),
+        canvas.dataset.labelBack ? load(canvas.dataset.labelBack) : null,
+      ]);
     } catch (error) {
       console.error(error);
       return;
     }
 
-    const copies = Math.max(1, Math.round(opt.copies));
-    const sheet = copies > 1 ? repeatLabel(label, copies) : label;
+    const labels = back ? [label, back] : Array.from({ length: Math.max(1, Math.round(opt.copies)) }, () => label);
+    const sheet = labels.length > 1 ? composeLabels(labels) : label;
     const x0 = Math.ceil(opt.cx - opt.r);
     const x1 = Math.floor(opt.cx + opt.r);
 

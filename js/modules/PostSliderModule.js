@@ -1,5 +1,5 @@
 const MODES = [
-  { query: "(max-width: 680px)", options: { slidesPerView: "auto", centeredSlides: true, spaceBetween: 12 } },
+  { query: "(max-width: 680px)", options: { slidesPerView: "auto", centeredSlides: true, spaceBetween: 8 } },
   { query: "(min-width: 681px) and (max-width: 1120px)", options: { slidesPerView: 2, spaceBetween: 16 } },
   { query: "(min-width: 1121px)", options: { slidesPerView: 4, spaceBetween: 24 } },
 ];

@@ -115,7 +115,8 @@ export default function WelcomeScreenModule() {
     const items = [...screen.querySelectorAll(".product-lineup__item")]
       .map((item) => ({ item, left: item.getBoundingClientRect().left }))
       .sort((a, b) => a.left - b.left);
-    items.forEach(({ item }, index) => item.style.setProperty("--n", String(index)));
+    const first = Math.max(0, items.findIndex(({ item }) => item.getBoundingClientRect().right > 0));
+    items.forEach(({ item }, index) => item.style.setProperty("--n", String(Math.max(0, index - first))));
     screen.classList.add("is-intro");
     window.setTimeout(() => {
       ready = true;

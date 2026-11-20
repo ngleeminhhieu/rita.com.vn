@@ -9,7 +9,9 @@ export default function CardSliderModule() {
     if (!track || track.children.length < 2) return;
     const query = window.matchMedia(root.dataset.sliderMedia || MOBILE);
     const grouped = root.dataset.slider === "group";
+    const peek = !grouped || root.hasAttribute("data-peek");
     const size = Number(root.dataset.group) || 2;
+    const cols = Number(root.dataset.groupCols) || 1;
     const items = [...track.children];
     let swiper = null;
 
@@ -24,8 +26,8 @@ export default function CardSliderModule() {
 
     const options = () => {
       const shared = { speed: 500, loop: true, autoplay: AUTOPLAY, a11y: { enabled: true } };
-      if (grouped) return { ...shared, slidesPerView: 1, spaceBetween: 16 };
-      return { ...shared, slidesPerView: "auto", centeredSlides: true, loopedSlides: 3, spaceBetween: 12, on: { init: regroupDuplicates } };
+      if (!peek) return { ...shared, slidesPerView: 1, spaceBetween: 16 };
+      return { ...shared, slidesPerView: "auto", centeredSlides: true, loopedSlides: 3, spaceBetween: 8, on: { init: regroupDuplicates } };
     };
 
     const slides = () => {
@@ -37,6 +39,7 @@ export default function CardSliderModule() {
         const list = document.createElement("ul");
         list.className = "card-slider__group-list";
         list.setAttribute("role", "list");
+        if (cols > 1) list.style.setProperty("--group-cols", cols);
         list.append(...items.slice(index, index + size));
         group.append(list);
         groups.push(group);
