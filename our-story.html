@@ -13,8 +13,7 @@
   <link rel="stylesheet" href="./css/site.css">
   <link rel="modulepreload" href="./js/main.js">
   <link rel="modulepreload" href="./js/modules/WelcomeScreenModule.js">
-  <link rel="modulepreload" href="./js/modules/WaveRibbonModule.js">
-  <link rel="modulepreload" href="./js/modules/ProductLineupModule.js">
+  <link rel="modulepreload" href="./js/modules/FadeSlidesModule.js">
   <script>
     document.documentElement.classList.add("is-welcome");
     window.setTimeout(() => {
@@ -32,7 +31,7 @@
     </div>
     <div class="container container--wide welcome-screen__bar">
       <a class="site-logo" href="./index.html" aria-label="RITA Food &amp; Drink home"><img src="./assets/images/logo.svg" alt="RITA" width="123" height="55"></a>
-      <a class="header-cta" href="https://rita.com.vn/Profile-Rita/index.html" target="_blank" rel="noopener"><span class="header-cta__dot" aria-hidden="true"></span>Catalog</a>
+      <button class="header-cta popupOpenJS" type="button" aria-haspopup="dialog" aria-controls="catalog-popup"><span class="header-cta__dot" aria-hidden="true"></span>Catalog</button>
     </div>
     <div class="welcome-screen__head">
       <p class="welcome-screen__title" id="welcome-title">RITA Food and Drink Co.,Ltd</p>
@@ -43,41 +42,17 @@
       </div>
     </div>
     <div class="welcome-screen__stage">
-      <div class="welcome-screen__lineup product-lineup productLineupJS">
-        <svg class="product-lineup__ribbon wave-ribbon waveRibbonJS" viewBox="0 0 1512 570" aria-hidden="true" focusable="false">
-          <mask id="welcome-wave-mask">
-            <path class="wave-ribbon__reveal" pathLength="1" d="M-330 250C-150 250-150 86 30 86C270 86 290 268 430 268C481 268 566 34 769 34C889 34 916 182 1036 182C1191 182 1190 24 1345 24C1534 24 1597 262 1660 262C1825 262 1825 40 1990 40"/>
-          </mask>
-          <g mask="url(#welcome-wave-mask)">
-            <path class="wave-ribbon__band" id="welcome-wave" d="M-330 250C-150 250-150 86 30 86C270 86 290 268 430 268C481 268 566 34 769 34C889 34 916 182 1036 182C1191 182 1190 24 1345 24C1534 24 1597 262 1660 262C1825 262 1825 40 1990 40"/>
-            <text class="wave-ribbon__text"><textPath class="waveRibbonTextJS" href="#welcome-wave">YOUR BRAND, OUR PRODUCTION × BEVERAGE INNOVATION ✱ OEM &amp; ODM EXPERTISE → PRIVATE LABEL SOLUTIONS × FROM CONCEPT TO CREATION ✱ QUALITY YOU CAN TRUST → MADE FOR GLOBAL MARKETS × BUILDING BRANDS TOGETHER ✱</textPath></text>
-          </g>
-        </svg>
-        <img class="product-lineup__item" src="./assets/images/pack-can-190ml.webp" alt="RITA passion fruit juice drink 180ml can" width="297" height="650" decoding="async" style="--h: 28.5%">
-        <img class="product-lineup__item" src="./assets/images/pack-can-245ml.webp" alt="RITA turmeric passion fruit drink 250ml slim can" width="286" height="734" decoding="async" style="--h: 35.5%">
-        <img class="product-lineup__item" src="./assets/images/pack-can-325ml.webp" alt="RITA Coco Juice coconut water 325ml sleek can" width="283" height="773" decoding="async" style="--h: 40.5%">
-        <img class="product-lineup__item" src="./assets/images/pack-can-330ml.webp" alt="RITA cherry limeade prebiotic soda 330ml short can" width="396" height="709" decoding="async" style="--h: 30.6%">
-        <img class="product-lineup__item" src="./assets/images/pack-can-495ml.webp" alt="RITA Coco Pista coconut water 490ml can" width="354" height="900" decoding="async" style="--h: 44.1%">
-        <img class="product-lineup__item" src="./assets/images/pack-glass-250ml.webp" alt="RITA chia seed drink kiwi 250ml glass bottle" width="298" height="750" decoding="async" style="--h: 38.9%">
-        <img class="product-lineup__item" src="./assets/images/pack-glass-280ml.webp" alt="RITA ginger milk tea 280ml glass bottle" width="227" height="589" decoding="async" style="--h: 41.3%">
-        <img class="product-lineup__item" src="./assets/images/pack-glass-290ml.webp" alt="RITA basil seed drink passion fruit 290ml glass bottle" width="272" height="758" decoding="async" style="--h: 43.9%">
-        <img class="product-lineup__item" src="./assets/images/pack-glass-300ml.webp" alt="RITA avocado juice 300ml glass bottle" width="203" height="762" decoding="async" style="--h: 54.3%">
-        <img class="product-lineup__item" src="./assets/images/pack-glass-315ml.webp" alt="RITA bubble tea banana 315ml glass bottle" width="205" height="769" decoding="async" style="--h: 55.1%">
-        <img class="product-lineup__item" src="./assets/images/pack-glass-470ml.webp" alt="RITA coconut milk with nata de coco strawberry 470ml glass bottle" width="282" height="752" decoding="async" style="--h: 49.9%">
-        <img class="product-lineup__item" src="./assets/images/pack-pet-330ml.webp" alt="RITA aloe vera strawberry 330ml PET bottle" width="245" height="733" decoding="async" style="--h: 45.7%">
-        <img class="product-lineup__item" src="./assets/images/pack-pet-350ml.webp" alt="RITA mango juice 350ml PET bottle" width="272" height="761" decoding="async" style="--h: 44.4%">
-        <img class="product-lineup__item" src="./assets/images/pack-pet-400ml.webp" alt="RITA Strong energy drink ginseng 400ml PET bottle" width="218" height="776" decoding="async" style="--h: 54.8%">
-        <img class="product-lineup__item" src="./assets/images/pack-pet-450ml.webp" alt="RITA young coconut water 450ml PET bottle" width="197" height="602" loading="lazy" decoding="async" style="--h: 51.4%">
-        <img class="product-lineup__item" src="./assets/images/pack-pet-1l.webp" alt="RITA BiGi BiGi mango with nata de coco 1L PET bottle" width="250" height="744" loading="lazy" decoding="async" style="--h: 65.8%">
-        <img class="product-lineup__item" src="./assets/images/pack-pet-1-5l.webp" alt="RITA orange juice with pulp 1.5L PET bottle" width="228" height="770" loading="lazy" decoding="async" style="--h: 82.0%">
-        <img class="product-lineup__item" src="./assets/images/pack-pet-2l.webp" alt="RITA NFC orange juice 2L PET bottle" width="346" height="760" loading="lazy" decoding="async" style="--h: 67.6%">
-        <img class="product-lineup__item" src="./assets/images/pack-pp-250ml.webp" alt="RITA coconut milk chocolate 250ml PP bottle" width="295" height="715" loading="lazy" decoding="async" style="--h: 35.8%">
-        <img class="product-lineup__item" src="./assets/images/pack-pp-300ml.webp" alt="RITA Ripumi apple milk 310ml PP bottle" width="259" height="782" loading="lazy" decoding="async" style="--h: 44.7%">
-        <img class="product-lineup__item" src="./assets/images/pack-pp-330ml.webp" alt="RITA protein milk shake strawberry 330ml PP bottle" width="246" height="716" loading="lazy" decoding="async" style="--h: 44.4%">
-        <img class="product-lineup__item" src="./assets/images/pack-pp-500ml.webp" alt="RITA watermelon juice 500ml PP bottle" width="218" height="707" loading="lazy" decoding="async" style="--h: 54.8%">
-        <img class="product-lineup__item" src="./assets/images/pack-pp-1l.webp" alt="RITA coconut water 1L square PP bottle" width="312" height="729" loading="lazy" decoding="async" style="--h: 51.2%">
-        <img class="product-lineup__item" src="./assets/images/pack-pp-1-25l.webp" alt="RITA pear milk 1.25L PP bottle" width="293" height="900" loading="lazy" decoding="async" style="--h: 71.6%">
-        <img class="product-lineup__item" src="./assets/images/pack-pp-2l.webp" alt="RITA coconut water 2L square PP bottle" width="304" height="745" loading="lazy" decoding="async" style="--h: 66.6%">
+      <div class="welcome-screen__slides fade-slides fadeSlidesJS" data-interval="4000" aria-hidden="true">
+        <img class="fade-slides__item is-active" src="./assets/images/cate-fruit-juice-1800.webp" srcset="./assets/images/cate-fruit-juice.webp 900w, ./assets/images/cate-fruit-juice-1280.webp 1280w, ./assets/images/cate-fruit-juice-1800.webp 1800w" sizes="100vw" alt="" width="1800" height="1110" fetchpriority="high" decoding="async">
+        <img class="fade-slides__item" src="./assets/images/cate-coconut-1800.webp" srcset="./assets/images/cate-coconut.webp 900w, ./assets/images/cate-coconut-1280.webp 1280w, ./assets/images/cate-coconut-1800.webp 1800w" sizes="100vw" alt="" width="1800" height="1110" loading="lazy" decoding="async">
+        <img class="fade-slides__item" src="./assets/images/cate-sparkling-1800.webp" srcset="./assets/images/cate-sparkling.webp 900w, ./assets/images/cate-sparkling-1280.webp 1280w, ./assets/images/cate-sparkling-1800.webp 1800w" sizes="100vw" alt="" width="1800" height="1110" loading="lazy" decoding="async">
+        <img class="fade-slides__item" src="./assets/images/cate-aloe-vera-1800.webp" srcset="./assets/images/cate-aloe-vera.webp 900w, ./assets/images/cate-aloe-vera-1280.webp 1280w, ./assets/images/cate-aloe-vera-1800.webp 1800w" sizes="100vw" alt="" width="1800" height="1110" loading="lazy" decoding="async">
+        <img class="fade-slides__item" src="./assets/images/cate-milk-1800.webp" srcset="./assets/images/cate-milk.webp 900w, ./assets/images/cate-milk-1280.webp 1280w, ./assets/images/cate-milk-1800.webp 1800w" sizes="100vw" alt="" width="1800" height="1110" loading="lazy" decoding="async">
+        <img class="fade-slides__item" src="./assets/images/cate-tea-1800.webp" srcset="./assets/images/cate-tea.webp 900w, ./assets/images/cate-tea-1280.webp 1280w, ./assets/images/cate-tea-1800.webp 1800w" sizes="100vw" alt="" width="1800" height="1110" loading="lazy" decoding="async">
+        <img class="fade-slides__item" src="./assets/images/cate-coffee-1800.webp" srcset="./assets/images/cate-coffee.webp 900w, ./assets/images/cate-coffee-1280.webp 1280w, ./assets/images/cate-coffee-1800.webp 1800w" sizes="100vw" alt="" width="1800" height="1110" loading="lazy" decoding="async">
+        <img class="fade-slides__item" src="./assets/images/cate-seed-1800.webp" srcset="./assets/images/cate-seed.webp 900w, ./assets/images/cate-seed-1280.webp 1280w, ./assets/images/cate-seed-1800.webp 1800w" sizes="100vw" alt="" width="1800" height="1110" loading="lazy" decoding="async">
+        <img class="fade-slides__item" src="./assets/images/cate-energy-1800.webp" srcset="./assets/images/cate-energy.webp 900w, ./assets/images/cate-energy-1280.webp 1280w, ./assets/images/cate-energy-1800.webp 1800w" sizes="100vw" alt="" width="1800" height="1110" loading="lazy" decoding="async">
+        <img class="fade-slides__item" src="./assets/images/cate-special-1800.webp" srcset="./assets/images/cate-special.webp 900w, ./assets/images/cate-special-1280.webp 1280w, ./assets/images/cate-special-1800.webp 1800w" sizes="100vw" alt="" width="1800" height="1110" loading="lazy" decoding="async">
       </div>
     </div>
     <button class="scroll-cue welcome-screen__cue welcomeDismissJS" type="button"><span class="scroll-cue__text">Scroll down</span><span class="scroll-cue__icon" aria-hidden="true"></span></button>
@@ -294,19 +269,19 @@
       </div>
       <div class="photo-strip photoStripJS">
         <ul class="photo-strip__track" role="list">
-          <li class="photo-strip__item"><img src="./assets/images/story-01.webp" alt="RITA team reviewing documents together" width="273" height="338" loading="lazy" decoding="async"></li>
-          <li class="photo-strip__item"><img src="./assets/images/story-03.webp" alt="RITA staff celebrating a birthday at the office" width="275" height="340" loading="lazy" decoding="async"></li>
-          <li class="photo-strip__item"><img src="./assets/images/story-05.webp" alt="Worker harvesting dragon fruit at a RITA farm" width="273" height="339" loading="lazy" decoding="async"></li>
-          <li class="photo-strip__item"><img src="./assets/images/story-06.webp" alt="RITA team travelling to an international exhibition" width="275" height="339" loading="lazy" decoding="async"></li>
-          <li class="photo-strip__item"><img src="./assets/images/story-07.webp" alt="Buyers inspecting cans on the RITA production line" width="273" height="339" loading="lazy" decoding="async"></li>
-          <li class="photo-strip__item"><img src="./assets/images/story-08.webp" alt="Workers preparing fresh fruit in the RITA factory" width="275" height="339" loading="lazy" decoding="async"></li>
-          <li class="photo-strip__item"><img src="./assets/images/story-09.webp" alt="Cans moving along the RITA filling line" width="275" height="339" loading="lazy" decoding="async"></li>
-          <li class="photo-strip__item"><img src="./assets/images/story-10.webp" alt="Technician checking stainless steel processing tanks" width="275" height="340" loading="lazy" decoding="async"></li>
-          <li class="photo-strip__item"><img src="./assets/images/story-12.webp" alt="RITA drinks on supermarket shelves" width="273" height="338" loading="lazy" decoding="async"></li>
-          <li class="photo-strip__item"><img src="./assets/images/story-02.webp" alt="RITA team building day" width="273" height="338" loading="lazy" decoding="async"></li>
-          <li class="photo-strip__item"><img src="./assets/images/story-04.webp" alt="Aerial view of the RITA factory and solar roof" width="275" height="340" loading="lazy" decoding="async"></li>
-          <li class="photo-strip__item"><img src="./assets/images/story-11.webp" alt="RITA team meeting in the showroom" width="275" height="340" loading="lazy" decoding="async"></li>
-          <li class="photo-strip__item"><img src="./assets/images/story-13.webp" alt="RITA staff training session" width="273" height="338" loading="lazy" decoding="async"></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-01.webp" data-fancybox="our-story" data-caption="RITA team reviewing documents together"><img src="./assets/images/story-01.webp" alt="RITA team reviewing documents together" width="273" height="338" loading="lazy" decoding="async"></a></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-03-lg.webp" data-fancybox="our-story" data-caption="RITA staff celebrating a birthday at the office"><img src="./assets/images/story-03.webp" alt="RITA staff celebrating a birthday at the office" width="275" height="340" loading="lazy" decoding="async"></a></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-05.webp" data-fancybox="our-story" data-caption="Worker harvesting dragon fruit at a RITA farm"><img src="./assets/images/story-05.webp" alt="Worker harvesting dragon fruit at a RITA farm" width="273" height="339" loading="lazy" decoding="async"></a></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-06.webp" data-fancybox="our-story" data-caption="RITA team travelling to an international exhibition"><img src="./assets/images/story-06.webp" alt="RITA team travelling to an international exhibition" width="275" height="339" loading="lazy" decoding="async"></a></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-07-lg.webp" data-fancybox="our-story" data-caption="Buyers inspecting cans on the RITA production line"><img src="./assets/images/story-07.webp" alt="Buyers inspecting cans on the RITA production line" width="273" height="339" loading="lazy" decoding="async"></a></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-08-lg.webp" data-fancybox="our-story" data-caption="Workers preparing fresh fruit in the RITA factory"><img src="./assets/images/story-08.webp" alt="Workers preparing fresh fruit in the RITA factory" width="275" height="339" loading="lazy" decoding="async"></a></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-09.webp" data-fancybox="our-story" data-caption="Cans moving along the RITA filling line"><img src="./assets/images/story-09.webp" alt="Cans moving along the RITA filling line" width="275" height="339" loading="lazy" decoding="async"></a></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-10.webp" data-fancybox="our-story" data-caption="Technician checking stainless steel processing tanks"><img src="./assets/images/story-10.webp" alt="Technician checking stainless steel processing tanks" width="275" height="340" loading="lazy" decoding="async"></a></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-12.webp" data-fancybox="our-story" data-caption="RITA drinks on supermarket shelves"><img src="./assets/images/story-12.webp" alt="RITA drinks on supermarket shelves" width="273" height="338" loading="lazy" decoding="async"></a></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-02.webp" data-fancybox="our-story" data-caption="RITA team building day"><img src="./assets/images/story-02.webp" alt="RITA team building day" width="273" height="338" loading="lazy" decoding="async"></a></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-04-lg.webp" data-fancybox="our-story" data-caption="Aerial view of the RITA factory and solar roof"><img src="./assets/images/story-04.webp" alt="Aerial view of the RITA factory and solar roof" width="275" height="340" loading="lazy" decoding="async"></a></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-11.webp" data-fancybox="our-story" data-caption="RITA team meeting in the showroom"><img src="./assets/images/story-11.webp" alt="RITA team meeting in the showroom" width="275" height="340" loading="lazy" decoding="async"></a></li>
+          <li class="photo-strip__item"><a class="photo-strip__link" href="./assets/images/story-13.webp" data-fancybox="our-story" data-caption="RITA staff training session"><img src="./assets/images/story-13.webp" alt="RITA staff training session" width="273" height="338" loading="lazy" decoding="async"></a></li>
         </ul>
       </div>
       <div class="container">
@@ -320,12 +295,6 @@
           <div class="stat"><dt class="stat__label">Countries and<br>territories</dt><dd class="stat__value countUpJS">180+</dd></div>
           <div class="stat"><dt class="stat__label">Containers<br>per month</dt><dd class="stat__value countUpJS">1200+</dd></div>
         </dl>
-        <div class="section-more">
-          <div class="button-group">
-            <a class="button button--dark" href="./our-history.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Our history</span></a>
-            <a class="button" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -333,7 +302,13 @@
       <div class="container">
         <div class="leader">
           <div class="leader__message">
-            <h2 class="section-title" id="leader-title">Leadership &amp; direction</h2>
+            <div class="leader__head">
+              <h2 class="section-title" id="leader-title">Leadership &amp; direction</h2>
+              <div class="button-group button-group--start">
+                <a class="button button--dark" href="./our-history.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Our history</span></a>
+                <a class="button" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
+              </div>
+            </div>
             <figure class="leader__body">
               <blockquote class="leader__quote">
                 <p>At RITA, our vision goes beyond manufacturing beverages. We are building a global ecosystem where innovation, quality, and sustainability create lasting value for our customers, our partners, and the communities we serve.</p>
@@ -561,6 +536,44 @@
             <a class="button button--dark" href="./our-certificates.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">See more<span class="sr-only"> certificates</span></span></a>
             <a class="button" href="./contact.html"><span class="button__icon" aria-hidden="true"></span><span class="button__text">Contact us</span></a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-pd pdb-0 bg-surface cv-auto" aria-labelledby="packaging-title">
+      <div class="container">
+        <div class="section-head section-head--center section-head--front section-head--tight">
+          <h2 class="section-title section-title--narrow" id="packaging-title">Packaging solutions for every beverage</h2>
+          <p class="section-desc section-desc--center">From cans and bottles to various packaging formats, RITA offers versatile solutions with flexible sizes, materials, and designs to meet your product needs.</p>
+        </div>
+      </div>
+      <div class="shelf">
+        <div class="shelf__lineup product-lineup product-lineup--shelf productLineupJS" data-dock data-edge-scroll style="--mm-max: 314">
+          <img class="product-lineup__item" src="./assets/images/pack-can-190ml.webp" alt="RITA passion fruit juice drink 180ml can" width="297" height="650" loading="lazy" decoding="async" style="--mm: 109">
+          <img class="product-lineup__item" src="./assets/images/pack-can-245ml.webp" alt="RITA turmeric passion fruit drink 250ml slim can" width="286" height="734" loading="lazy" decoding="async" style="--mm: 136">
+          <img class="product-lineup__item" src="./assets/images/pack-can-325ml.webp" alt="RITA Coco Juice coconut water 325ml sleek can" width="283" height="773" loading="lazy" decoding="async" style="--mm: 155">
+          <img class="product-lineup__item" src="./assets/images/pack-can-330ml.webp" alt="RITA cherry limeade prebiotic soda 330ml short can" width="396" height="709" loading="lazy" decoding="async" style="--mm: 117">
+          <img class="product-lineup__item" src="./assets/images/pack-can-495ml.webp" alt="RITA Coco Pista coconut water 490ml can" width="354" height="900" loading="lazy" decoding="async" style="--mm: 169">
+          <img class="product-lineup__item" src="./assets/images/pack-glass-250ml.webp" alt="RITA chia seed drink kiwi 250ml glass bottle" width="298" height="750" loading="lazy" decoding="async" style="--mm: 149">
+          <img class="product-lineup__item" src="./assets/images/pack-glass-280ml.webp" alt="RITA ginger milk tea 280ml glass bottle" width="227" height="589" loading="lazy" decoding="async" style="--mm: 158">
+          <img class="product-lineup__item" src="./assets/images/pack-glass-290ml.webp" alt="RITA basil seed drink passion fruit 290ml glass bottle" width="272" height="758" loading="lazy" decoding="async" style="--mm: 168">
+          <img class="product-lineup__item" src="./assets/images/pack-glass-300ml.webp" alt="RITA avocado juice 300ml glass bottle" width="203" height="762" loading="lazy" decoding="async" style="--mm: 208">
+          <img class="product-lineup__item" src="./assets/images/pack-glass-315ml.webp" alt="RITA bubble tea banana 315ml glass bottle" width="205" height="769" loading="lazy" decoding="async" style="--mm: 211">
+          <img class="product-lineup__item" src="./assets/images/pack-glass-470ml.webp" alt="RITA coconut milk with nata de coco strawberry 470ml glass bottle" width="282" height="752" loading="lazy" decoding="async" style="--mm: 191">
+          <img class="product-lineup__item" src="./assets/images/pack-pet-330ml.webp" alt="RITA aloe vera strawberry 330ml PET bottle" width="245" height="733" loading="lazy" decoding="async" style="--mm: 175">
+          <img class="product-lineup__item" src="./assets/images/pack-pet-350ml.webp" alt="RITA mango juice 350ml PET bottle" width="272" height="761" loading="lazy" decoding="async" style="--mm: 170">
+          <img class="product-lineup__item" src="./assets/images/pack-pet-400ml.webp" alt="RITA Strong energy drink ginseng 400ml PET bottle" width="218" height="776" loading="lazy" decoding="async" style="--mm: 210">
+          <img class="product-lineup__item" src="./assets/images/pack-pet-450ml.webp" alt="RITA young coconut water 450ml PET bottle" width="197" height="602" loading="lazy" decoding="async" style="--mm: 197">
+          <img class="product-lineup__item" src="./assets/images/pack-pet-1l.webp" alt="RITA BiGi BiGi mango with nata de coco 1L PET bottle" width="250" height="744" loading="lazy" decoding="async" style="--mm: 252">
+          <img class="product-lineup__item" src="./assets/images/pack-pet-1-5l.webp" alt="RITA orange juice with pulp 1.5L PET bottle" width="228" height="770" loading="lazy" decoding="async" style="--mm: 314">
+          <img class="product-lineup__item" src="./assets/images/pack-pet-2l.webp" alt="RITA NFC orange juice 2L PET bottle" width="346" height="760" loading="lazy" decoding="async" style="--mm: 259">
+          <img class="product-lineup__item" src="./assets/images/pack-pp-250ml.webp" alt="RITA coconut milk chocolate 250ml PP bottle" width="295" height="715" loading="lazy" decoding="async" style="--mm: 137">
+          <img class="product-lineup__item" src="./assets/images/pack-pp-300ml.webp" alt="RITA Ripumi apple milk 310ml PP bottle" width="259" height="782" loading="lazy" decoding="async" style="--mm: 171">
+          <img class="product-lineup__item" src="./assets/images/pack-pp-330ml.webp" alt="RITA protein milk shake strawberry 330ml PP bottle" width="246" height="716" loading="lazy" decoding="async" style="--mm: 170">
+          <img class="product-lineup__item" src="./assets/images/pack-pp-500ml.webp" alt="RITA watermelon juice 500ml PP bottle" width="218" height="707" loading="lazy" decoding="async" style="--mm: 210">
+          <img class="product-lineup__item" src="./assets/images/pack-pp-1l.webp" alt="RITA coconut water 1L square PP bottle" width="312" height="729" loading="lazy" decoding="async" style="--mm: 196">
+          <img class="product-lineup__item" src="./assets/images/pack-pp-1-25l.webp" alt="RITA pear milk 1.25L PP bottle" width="293" height="900" loading="lazy" decoding="async" style="--mm: 274">
+          <img class="product-lineup__item" src="./assets/images/pack-pp-2l.webp" alt="RITA coconut water 2L square PP bottle" width="304" height="745" loading="lazy" decoding="async" style="--mm: 255">
         </div>
       </div>
     </section>

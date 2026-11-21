@@ -6,6 +6,8 @@ const LOAD_MIN = 1000;
 const LOAD_MAX = 5000;
 const LOADER_FADE = 450;
 const INTRO_LOCK = 1200;
+const INTRO_SETTLE = 1450;
+const INTRO_STEP = 45;
 const DOWN_KEYS = new Set(["ArrowDown", "PageDown", "End", " ", "Escape"]);
 const UP_KEYS = new Set(["ArrowUp", "PageUp", "Home"]);
 
@@ -15,8 +17,9 @@ export default function WelcomeScreenModule() {
   if (!screen || !root.classList.contains("is-welcome")) return;
 
   const others = [...document.body.children]
-    .filter((el) => el !== screen && el.tagName !== "SCRIPT")
+    .filter((el) => el !== screen && el.tagName !== "SCRIPT" && el.tagName !== "DIALOG")
     .map((el) => ({ el, inert: el.inert }));
+  const inDialog = (event) => Boolean(document.querySelector("dialog[open]") || event.target?.closest?.("dialog"));
   const restoration = "scrollRestoration" in window.history ? window.history.scrollRestoration : null;
   let leaving = false;
   let ready = false;
@@ -30,16 +33,17 @@ export default function WelcomeScreenModule() {
   };
 
   const onWheel = (event) => {
-    if (event.ctrlKey) return;
+    if (event.ctrlKey || inDialog(event)) return;
     event.preventDefault();
     if (event.deltaY > Math.abs(event.deltaX)) dismiss();
   };
 
   const onTouchStart = (event) => {
-    touch = event.touches.length === 1 ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
+    touch = event.touches.length === 1 && !inDialog(event) ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
   };
 
   const onTouchMove = (event) => {
+    if (inDialog(event)) return;
     if (event.cancelable) event.preventDefault();
     if (!touch || event.touches.length !== 1) return;
     const up = touch.y - event.touches[0].clientY;
@@ -54,7 +58,7 @@ export default function WelcomeScreenModule() {
   };
 
   const onKeydown = (event) => {
-    if (event.altKey || event.ctrlKey || event.metaKey) return;
+    if (event.altKey || event.ctrlKey || event.metaKey || inDialog(event)) return;
     if (UP_KEYS.has(event.key)) {
       event.preventDefault();
       return;
@@ -75,6 +79,11 @@ export default function WelcomeScreenModule() {
   };
 
   const split = (focusPage) => {
+    const stage = screen.querySelector(".welcome-screen__stage");
+    if (stage) {
+      const line = stage.getBoundingClientRect().top - screen.getBoundingClientRect().top;
+      screen.style.setProperty("--split", `${Math.round(line)}px`);
+    }
     const lower = screen.cloneNode(true);
     lower.classList.remove("welcomeScreenJS");
     lower.classList.add("welcome-screen--lower");
@@ -117,7 +126,12 @@ export default function WelcomeScreenModule() {
       .sort((a, b) => a.left - b.left);
     const first = Math.max(0, items.findIndex(({ item }) => item.getBoundingClientRect().right > 0));
     items.forEach(({ item }, index) => item.style.setProperty("--n", String(Math.max(0, index - first))));
+    const shown = items.filter(({ item }) => {
+      const box = item.getBoundingClientRect();
+      return box.right > 0 && box.left < window.innerWidth;
+    }).length;
     screen.classList.add("is-intro");
+    window.setTimeout(() => screen.classList.add("is-settled"), INTRO_SETTLE + shown * INTRO_STEP);
     window.setTimeout(() => {
       ready = true;
     }, INTRO_LOCK);
@@ -130,7 +144,7 @@ export default function WelcomeScreenModule() {
       startIntro();
       return;
     }
-    const assets = [...screen.querySelectorAll("img:not([aria-hidden='true'])")];
+    const assets = [...screen.querySelectorAll("img:not([loading='lazy'])")];
     const total = assets.length + 1;
     let done = 0;
     const tick = () => {
@@ -169,8 +183,9 @@ export default function WelcomeScreenModule() {
     if (leaving || !ready) return;
     leaving = true;
     listen(false);
-    screen.querySelectorAll(".wave-ribbon").forEach((ribbon) => ribbon.classList.add("is-exiting"));
-    window.setTimeout(() => split(focusPage), RIBBON_EXIT);
+    const ribbons = screen.querySelectorAll(".wave-ribbon");
+    ribbons.forEach((ribbon) => ribbon.classList.add("is-exiting"));
+    window.setTimeout(() => split(focusPage), ribbons.length ? RIBBON_EXIT : 0);
   }
 
   others.forEach(({ el }) => {

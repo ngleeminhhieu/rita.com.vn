@@ -1,5 +1,4 @@
 const SVG_NS = "http://www.w3.org/2000/svg";
-const TURN_RADIUS = 80;
 const START_AT = 0.85;
 const END_AT = 0.55;
 const EASE = 0.14;
@@ -23,19 +22,12 @@ const buildPath = (points, bounds, cols) => {
   };
 
   const turn = (from, to) => {
-    const right = from.x > bounds.mid;
-    const edge = right ? bounds.turnRight : bounds.turnLeft;
-    const dir = right ? 1 : -1;
-    const sweep = right ? 1 : 0;
-    const r = Math.max(0, Math.min(TURN_RADIUS, (to.y - from.y) / 2, Math.abs(edge - from.x)));
-    const inner = edge - dir * r;
-
-    lineTo(from, { x: inner, y: from.y });
-    d += ` A ${r} ${r} 0 0 ${sweep} ${edge} ${from.y + r}`;
-    d += ` L ${edge} ${to.y - r}`;
-    d += ` A ${r} ${r} 0 0 ${sweep} ${inner} ${to.y}`;
-    length += Math.PI * r + (to.y - from.y - 2 * r);
-    lineTo({ x: inner, y: to.y }, to);
+    const edge = from.x > bounds.mid ? bounds.turnRight : bounds.turnLeft;
+    const out = { x: edge, y: from.y };
+    const back = { x: edge, y: to.y };
+    lineTo(from, out);
+    lineTo(out, back);
+    lineTo(back, to);
   };
 
   const first = points[0];
